@@ -42,14 +42,8 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGF-NZ-4MI">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGF-NZ-4MI">
                                                 <rect key="frame" x="20" y="105" width="42" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzC-cp-m34">
-                                                <rect key="frame" x="20" y="146" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -69,6 +63,19 @@
                                                     <action selector="test:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fbN-LE-Lto"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aBG-gI-14d">
+                                                <rect key="frame" x="193" y="321" width="46" height="30"/>
+                                                <state key="normal" title="GetAll"/>
+                                                <connections>
+                                                    <action selector="GetAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fqc-yV-7Pu"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BzC-cp-m34">
+                                                <rect key="frame" x="20" y="146" width="42" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -106,6 +113,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="brand" destination="5a6-TZ-Qfb" id="hZG-is-yoG"/>
+                        <outlet property="dosage" destination="BzC-cp-m34" id="s0k-iB-jMd"/>
+                        <outlet property="generic" destination="KaL-8A-nZQ" id="THy-X6-UdT"/>
+                        <outlet property="indication" destination="lGF-NZ-4MI" id="2V7-08-LyT"/>
+                        <outlet property="question" destination="CNQ-hA-W6u" id="KLr-ho-diD"/>
                         <outlet property="questionView" destination="CNQ-hA-W6u" id="Y4Z-o5-n4C"/>
                     </connections>
                 </viewController>

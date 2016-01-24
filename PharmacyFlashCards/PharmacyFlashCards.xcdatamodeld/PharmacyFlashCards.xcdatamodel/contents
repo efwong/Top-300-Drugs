@@ -3,13 +3,12 @@
     <entity name="Drugs" representedClassName=".Drugs" syncable="YES">
         <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="classification" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dosage_max_mg" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="dosage_min_mg" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="dosage" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="generic" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="indication" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="special_dosing" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="semester" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Drugs" positionX="-63" positionY="-18" width="128" height="150"/>
+        <element name="Drugs" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

@@ -13,6 +13,16 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var questionView: UIView!
     
+    @IBOutlet weak var question: UIView!
+    
+    @IBOutlet weak var generic: UILabel!
+    
+    @IBOutlet weak var brand: UILabel!
+    
+    @IBOutlet weak var indication: UILabel!
+    
+    @IBOutlet weak var dosage: UILabel!
+    
     var pharmQuestionService: PharmQuestionService?
     
     override func viewDidLoad() {
@@ -33,7 +43,22 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func test(sender: UIButton) {
-        DataPreloader.preloadData("test", withExtension: "csv")
+        //DataPreloader.preloadData("test", withExtension: "csv", managedObjectContext: CoreDataStackManager.sharedManager)
+        //DataPreloader.preloadData("test", withExtension: "csv", managedObjectContext: CoreDataStackManager.sharedManager.managedObject)
+        
+        pharmQuestionService?.preloadData();
     }
+    
+    
+    @IBAction func GetAll(sender: UIButton) {
+        if let results = pharmQuestionService?.selectAll(){
+            let test = results[0]
+            generic.text = test.generic
+            brand.text = test.brand
+            indication.text = test.indication
+            dosage.text = test.dosage
+        }
+    }
+    
 }
 

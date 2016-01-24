@@ -14,12 +14,11 @@ import CoreData
 
 extension Drugs {
 
-    @NSManaged var generic: String?
     @NSManaged var brand: String?
     @NSManaged var classification: String?
+    @NSManaged var dosage: String?
+    @NSManaged var generic: String?
     @NSManaged var indication: String?
-    @NSManaged var dosage_min_mg: NSNumber?
-    @NSManaged var dosage_max_mg: NSNumber?
-    @NSManaged var special_dosing: String?
+    @NSManaged var semester: NSNumber?
 
 }

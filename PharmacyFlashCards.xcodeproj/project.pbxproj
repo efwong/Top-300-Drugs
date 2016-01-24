@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E8F451F1030A4EFAF41FE69 /* Pods_PharmacyFlashCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4667E401817D5EE6E2DFBB35 /* Pods_PharmacyFlashCards.framework */; };
+		5E6CF1E01C54919F007E1725 /* drugs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CF1DF1C54919F007E1725 /* drugs.csv */; };
 		E82E0BE61C5415E9007EED05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BE51C5415E9007EED05 /* AppDelegate.swift */; };
 		E82E0BE81C5415E9007EED05 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BE71C5415E9007EED05 /* MainViewController.swift */; };
 		E82E0BEB1C5415E9007EED05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82E0BE91C5415E9007EED05 /* Main.storyboard */; };
@@ -26,7 +27,6 @@
 		E82E0C381C54271F007EED05 /* DataPreloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C371C54271F007EED05 /* DataPreloader.swift */; };
 		E82E0C3B1C543E1A007EED05 /* Drugs+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C391C543E1A007EED05 /* Drugs+CoreDataProperties.swift */; };
 		E82E0C3C1C543E1A007EED05 /* Drugs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C3A1C543E1A007EED05 /* Drugs.swift */; };
-		E8A47DA41C544C48007C1263 /* drugs.csv in Resources */ = {isa = PBXBuildFile; fileRef = E8A47DA31C544C48007C1263 /* drugs.csv */; };
 		E8CB960E1C54575C008219AC /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = E8CB960D1C54575C008219AC /* test.csv */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		4667E401817D5EE6E2DFBB35 /* Pods_PharmacyFlashCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PharmacyFlashCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E6CF1DF1C54919F007E1725 /* drugs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = drugs.csv; sourceTree = "<group>"; };
 		748BEC80311941E68AA256DF /* Pods-PharmacyFlashCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyFlashCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-PharmacyFlashCards/Pods-PharmacyFlashCards.release.xcconfig"; sourceTree = "<group>"; };
 		C696FB88CEAAEE2A2A5D3236 /* Pods-PharmacyFlashCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyFlashCards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PharmacyFlashCards/Pods-PharmacyFlashCards.debug.xcconfig"; sourceTree = "<group>"; };
 		E82E0BE21C5415E9007EED05 /* PharmacyFlashCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PharmacyFlashCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -75,7 +76,6 @@
 		E82E0C371C54271F007EED05 /* DataPreloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPreloader.swift; sourceTree = "<group>"; };
 		E82E0C391C543E1A007EED05 /* Drugs+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Drugs+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E82E0C3A1C543E1A007EED05 /* Drugs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drugs.swift; sourceTree = "<group>"; };
-		E8A47DA31C544C48007C1263 /* drugs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = drugs.csv; sourceTree = "<group>"; };
 		E8CB960D1C54575C008219AC /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -199,8 +199,8 @@
 		E82E0C181C541CAD007EED05 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				5E6CF1DF1C54919F007E1725 /* drugs.csv */,
 				E8CB960D1C54575C008219AC /* test.csv */,
-				E8A47DA31C544C48007C1263 /* drugs.csv */,
 				E82E0BEF1C5415E9007EED05 /* Assets.xcassets */,
 			);
 			name = Assets;
@@ -423,8 +423,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8A47DA41C544C48007C1263 /* drugs.csv in Resources */,
 				E82E0BF31C5415E9007EED05 /* LaunchScreen.storyboard in Resources */,
+				5E6CF1E01C54919F007E1725 /* drugs.csv in Resources */,
 				E8CB960E1C54575C008219AC /* test.csv in Resources */,
 				E82E0BF01C5415E9007EED05 /* Assets.xcassets in Resources */,
 				E82E0BEB1C5415E9007EED05 /* Main.storyboard in Resources */,
