@@ -2,9 +2,9 @@
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1509" minimumToolsVersion="Automatic">
     <entity name="Drugs" representedClassName=".Drugs" syncable="YES">
         <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="classification" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="dosage" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="generic" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="classification" attributeType="String" syncable="YES"/>
+        <attribute name="dosage" attributeType="String" syncable="YES"/>
+        <attribute name="generic" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="indication" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="semester" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>

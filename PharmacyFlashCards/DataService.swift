@@ -6,12 +6,12 @@
 //  Copyright © 2016 Edwin Wong. All rights reserved.
 //
 
-import Foundation
-
-class DataService: IDataService {
-    var dataRepository: IDataRepository?
-    
-    init(dataRepository: IDataRepository?){
-        self.dataRepository = dataRepository
-    }
-}
+//import Foundation
+//
+//class DataService: IDataService {
+//    var dataRepository: IDataRepository?
+//    
+//    init(dataRepository: IDataRepository?){
+//        self.dataRepository = dataRepository
+//    }
+//}

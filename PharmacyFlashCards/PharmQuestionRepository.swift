@@ -10,9 +10,10 @@ import Foundation
 import CoreData
 
 
-class PharmQuestionRepository: DataRepository {
-    override init(){
-        super.init()
+class PharmQuestionRepository {
+    var managedObjectContext: NSManagedObjectContext?
+    init(){
+        managedObjectContext = CoreDataStackManager.sharedManager.managedObjectContext
     }
     
     func selectAll(request: NSFetchRequest) -> [Drugs]{

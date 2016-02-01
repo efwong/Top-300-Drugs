@@ -57,7 +57,7 @@ class PharmQuestionService {
     }
     
     func preloadData(){
-        var data:[[String]]? = DataPreloader.preloadData("drugs", withExtension: "csv", managedObjectContext: managedObjectContext)
+        let data:[[String]]? = DataPreloader.preloadData("drugs", withExtension: "csv", managedObjectContext: managedObjectContext)
         
         if data != nil {
             bulkInsert(data!)

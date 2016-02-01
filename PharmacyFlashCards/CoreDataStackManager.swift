@@ -17,6 +17,7 @@ class CoreDataStackManager{
     
     // MARK: Private properties
     private static let errorDomain:String = "CoreDataStackManager"
+    private let options: Dictionary<String,Bool>? = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true]
     
     // MARK: Core Data Template Properties
     lazy var applicationDocumentsDirectory: NSURL = {
@@ -38,7 +39,7 @@ class CoreDataStackManager{
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: self.options)
         } catch {
             // Report any error we got.
             var dict = [String: AnyObject]()
