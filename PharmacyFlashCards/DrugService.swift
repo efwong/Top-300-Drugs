@@ -10,25 +10,31 @@ import Foundation
 import CoreData
 
 
-class PharmQuestionService {
+class DrugService {
 //    override init(dataRepository: IDataRepository?){
 //        super.init(dataRepository: dataRepository);
 //    }
-    private let entityName:String = "Drugs"
-    
+
+    // MARK: Public Properties
     var managedObjectContext: NSManagedObjectContext?
-    var dataRepository: PharmQuestionRepository?
+    var dataRepository: DrugRepository?
     
-    init(dataRepository: PharmQuestionRepository?){
+    // MARK: Private Properties
+    private let entityName:String = "Drug"
+    
+    // MARK: Init
+    init(dataRepository: DrugRepository?){
         self.dataRepository = dataRepository
         self.managedObjectContext = CoreDataStackManager.sharedManager.managedObjectContext
     }
     
-    func selectAll() -> [Drugs]{
+    
+    // MARK: Public Methods
+    func selectAll() -> [Drug]{
         
         let request = NSFetchRequest(entityName: self.entityName)
         request.returnsObjectsAsFaults = false
-        let results:[Drugs] = (self.dataRepository?.selectAll(request))!
+        let results:[Drug] = (self.dataRepository?.selectAll(request))!
         
         return results;
     }
@@ -38,7 +44,7 @@ class PharmQuestionService {
         managedObjectContext!.reset()
         
         for item in itemList {
-            let drugObject = NSEntityDescription.insertNewObjectForEntityForName(self.entityName, inManagedObjectContext: managedObjectContext!) as! Drugs
+            let drugObject = NSEntityDescription.insertNewObjectForEntityForName(self.entityName, inManagedObjectContext: managedObjectContext!) as! Drug
             drugObject.generic = item[0]
             drugObject.brand = item[1]
             drugObject.classification = item[2]

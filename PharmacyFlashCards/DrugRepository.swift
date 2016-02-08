@@ -10,17 +10,17 @@ import Foundation
 import CoreData
 
 
-class PharmQuestionRepository {
+class DrugRepository {
     var managedObjectContext: NSManagedObjectContext?
     init(){
         managedObjectContext = CoreDataStackManager.sharedManager.managedObjectContext
     }
     
-    func selectAll(request: NSFetchRequest) -> [Drugs]{
-        var results:[Drugs] = []
+    func selectAll(request: NSFetchRequest) -> [Drug]{
+        var results:[Drug] = []
         
         do{
-            results = try managedObjectContext!.executeFetchRequest(request) as! [Drugs]
+            results = try managedObjectContext!.executeFetchRequest(request) as! [Drug]
             print("success")
         }
         catch{

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1509" minimumToolsVersion="Automatic">
-    <entity name="Drugs" representedClassName=".Drugs" syncable="YES">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F1605" minimumToolsVersion="Automatic">
+    <entity name="Drug" representedClassName=".Drug" syncable="YES">
         <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="classification" attributeType="String" syncable="YES"/>
         <attribute name="dosage" attributeType="String" syncable="YES"/>
@@ -9,6 +9,6 @@
         <attribute name="semester" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Drugs" positionX="-63" positionY="-18" width="128" height="135"/>
+        <element name="Drug" positionX="-63" positionY="-18" width="128" height="135"/>
     </elements>
 </model>

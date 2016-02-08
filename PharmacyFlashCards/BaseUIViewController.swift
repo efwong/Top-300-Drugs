@@ -1,22 +1,25 @@
 //
-//  QuestionViewController.swift
+//  BaseUIViewController.swift
 //  PharmacyFlashCards
 //
-//  Created by Edwin Wong on 1/23/16.
+//  Created by Edwin Wong on 2/7/16.
 //  Copyright © 2016 Edwin Wong. All rights reserved.
 //
 
 import UIKit
 
-class QuestionViewController: BaseUIViewController {
-    
-    var items:[String] = ["1", "2","3","4"]
+class BaseUIViewController: UIViewController {
+
+    // MARK: Public Properties
+    var drugService: DrugService?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //answerCollection.
-        // Do any additional setup after loading the view.
         
+        // load services
+        drugService = DrugService(dataRepository: DrugRepository())
+        
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,6 +37,5 @@ class QuestionViewController: BaseUIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
 
 }

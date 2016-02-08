@@ -8,28 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		1E8F451F1030A4EFAF41FE69 /* Pods_PharmacyFlashCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4667E401817D5EE6E2DFBB35 /* Pods_PharmacyFlashCards.framework */; };
-		5E533F2E1C5770A3005AC245 /* CustomCollectionFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E533F2D1C5770A3005AC245 /* CustomCollectionFlowLayout.swift */; };
 		5E6CF1E01C54919F007E1725 /* drugs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CF1DF1C54919F007E1725 /* drugs.csv */; };
 		5E7F63971C54B82600546DC3 /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F63961C54B82600546DC3 /* QuestionViewController.swift */; };
 		5E7F63991C54BAC200546DC3 /* QuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F63981C54BAC200546DC3 /* QuestionCollectionViewCell.swift */; };
 		E82E0BE61C5415E9007EED05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BE51C5415E9007EED05 /* AppDelegate.swift */; };
 		E82E0BE81C5415E9007EED05 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BE71C5415E9007EED05 /* MainViewController.swift */; };
 		E82E0BEB1C5415E9007EED05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82E0BE91C5415E9007EED05 /* Main.storyboard */; };
-		E82E0BEE1C5415E9007EED05 /* PharmacyFlashCards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BEC1C5415E9007EED05 /* PharmacyFlashCards.xcdatamodeld */; };
 		E82E0BF01C5415E9007EED05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82E0BEF1C5415E9007EED05 /* Assets.xcassets */; };
 		E82E0BF31C5415E9007EED05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82E0BF11C5415E9007EED05 /* LaunchScreen.storyboard */; };
 		E82E0BFE1C5415E9007EED05 /* PharmacyFlashCardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BFD1C5415E9007EED05 /* PharmacyFlashCardsTests.swift */; };
 		E82E0C091C5415E9007EED05 /* PharmacyFlashCardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C081C5415E9007EED05 /* PharmacyFlashCardsUITests.swift */; };
 		E82E0C201C5421AC007EED05 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C1F1C5421AC007EED05 /* CoreDataStackManager.swift */; };
-		E82E0C231C54238F007EED05 /* IDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C221C54238F007EED05 /* IDataService.swift */; };
-		E82E0C251C5423A3007EED05 /* IDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C241C5423A3007EED05 /* IDataRepository.swift */; };
-		E82E0C291C5423F5007EED05 /* DataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C281C5423F5007EED05 /* DataRepository.swift */; };
-		E82E0C2C1C542415007EED05 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C2B1C542415007EED05 /* DataService.swift */; };
-		E82E0C2E1C542441007EED05 /* PharmQuestionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C2D1C542441007EED05 /* PharmQuestionRepository.swift */; };
-		E82E0C331C542472007EED05 /* PharmQuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C321C542472007EED05 /* PharmQuestionService.swift */; };
+		E82E0C2E1C542441007EED05 /* DrugRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C2D1C542441007EED05 /* DrugRepository.swift */; };
+		E82E0C331C542472007EED05 /* DrugService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C321C542472007EED05 /* DrugService.swift */; };
 		E82E0C381C54271F007EED05 /* DataPreloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C371C54271F007EED05 /* DataPreloader.swift */; };
-		E82E0C3B1C543E1A007EED05 /* Drugs+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C391C543E1A007EED05 /* Drugs+CoreDataProperties.swift */; };
-		E82E0C3C1C543E1A007EED05 /* Drugs.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C3A1C543E1A007EED05 /* Drugs.swift */; };
+		E86C5FEE1C684E5300998BC3 /* Drug+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5FEC1C684E5300998BC3 /* Drug+CoreDataProperties.swift */; };
+		E86C5FEF1C684E5300998BC3 /* Drug.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5FED1C684E5300998BC3 /* Drug.swift */; };
+		E86C5FF31C684EFB00998BC3 /* PharmacyFlashCards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E86C5FF01C684EFB00998BC3 /* PharmacyFlashCards.xcdatamodeld */; };
+		E86C5FF51C68666600998BC3 /* BrandQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5FF41C68666600998BC3 /* BrandQuestion.swift */; };
+		E86C5FF71C68723E00998BC3 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5FF61C68723E00998BC3 /* BaseUIViewController.swift */; };
+		E86C5FFA1C68730F00998BC3 /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5FF91C68730F00998BC3 /* QuestionService.swift */; };
+		E86C5FFD1C68742600998BC3 /* Randomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5FFC1C68742600998BC3 /* Randomizer.swift */; };
+		E89ED2651C68401500A5249E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89ED2641C68401500A5249E /* Question.swift */; };
 		E8CB960E1C54575C008219AC /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = E8CB960D1C54575C008219AC /* test.csv */; };
 /* End PBXBuildFile section */
 
@@ -52,8 +52,6 @@
 
 /* Begin PBXFileReference section */
 		4667E401817D5EE6E2DFBB35 /* Pods_PharmacyFlashCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PharmacyFlashCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5E533F2B1C576363005AC245 /* PharmacyFlashCards_v_0_0_2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PharmacyFlashCards_v_0_0_2.xcdatamodel; sourceTree = "<group>"; };
-		5E533F2D1C5770A3005AC245 /* CustomCollectionFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCollectionFlowLayout.swift; sourceTree = "<group>"; };
 		5E6CF1DF1C54919F007E1725 /* drugs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = drugs.csv; sourceTree = "<group>"; };
 		5E7F63961C54B82600546DC3 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		5E7F63981C54BAC200546DC3 /* QuestionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -63,7 +61,6 @@
 		E82E0BE51C5415E9007EED05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E82E0BE71C5415E9007EED05 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E82E0BEA1C5415E9007EED05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E82E0BED1C5415E9007EED05 /* PharmacyFlashCards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PharmacyFlashCards.xcdatamodel; sourceTree = "<group>"; };
 		E82E0BEF1C5415E9007EED05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E82E0BF21C5415E9007EED05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E82E0BF41C5415E9007EED05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -74,15 +71,18 @@
 		E82E0C081C5415E9007EED05 /* PharmacyFlashCardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyFlashCardsUITests.swift; sourceTree = "<group>"; };
 		E82E0C0A1C5415E9007EED05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E82E0C1F1C5421AC007EED05 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
-		E82E0C221C54238F007EED05 /* IDataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDataService.swift; sourceTree = "<group>"; };
-		E82E0C241C5423A3007EED05 /* IDataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDataRepository.swift; sourceTree = "<group>"; };
-		E82E0C281C5423F5007EED05 /* DataRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataRepository.swift; sourceTree = "<group>"; };
-		E82E0C2B1C542415007EED05 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
-		E82E0C2D1C542441007EED05 /* PharmQuestionRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmQuestionRepository.swift; sourceTree = "<group>"; };
-		E82E0C321C542472007EED05 /* PharmQuestionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PharmQuestionService.swift; sourceTree = "<group>"; };
+		E82E0C2D1C542441007EED05 /* DrugRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugRepository.swift; sourceTree = "<group>"; };
+		E82E0C321C542472007EED05 /* DrugService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrugService.swift; sourceTree = "<group>"; };
 		E82E0C371C54271F007EED05 /* DataPreloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataPreloader.swift; sourceTree = "<group>"; };
-		E82E0C391C543E1A007EED05 /* Drugs+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Drugs+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E82E0C3A1C543E1A007EED05 /* Drugs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drugs.swift; sourceTree = "<group>"; };
+		E86C5FEC1C684E5300998BC3 /* Drug+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Drug+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		E86C5FED1C684E5300998BC3 /* Drug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Drug.swift; sourceTree = "<group>"; };
+		E86C5FF11C684EFB00998BC3 /* PharmacyFlashCards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PharmacyFlashCards.xcdatamodel; sourceTree = "<group>"; };
+		E86C5FF21C684EFB00998BC3 /* PharmacyFlashCards_v_0_0_3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PharmacyFlashCards_v_0_0_3.xcdatamodel; sourceTree = "<group>"; };
+		E86C5FF41C68666600998BC3 /* BrandQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandQuestion.swift; sourceTree = "<group>"; };
+		E86C5FF61C68723E00998BC3 /* BaseUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIViewController.swift; sourceTree = "<group>"; };
+		E86C5FF91C68730F00998BC3 /* QuestionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionService.swift; sourceTree = "<group>"; };
+		E86C5FFC1C68742600998BC3 /* Randomizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Randomizer.swift; sourceTree = "<group>"; };
+		E89ED2641C68401500A5249E /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
 		E8CB960D1C54575C008219AC /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -134,7 +134,6 @@
 			children = (
 				5E7F63961C54B82600546DC3 /* QuestionViewController.swift */,
 				5E7F63981C54BAC200546DC3 /* QuestionCollectionViewCell.swift */,
-				5E533F2D1C5770A3005AC245 /* CustomCollectionFlowLayout.swift */,
 			);
 			name = QuestionView;
 			sourceTree = "<group>";
@@ -172,8 +171,8 @@
 				E82E0C171C541CA7007EED05 /* App */,
 				E82E0C161C541C82007EED05 /* Models */,
 				E82E0BE51C5415E9007EED05 /* AppDelegate.swift */,
+				E86C5FF01C684EFB00998BC3 /* PharmacyFlashCards.xcdatamodeld */,
 				E82E0BE91C5415E9007EED05 /* Main.storyboard */,
-				E82E0BEC1C5415E9007EED05 /* PharmacyFlashCards.xcdatamodeld */,
 			);
 			path = PharmacyFlashCards;
 			sourceTree = "<group>";
@@ -199,6 +198,7 @@
 		E82E0C161C541C82007EED05 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E89ED2631C683FF300A5249E /* Question */,
 				E82E0C3D1C543E27007EED05 /* Drugs */,
 			);
 			name = Models;
@@ -210,6 +210,7 @@
 				5E533F2C1C577079005AC245 /* QuestionView */,
 				E82E0C1A1C542100007EED05 /* LaunchScreen */,
 				E82E0C191C541CB8007EED05 /* Main */,
+				E86C5FF61C68723E00998BC3 /* BaseUIViewController.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -251,8 +252,8 @@
 		E82E0C1C1C54216E007EED05 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				E82E0C311C542464007EED05 /* PharmQuestionService */,
-				E82E0C2A1C542407007EED05 /* DataService */,
+				E86C5FF81C6872F300998BC3 /* Question */,
+				E82E0C311C542464007EED05 /* Drug */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -260,8 +261,7 @@
 		E82E0C1D1C542182007EED05 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				E82E0C271C5423BE007EED05 /* DataRepository */,
-				E82E0C301C54245B007EED05 /* PharmQuestionRepository */,
+				E82E0C301C54245B007EED05 /* DrugRepository */,
 			);
 			name = Repository;
 			sourceTree = "<group>";
@@ -274,43 +274,26 @@
 			name = CoreData;
 			sourceTree = "<group>";
 		};
-		E82E0C271C5423BE007EED05 /* DataRepository */ = {
+		E82E0C301C54245B007EED05 /* DrugRepository */ = {
 			isa = PBXGroup;
 			children = (
-				E82E0C241C5423A3007EED05 /* IDataRepository.swift */,
-				E82E0C281C5423F5007EED05 /* DataRepository.swift */,
+				E82E0C2D1C542441007EED05 /* DrugRepository.swift */,
 			);
-			name = DataRepository;
+			name = DrugRepository;
 			sourceTree = "<group>";
 		};
-		E82E0C2A1C542407007EED05 /* DataService */ = {
+		E82E0C311C542464007EED05 /* Drug */ = {
 			isa = PBXGroup;
 			children = (
-				E82E0C221C54238F007EED05 /* IDataService.swift */,
-				E82E0C2B1C542415007EED05 /* DataService.swift */,
+				E82E0C321C542472007EED05 /* DrugService.swift */,
 			);
-			name = DataService;
-			sourceTree = "<group>";
-		};
-		E82E0C301C54245B007EED05 /* PharmQuestionRepository */ = {
-			isa = PBXGroup;
-			children = (
-				E82E0C2D1C542441007EED05 /* PharmQuestionRepository.swift */,
-			);
-			name = PharmQuestionRepository;
-			sourceTree = "<group>";
-		};
-		E82E0C311C542464007EED05 /* PharmQuestionService */ = {
-			isa = PBXGroup;
-			children = (
-				E82E0C321C542472007EED05 /* PharmQuestionService.swift */,
-			);
-			name = PharmQuestionService;
+			name = Drug;
 			sourceTree = "<group>";
 		};
 		E82E0C341C5426B9007EED05 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				E86C5FFB1C68741600998BC3 /* Common */,
 				E82E0C361C5426F0007EED05 /* DataPreloader */,
 				E82E0C1E1C542192007EED05 /* CoreData */,
 			);
@@ -328,10 +311,35 @@
 		E82E0C3D1C543E27007EED05 /* Drugs */ = {
 			isa = PBXGroup;
 			children = (
-				E82E0C391C543E1A007EED05 /* Drugs+CoreDataProperties.swift */,
-				E82E0C3A1C543E1A007EED05 /* Drugs.swift */,
+				E86C5FEC1C684E5300998BC3 /* Drug+CoreDataProperties.swift */,
+				E86C5FED1C684E5300998BC3 /* Drug.swift */,
 			);
 			name = Drugs;
+			sourceTree = "<group>";
+		};
+		E86C5FF81C6872F300998BC3 /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				E86C5FF91C68730F00998BC3 /* QuestionService.swift */,
+			);
+			name = Question;
+			sourceTree = "<group>";
+		};
+		E86C5FFB1C68741600998BC3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E86C5FFC1C68742600998BC3 /* Randomizer.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		E89ED2631C683FF300A5249E /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				E89ED2641C68401500A5249E /* Question.swift */,
+				E86C5FF41C68666600998BC3 /* BrandQuestion.swift */,
+			);
+			name = Question;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -405,6 +413,7 @@
 				TargetAttributes = {
 					E82E0BE11C5415E9007EED05 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = U989RZC3BD;
 					};
 					E82E0BF81C5415E9007EED05 = {
 						CreatedOnToolsVersion = 7.2;
@@ -518,22 +527,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E533F2E1C5770A3005AC245 /* CustomCollectionFlowLayout.swift in Sources */,
 				E82E0BE81C5415E9007EED05 /* MainViewController.swift in Sources */,
-				E82E0BEE1C5415E9007EED05 /* PharmacyFlashCards.xcdatamodeld in Sources */,
+				E86C5FF51C68666600998BC3 /* BrandQuestion.swift in Sources */,
+				E89ED2651C68401500A5249E /* Question.swift in Sources */,
 				5E7F63971C54B82600546DC3 /* QuestionViewController.swift in Sources */,
-				E82E0C231C54238F007EED05 /* IDataService.swift in Sources */,
-				E82E0C3C1C543E1A007EED05 /* Drugs.swift in Sources */,
-				E82E0C251C5423A3007EED05 /* IDataRepository.swift in Sources */,
 				E82E0C201C5421AC007EED05 /* CoreDataStackManager.swift in Sources */,
-				E82E0C3B1C543E1A007EED05 /* Drugs+CoreDataProperties.swift in Sources */,
+				E86C5FEF1C684E5300998BC3 /* Drug.swift in Sources */,
+				E86C5FFD1C68742600998BC3 /* Randomizer.swift in Sources */,
+				E86C5FF31C684EFB00998BC3 /* PharmacyFlashCards.xcdatamodeld in Sources */,
+				E86C5FEE1C684E5300998BC3 /* Drug+CoreDataProperties.swift in Sources */,
+				E86C5FFA1C68730F00998BC3 /* QuestionService.swift in Sources */,
 				E82E0BE61C5415E9007EED05 /* AppDelegate.swift in Sources */,
-				E82E0C331C542472007EED05 /* PharmQuestionService.swift in Sources */,
+				E82E0C331C542472007EED05 /* DrugService.swift in Sources */,
 				5E7F63991C54BAC200546DC3 /* QuestionCollectionViewCell.swift in Sources */,
-				E82E0C2E1C542441007EED05 /* PharmQuestionRepository.swift in Sources */,
+				E86C5FF71C68723E00998BC3 /* BaseUIViewController.swift in Sources */,
+				E82E0C2E1C542441007EED05 /* DrugRepository.swift in Sources */,
 				E82E0C381C54271F007EED05 /* DataPreloader.swift in Sources */,
-				E82E0C291C5423F5007EED05 /* DataRepository.swift in Sources */,
-				E82E0C2C1C542415007EED05 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -674,9 +683,10 @@
 			baseConfigurationReference = C696FB88CEAAEE2A2A5D3236 /* Pods-PharmacyFlashCards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PharmacyFlashCards/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyFlashCards;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -686,9 +696,10 @@
 			baseConfigurationReference = 748BEC80311941E68AA256DF /* Pods-PharmacyFlashCards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = PharmacyFlashCards/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyFlashCards;
+				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -783,13 +794,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E82E0BEC1C5415E9007EED05 /* PharmacyFlashCards.xcdatamodeld */ = {
+		E86C5FF01C684EFB00998BC3 /* PharmacyFlashCards.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				5E533F2B1C576363005AC245 /* PharmacyFlashCards_v_0_0_2.xcdatamodel */,
-				E82E0BED1C5415E9007EED05 /* PharmacyFlashCards.xcdatamodel */,
+				E86C5FF11C684EFB00998BC3 /* PharmacyFlashCards.xcdatamodel */,
+				E86C5FF21C684EFB00998BC3 /* PharmacyFlashCards_v_0_0_3.xcdatamodel */,
 			);
-			currentVersion = E82E0BED1C5415E9007EED05 /* PharmacyFlashCards.xcdatamodel */;
+			currentVersion = E86C5FF21C684EFB00998BC3 /* PharmacyFlashCards_v_0_0_3.xcdatamodel */;
 			path = PharmacyFlashCards.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

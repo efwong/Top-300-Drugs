@@ -1,8 +1,8 @@
 //
-//  Drugs+CoreDataProperties.swift
+//  Drug+CoreDataProperties.swift
 //  PharmacyFlashCards
 //
-//  Created by Edwin Wong on 1/23/16.
+//  Created by Edwin Wong on 2/7/16.
 //  Copyright © 2016 Edwin Wong. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -12,7 +12,7 @@
 import Foundation
 import CoreData
 
-extension Drugs {
+extension Drug {
 
     @NSManaged var brand: String?
     @NSManaged var classification: String?

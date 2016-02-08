@@ -17,7 +17,7 @@ class DataPreloader{
         // Retrieve data from the source file
         if let contentsOfURL = NSBundle.mainBundle().URLForResource(file, withExtension: withExtension) {
          //   do{
-                let fetchRequest = NSFetchRequest(entityName: "Drugs")
+                let fetchRequest = NSFetchRequest(entityName: "Drug")
                 // clear data
                 if clearEntity(fetchRequest, managedObjectContext: managedObjectContext!) {
                     rows = parseCsv(contentsOfURL)

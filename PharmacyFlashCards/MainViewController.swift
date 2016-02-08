@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: BaseUIViewController {
 
 
     @IBOutlet weak var questionView: UIView!
@@ -23,18 +23,16 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var dosage: UILabel!
     
-    var pharmQuestionService: PharmQuestionService?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        // load services
-        pharmQuestionService = PharmQuestionService(dataRepository: PharmQuestionRepository())
-        
         
         self.questionView.layer.borderWidth = 1.0
         self.questionView.layer.borderColor = UIColor.whiteColor().CGColor
+        
+        // MARK: DELETE
+        drugService?.preloadData();
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,12 +44,12 @@ class MainViewController: UIViewController {
         //DataPreloader.preloadData("test", withExtension: "csv", managedObjectContext: CoreDataStackManager.sharedManager)
         //DataPreloader.preloadData("test", withExtension: "csv", managedObjectContext: CoreDataStackManager.sharedManager.managedObject)
         
-        pharmQuestionService?.preloadData();
+        //drugService?.preloadData();
     }
     
     
     @IBAction func GetAll(sender: UIButton) {
-        if let results = pharmQuestionService?.selectAll(){
+        if let results = drugService?.selectAll(){
             let test = results[0]
             generic.text = test.generic
             brand.text = test.brand
