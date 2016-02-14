@@ -79,7 +79,7 @@ class QuestionViewController: BaseUIViewController {
         var status = false
         let currentQuestion = self.questionManager?.getCurrentQuestion()
         let selectedDrug = currentQuestion?.getDrugByIndex(drugIndex)
-        if self.questionManager != nil && self.questionManager!.isAtLastQuestion() {
+        if self.questionManager != nil && !self.questionManager!.isAtLastQuestion() {
             if currentQuestion != nil && currentQuestion!.isCorrectDrug(selectedDrug!) {
                 self.questionManager?.getNextQuestion()
                 setQuestionLabels()
