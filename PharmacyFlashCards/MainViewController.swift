@@ -32,7 +32,7 @@ class MainViewController: BaseUIViewController {
         self.questionView.layer.borderColor = UIColor.whiteColor().CGColor
         
         // MARK: DELETE
-        drugService?.preloadData();
+        //drugService?.preloadData();
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,6 +57,35 @@ class MainViewController: BaseUIViewController {
             dosage.text = test.dosage
         }
     }
+    
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
+        if segue.identifier == "OpenQuestionViewSegue"
+        {
+            if let destinationVC = segue.destinationViewController as? QuestionViewController{
+                destinationVC.allDrugs = drugService?.selectAll()
+                destinationVC.questionType = QuestionType.BrandName
+            }
+        }
+    }
+    
+    
+    // Private methods
+//    func GetAll() -> [Drug]{
+//        if let results = drugService?.selectAll(){
+//            let test = results[0]
+//            generic.text = test.generic
+//            brand.text = test.brand
+//            indication.text = test.indication
+//            dosage.text = test.dosage
+//        }
+//        return results
+//    }
     
 }
 

@@ -23,10 +23,20 @@ class BrandQuestion: Question{
     
     
     // MARK: INIT
-    override init(questionType: QuestionType, correctDrugIndex: Int, drugs: [Drug]){
-        super.init(questionType: questionType, correctDrugIndex: correctDrugIndex, drugs: drugs)
+    override init(questionType: QuestionType, correctDrugIndex: Int, drugAnswers: [Drug]){
+        super.init(questionType: questionType, correctDrugIndex: correctDrugIndex, drugAnswers: drugAnswers)
     }
     
+    // MARK: Public Methods
+    override func getDrugAnswerLabels() -> [String]{
+        return self.drugAnswers.map(){
+            if let localDrug = ($0 as Drug?){
+                return localDrug.generic! as String
+            }else{
+                return ""
+            }
+        }
+    }
     
     // MARK Private Methods
     

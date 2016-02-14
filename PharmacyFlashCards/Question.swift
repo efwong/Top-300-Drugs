@@ -27,37 +27,52 @@ class Question{
         }
     }
     
-    var correctDrug: Drug {
+    let correctDrugIndex: Int
+    let drugAnswers: [Drug]
+    var correctDrug: Drug{
         get{
-            return self.drugs[correctDrugIndex]
+            return self.drugAnswers[self.correctDrugIndex]
         }
     }
     
-    var drugs: [Drug]
-    
-    // MARK: Private Properties
-    private var correctDrugIndex: Int
     
     
     // MARK: INIT
-    init(questionType: QuestionType, correctDrugIndex: Int, drugs: [Drug]){
+    // Inputs:
+    //      questionType -> type of question (Brand, Generic, etc)ß
+    //      correctDrugIndex -> index in the drugs array of the correct drug
+    //      drugs -> array of drugs
+    init(questionType: QuestionType, correctDrugIndex: Int, drugAnswers: [Drug]){
         self.questionType = questionType
         self.correctDrugIndex = correctDrugIndex
-        self.drugs = drugs
+        self.drugAnswers = drugAnswers
     }
     
     
     // MARK Methods
+    
+    func getDrugByIndex(index:Int) -> Drug?{
+        if index < self.drugAnswers.count {
+            return self.drugAnswers[index]
+        }else{
+            return nil
+        }
+    }
+    
+    func getDrugAnswerLabels() -> [String]{
+        return []
+    }
+    
     func isCorrectDrug(selectedDrug:Drug) -> Bool{
         var success:Bool = false
         
         switch self.questionType{
         case .GenericName:
-            if selectedDrug.generic == correctDrug.generic{
+            if selectedDrug.brand == correctDrug.brand{
                 success = true
             }
         case .BrandName:
-            if selectedDrug.brand == correctDrug.brand{
+            if selectedDrug.generic == correctDrug.generic{
                 success = true
             }
         case .Classification:

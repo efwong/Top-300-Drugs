@@ -6,9 +6,9 @@
 //  Copyright © 2016 Edwin Wong. All rights reserved.
 //
 
-import UIKit
-
-class QuestionCollectionViewCell: UICollectionViewCell {
-    
-    @IBOutlet weak var answerText: UILabel!
-}
+//import UIKit
+//
+//class QuestionCollectionViewCell: UICollectionViewCell {
+//    
+//    @IBOutlet weak var answerText: UILabel!
+//}
