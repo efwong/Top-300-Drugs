@@ -59,6 +59,10 @@ class Question{
         }
     }
     
+    func getCorrectDrugLabel() -> String{
+        return ""
+    }
+    
     func getDrugAnswerLabels() -> [String]{
         return []
     }

@@ -1,14 +1,14 @@
 //
-//  BrandQuestion.swift
+//  DosageQuestion.swift
 //  PharmacyFlashCards
 //
-//  Created by Edwin Wong on 2/7/16.
+//  Created by Edwin Wong on 3/6/16.
 //  Copyright © 2016 Edwin Wong. All rights reserved.
 //
 
 import Foundation
 
-class BrandQuestion: Question{
+class DosageQuestion: Question{
     
     // MARK: Properties
     override var question: String?{
@@ -18,7 +18,7 @@ class BrandQuestion: Question{
     }
     
     // MARK: Private Properties
-    private let questionTemplate: String = "Choose the Brand Name for %@"
+    private let questionTemplate: String = "Choose the Dosage for %@"
     
     
     
@@ -31,7 +31,7 @@ class BrandQuestion: Question{
     override func getDrugAnswerLabels() -> [String]{
         return self.drugAnswers.map(){
             if let localDrug = ($0 as Drug?){
-                return localDrug.brand! as String
+                return localDrug.dosage! as String
             }else{
                 return ""
             }

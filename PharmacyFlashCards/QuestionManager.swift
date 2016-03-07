@@ -74,12 +74,27 @@ class QuestionManager {
 //        default:
 //            returnQuestion = Question(questionType: self.questionType, correctDrugIndex: 0, drugAnswers: availableDrugs)
         
-        if self.questionType == QuestionType.BrandName {
-           returnQuestion = BrandQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
-        }else{
+        switch self.questionType {
+        case .BrandName:
+            returnQuestion = BrandQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
+        case .GenericName:
+            returnQuestion = GenericQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
+        case .Classification:
+            returnQuestion = ClassificationQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
+        case .Dosage:
+            returnQuestion = DosageQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
+        case .Indication:
+            returnQuestion = IndicationQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
+        default:
             returnQuestion = Question(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
-
         }
+        
+//        if self.questionType == QuestionType.BrandName {
+//           returnQuestion = BrandQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
+//        }else{
+//            returnQuestion = Question(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
+//
+//        }
         return returnQuestion
     }
     

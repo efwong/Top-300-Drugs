@@ -32,8 +32,8 @@ class QuestionViewController: BaseUIViewController {
         super.viewDidLoad()
         self.questionManager = QuestionManager(questionType: questionType!, allDrugs: allDrugs!, answerCount: 4)
         
- 
-        setQuestionLabels()
+        self.title = getTitleFromQuestionType(self.questionType!)
+        setLabels()
         
     }
 
@@ -60,10 +60,11 @@ class QuestionViewController: BaseUIViewController {
         performCheck(3)
     }
     
-    func setQuestionLabels(){
+    // Set labels for question and answers
+    private func setLabels(){
         let currentQuestion = self.questionManager?.getCurrentQuestion()
         
-        questionLabel.text = currentQuestion?.correctDrug.brand
+        questionLabel.text = currentQuestion?.getCorrectDrugLabel()
         
         let drugAnswerLabels: [String] = (currentQuestion?.getDrugAnswerLabels())!
         
@@ -75,14 +76,33 @@ class QuestionViewController: BaseUIViewController {
         }
     }
     
-    func performCheck(drugIndex: Int) -> Bool{
+    private func getTitleFromQuestionType(questionType: QuestionType) -> String{
+        var title = ""
+        switch (questionType){
+        case .GenericName:
+            title = "Quiz on Generics"
+        case .BrandName:
+            title = "Quiz on Brand"
+        case .Classification:
+            title = "Quiz on Classification"
+        case .Dosage:
+            title = "Quiz on Dosage"
+        case .Indication:
+            title = "Quiz on Indication"
+        default:
+            title = "Quiz"
+        }
+        return title
+    }
+    
+    private func performCheck(drugIndex: Int) -> Bool{
         var status = false
         let currentQuestion = self.questionManager?.getCurrentQuestion()
         let selectedDrug = currentQuestion?.getDrugByIndex(drugIndex)
         if self.questionManager != nil && !self.questionManager!.isAtLastQuestion() {
             if currentQuestion != nil && currentQuestion!.isCorrectDrug(selectedDrug!) {
                 self.questionManager?.getNextQuestion()
-                setQuestionLabels()
+                setLabels()
                 status = true
             }else{
                 status = false

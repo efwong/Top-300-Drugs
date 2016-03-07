@@ -1,14 +1,14 @@
 //
-//  BrandQuestion.swift
+//  GenericQuestion.swift
 //  PharmacyFlashCards
 //
-//  Created by Edwin Wong on 2/7/16.
+//  Created by Edwin Wong on 3/6/16.
 //  Copyright © 2016 Edwin Wong. All rights reserved.
 //
 
 import Foundation
 
-class BrandQuestion: Question{
+class GenericQuestion: Question{
     
     // MARK: Properties
     override var question: String?{
@@ -18,7 +18,7 @@ class BrandQuestion: Question{
     }
     
     // MARK: Private Properties
-    private let questionTemplate: String = "Choose the Brand Name for %@"
+    private let questionTemplate: String = "Choose the Generic Name for %@"
     
     
     
@@ -31,7 +31,7 @@ class BrandQuestion: Question{
     override func getDrugAnswerLabels() -> [String]{
         return self.drugAnswers.map(){
             if let localDrug = ($0 as Drug?){
-                return localDrug.brand! as String
+                return localDrug.generic! as String
             }else{
                 return ""
             }
@@ -40,11 +40,10 @@ class BrandQuestion: Question{
     
     override func getCorrectDrugLabel() -> String{
         if correctDrug.generic != nil {
-            return correctDrug.generic!
+            return correctDrug.brand!
         }
         return ""
     }
-    
     // MARK Private Methods
     
 }
