@@ -21,7 +21,6 @@ class DrugRepository {
         
         do{
             results = try managedObjectContext!.executeFetchRequest(request) as! [Drug]
-            print("success")
         }
         catch{
             results = []

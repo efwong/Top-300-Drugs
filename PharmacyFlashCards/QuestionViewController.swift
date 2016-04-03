@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioToolbox
 
 class QuestionViewController: BaseUIViewController {
     
@@ -106,9 +107,10 @@ class QuestionViewController: BaseUIViewController {
                 status = true
             }else{
                 status = false
-                let alert = UIAlertController(title: "Wrong", message: "Wrong Drug. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
-                self.presentViewController(alert, animated: true, completion: nil)
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+//                let alert = UIAlertController(title: "Wrong", message: "Wrong Drug. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
+//                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
+//                self.presentViewController(alert, animated: true, completion: nil)
             }
         }else{
             let alert = UIAlertController(title: "Done", message: "Last Question Reached. Please go back to the menu", preferredStyle: UIAlertControllerStyle.Alert)

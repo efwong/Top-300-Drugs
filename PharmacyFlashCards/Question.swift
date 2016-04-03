@@ -87,6 +87,10 @@ class Question{
             if selectedDrug.dosage == correctDrug.dosage{
                 success = true
             }
+        case .Indication:
+            if selectedDrug.indication == correctDrug.indication{
+                success = true
+            }
         default:
             success = false
         }
