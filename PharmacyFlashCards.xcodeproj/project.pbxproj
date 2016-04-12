@@ -16,6 +16,7 @@
 		5E4C1D0B1C8D52BB003641F5 /* DosageQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C1D0A1C8D52BB003641F5 /* DosageQuestion.swift */; };
 		5E6CF1E01C54919F007E1725 /* drugs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CF1DF1C54919F007E1725 /* drugs.csv */; };
 		5E7F63991C54BAC200546DC3 /* QuestionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F63981C54BAC200546DC3 /* QuestionCollectionViewCell.swift */; };
+		5ED158061CB0D1050099FA62 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED158051CB0D1050099FA62 /* MenuViewController.swift */; };
 		5ED21A071C70143200DA145F /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F63961C54B82600546DC3 /* QuestionViewController.swift */; };
 		5ED21A081C70143600DA145F /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5FF91C68730F00998BC3 /* QuestionService.swift */; };
 		5ED21A0A1C7015FF00DA145F /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED21A091C7015FF00DA145F /* QuestionManager.swift */; };
@@ -68,6 +69,7 @@
 		5E6CF1DF1C54919F007E1725 /* drugs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = drugs.csv; sourceTree = "<group>"; };
 		5E7F63961C54B82600546DC3 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		5E7F63981C54BAC200546DC3 /* QuestionCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionCollectionViewCell.swift; sourceTree = "<group>"; };
+		5ED158051CB0D1050099FA62 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		5ED21A091C7015FF00DA145F /* QuestionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
 		748BEC80311941E68AA256DF /* Pods-PharmacyFlashCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyFlashCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-PharmacyFlashCards/Pods-PharmacyFlashCards.release.xcconfig"; sourceTree = "<group>"; };
 		C696FB88CEAAEE2A2A5D3236 /* Pods-PharmacyFlashCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyFlashCards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PharmacyFlashCards/Pods-PharmacyFlashCards.debug.xcconfig"; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			children = (
 				E82E0BE71C5415E9007EED05 /* MainViewController.swift */,
 				5E4C1CFE1C8D3C0F003641F5 /* MenuTableViewController.swift */,
+				5ED158051CB0D1050099FA62 /* MenuViewController.swift */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -555,6 +558,7 @@
 				E89ED2651C68401500A5249E /* Question.swift in Sources */,
 				E82E0C201C5421AC007EED05 /* CoreDataStackManager.swift in Sources */,
 				E86C5FEF1C684E5300998BC3 /* Drug.swift in Sources */,
+				5ED158061CB0D1050099FA62 /* MenuViewController.swift in Sources */,
 				E86C5FFD1C68742600998BC3 /* Randomizer.swift in Sources */,
 				E86C5FF31C684EFB00998BC3 /* PharmacyFlashCards.xcdatamodeld in Sources */,
 				E86C5FEE1C684E5300998BC3 /* Drug+CoreDataProperties.swift in Sources */,
