@@ -32,9 +32,14 @@ class QuestionViewController: BaseUIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.questionManager = QuestionManager(questionType: questionType!, allDrugs: allDrugs!, answerCount: 4)
-        
         self.title = getTitleFromQuestionType(self.questionType!)
         setLabels()
+        
+        var localFont = UIFont(name: "Arial-BoldMT", size: 20)
+        if(questionType == QuestionType.Indication){
+            localFont = UIFont(name: "Arial-BoldMT", size: 17)
+        }
+        setButtonFont(localFont!)
         
     }
 
@@ -130,5 +135,12 @@ class QuestionViewController: BaseUIViewController {
     }
     */
     
+    
+    private func setButtonFont(font: UIFont){
+        answerButton1.titleLabel!.font = font
+        answerButton2.titleLabel!.font = font
+        answerButton3.titleLabel!.font = font
+        answerButton4.titleLabel!.font = font
+    }
 
 }

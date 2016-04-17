@@ -39,6 +39,32 @@ class DrugService {
         return results;
     }
     
+    func selectByUserSettings() -> [Drug]{
+        let drugOneStatus = UserSettingsService.service.isDrugOneSelected()
+        let drugTwoStatus = UserSettingsService.service.isDrugTwoSelected()
+        
+        
+        let request = NSFetchRequest(entityName: self.entityName)
+        request.returnsObjectsAsFaults = false
+        
+        var results:[Drug] = []
+        
+        // get both drug sets
+        if drugOneStatus && drugTwoStatus{
+            results = (self.dataRepository?.selectAll(request))!
+        }else if drugOneStatus{
+            // get drug one set
+            request.predicate = NSPredicate(format: "semester = 0")
+            results = (self.dataRepository?.selectAll(request))!
+        }else if drugTwoStatus{
+            // get drug two set
+            request.predicate = NSPredicate(format: "semester = 1")
+            results = (self.dataRepository?.selectAll(request))!
+        }else{
+        }
+        return results
+    }
+    
     func bulkInsert(itemList:[[String]]){
         
         managedObjectContext!.reset()

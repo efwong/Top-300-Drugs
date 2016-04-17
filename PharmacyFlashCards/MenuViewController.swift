@@ -45,15 +45,20 @@ class MenuViewController: BaseUIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         let view = sender!.view as UIView!
-        let questionType:QuestionType? = getQuestionType(view)
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        let selectedDrugs = drugService?.selectAll()
         
-        if questionType != nil {
-            if let destinationVC = segue.destinationViewController as? QuestionViewController{
-                destinationVC.allDrugs = selectedDrugs
-                destinationVC.questionType = questionType
+        if segue.identifier == "showSettingsScene"{
+            
+        }else{
+            let questionType:QuestionType? = getQuestionType(view)
+            // Get the new view controller using segue.destinationViewController.
+            // Pass the selected object to the new view controller.
+            let selectedDrugs = drugService?.selectByUserSettings()
+            
+            if questionType != nil {
+                if let destinationVC = segue.destinationViewController as? QuestionViewController{
+                    destinationVC.allDrugs = selectedDrugs
+                    destinationVC.questionType = questionType
+                }
             }
         }
     }
@@ -61,6 +66,10 @@ class MenuViewController: BaseUIViewController {
     
     @IBAction func showQuestionScene(sender: AnyObject) {
         performSegueWithIdentifier("showQuestionScene", sender: sender)
+    }
+    
+    @IBAction func showSettingsScene(sender: AnyObject) {
+        performSegueWithIdentifier("showSettingsScene", sender: sender)
     }
     
     private func getQuestionType(view: UIView) -> QuestionType?{
