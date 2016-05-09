@@ -22,6 +22,7 @@
 		5ED21A071C70143200DA145F /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F63961C54B82600546DC3 /* QuestionViewController.swift */; };
 		5ED21A081C70143600DA145F /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5FF91C68730F00998BC3 /* QuestionService.swift */; };
 		5ED21A0A1C7015FF00DA145F /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED21A091C7015FF00DA145F /* QuestionManager.swift */; };
+		5ED75A6F1CE04F23000F3F15 /* LaunchScreenA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ED75A6E1CE04F23000F3F15 /* LaunchScreenA.storyboard */; };
 		E82E0BE61C5415E9007EED05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BE51C5415E9007EED05 /* AppDelegate.swift */; };
 		E82E0BE81C5415E9007EED05 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BE71C5415E9007EED05 /* MainViewController.swift */; };
 		E82E0BEB1C5415E9007EED05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82E0BE91C5415E9007EED05 /* Main.storyboard */; };
@@ -75,6 +76,7 @@
 		5ED088D71CC330AD00F12691 /* UserSettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsService.swift; sourceTree = "<group>"; };
 		5ED158051CB0D1050099FA62 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		5ED21A091C7015FF00DA145F /* QuestionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
+		5ED75A6E1CE04F23000F3F15 /* LaunchScreenA.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreenA.storyboard; sourceTree = "<group>"; };
 		748BEC80311941E68AA256DF /* Pods-PharmacyFlashCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyFlashCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-PharmacyFlashCards/Pods-PharmacyFlashCards.release.xcconfig"; sourceTree = "<group>"; };
 		C696FB88CEAAEE2A2A5D3236 /* Pods-PharmacyFlashCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyFlashCards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PharmacyFlashCards/Pods-PharmacyFlashCards.debug.xcconfig"; sourceTree = "<group>"; };
 		E82E0BE21C5415E9007EED05 /* PharmacyFlashCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PharmacyFlashCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -209,6 +211,7 @@
 				E82E0BE51C5415E9007EED05 /* AppDelegate.swift */,
 				E86C5FF01C684EFB00998BC3 /* PharmacyFlashCards.xcdatamodeld */,
 				E82E0BE91C5415E9007EED05 /* Main.storyboard */,
+				5ED75A6E1CE04F23000F3F15 /* LaunchScreenA.storyboard */,
 			);
 			path = PharmacyFlashCards;
 			sourceTree = "<group>";
@@ -496,6 +499,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ED75A6F1CE04F23000F3F15 /* LaunchScreenA.storyboard in Resources */,
 				E82E0BF31C5415E9007EED05 /* LaunchScreen.storyboard in Resources */,
 				5E6CF1E01C54919F007E1725 /* drugs.csv in Resources */,
 				E8CB960E1C54575C008219AC /* test.csv in Resources */,
