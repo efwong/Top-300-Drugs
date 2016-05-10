@@ -44,7 +44,7 @@ class QuestionManager {
     
     func getNextQuestion() -> Question{
         if self.currentDrugIndex < self.allDrugs.count {
-            self.currentDrugIndex++
+            self.currentDrugIndex += 1
             self.currentQuestion = createQuestion()
         }
         return self.currentQuestion!

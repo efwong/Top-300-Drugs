@@ -743,12 +743,13 @@
 			baseConfigurationReference = C696FB88CEAAEE2A2A5D3236 /* Pods-PharmacyFlashCards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Edwin Wong (445L5FE6V9)";
 				INFOPLIST_FILE = PharmacyFlashCards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "af490d6b-c146-407d-a6cd-24979090cd9a";
+				PROVISIONING_PROFILE = "cf25abed-a776-4166-a37b-65e499512216";
 			};
 			name = Debug;
 		};
@@ -757,12 +758,13 @@
 			baseConfigurationReference = 748BEC80311941E68AA256DF /* Pods-PharmacyFlashCards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Edwin Wong (445L5FE6V9)";
 				INFOPLIST_FILE = PharmacyFlashCards/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyQuiz;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "af490d6b-c146-407d-a6cd-24979090cd9a";
+				PROVISIONING_PROFILE = "cf25abed-a776-4166-a37b-65e499512216";
 			};
 			name = Release;
 		};
