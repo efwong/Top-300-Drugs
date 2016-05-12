@@ -22,6 +22,9 @@ class QuestionManager {
         }
     }
     
+    // list of question the user has seen
+    var questionList: [Question]
+    
     var currentQuestion: Question?
     
     
@@ -34,6 +37,7 @@ class QuestionManager {
         self.allDrugs = allDrugs.shuffle()
         self.currentDrugIndex = 0
         self.answerCount = answerCount
+        self.questionList = []
         self.currentQuestion = createQuestion()
     }
     
@@ -95,6 +99,7 @@ class QuestionManager {
 //            returnQuestion = Question(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
 //
 //        }
+        self.questionList.append(returnQuestion)
         return returnQuestion
     }
     

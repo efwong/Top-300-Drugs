@@ -101,12 +101,15 @@ class QuestionViewController: BaseUIViewController {
         return title
     }
     
+    // check if user answer is correct
+    // Yes -> move on to next question
+    // No -> prompt user for correct answer
     private func performCheck(drugIndex: Int) -> Bool{
         var status = false
         let currentQuestion = self.questionManager?.getCurrentQuestion()
-        let selectedDrug = currentQuestion?.getDrugByIndex(drugIndex)
+        
         if self.questionManager != nil && !self.questionManager!.isAtLastQuestion() {
-            if currentQuestion != nil && currentQuestion!.isCorrectDrug(selectedDrug!) {
+            if currentQuestion != nil && currentQuestion!.isCorrectDrug(drugIndex) {
                 self.questionManager?.getNextQuestion()
                 setLabels()
                 status = true
