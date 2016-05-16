@@ -21,6 +21,11 @@ class QuestionViewController: BaseUIViewController {
     
     @IBOutlet weak var answerButton4: UIButton!
     
+    @IBOutlet weak var fireView: UIView!
+    
+    @IBOutlet weak var fireIcon: UIImageView!
+    
+    @IBOutlet weak var streakCount: UILabel!
     
     var allDrugs:[Drug]?
     
@@ -51,22 +56,37 @@ class QuestionViewController: BaseUIViewController {
     // MARK: Button click events
     
     @IBAction func answerOneButtonPress(sender: UIButton) {
-        performCheck(0)
+        performCheck(0, sender: sender)
     }
     
     @IBAction func answerTwoButtonPress(sender: UIButton) {
-        performCheck(1)
+        performCheck(1, sender: sender)
     }
 
     @IBAction func answerThreeButtonPress(sender: UIButton) {
-        performCheck(2)
+        performCheck(2, sender: sender)
     }
     
     @IBAction func answerFourButtonPress(sender: UIButton) {
-        performCheck(3)
+        performCheck(3, sender: sender)
     }
     
-    // Set labels for question and answers
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "showResultsScene"{
+            if let resultsView = segue.destinationViewController as? ResultsViewController{
+                resultsView.questionManager = self.questionManager
+            }
+        }
+    }
+    
+    
+    // Set labels for question and answers in the view
     private func setLabels(){
         let currentQuestion = self.questionManager?.getCurrentQuestion()
         
@@ -104,40 +124,49 @@ class QuestionViewController: BaseUIViewController {
     // check if user answer is correct
     // Yes -> move on to next question
     // No -> prompt user for correct answer
-    private func performCheck(drugIndex: Int) -> Bool{
+    private func performCheck(drugIndex: Int, sender: AnyObject) -> Bool{
+        if self.questionManager == nil {
+            return false;
+        }
+        
         var status = false
         let currentQuestion = self.questionManager?.getCurrentQuestion()
         
-        if self.questionManager != nil && !self.questionManager!.isAtLastQuestion() {
+        if !self.questionManager!.isAtLastQuestion() {
             if currentQuestion != nil && currentQuestion!.isCorrectDrug(drugIndex) {
                 self.questionManager?.getNextQuestion()
+                self.questionManager?.incrementAnswerStreak()
                 setLabels()
                 status = true
+                updateStreakView(true, streakNumber: self.questionManager?.answerStreak ?? 0)
             }else{
                 status = false
+                self.questionManager?.resetAnswerStreak()
+                updateStreakView(false)
                 AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-//                let alert = UIAlertController(title: "Wrong", message: "Wrong Drug. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
-//                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
-//                self.presentViewController(alert, animated: true, completion: nil)
             }
         }else{
-            let alert = UIAlertController(title: "Done", message: "Last Question Reached. Please go back to the menu", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            // is at last question
+            performSegueWithIdentifier("showResultsScene", sender: sender)
         }
         return status
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // update streak by status
+    // if status == true -> streak is displayed
+    // else if status == false -> streak is hidden
+    private func updateStreakView(status: Bool, streakNumber: Int=0){
+        if status {
+            // update number shown and show streak #
+            streakCount.text = "\(streakNumber)"
+            if fireView.hidden == true{
+                fireView.hidden = false
+            }
+        }else{
+            fireView.hidden = true
+            streakCount.text = "0"
+        }
     }
-    */
-    
     
     private func setButtonFont(font: UIFont){
         answerButton1.titleLabel!.font = font

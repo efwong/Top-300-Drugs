@@ -27,6 +27,8 @@ class QuestionManager {
     
     var currentQuestion: Question?
     
+    var answerStreak: Int
+    
     
     // MARK: INIT
     // Inputs:
@@ -38,6 +40,7 @@ class QuestionManager {
         self.currentDrugIndex = 0
         self.answerCount = answerCount
         self.questionList = []
+        self.answerStreak = 0
         self.currentQuestion = createQuestion()
     }
     
@@ -131,46 +134,20 @@ class QuestionManager {
             }
         }
         return (index, result)
-        }
-    /**
-    Generate an array of Drugs when given a correct drug and a set of possible drugs.
+    }
     
-    - Parameter drug:   The correct drug.
-    - Parameter drugs: array of possible drugs.
-    - Parameter answerCount: number of answers wanted
+    func getAllUserQuestions() -> [Question]{
+        return self.questionList
+    }
     
-    - Throws: error when answerCount > drugs.length
+    // MARK: Answer streak methods
+    func resetAnswerStreak() {
+        self.answerStreak = 0
+    }
     
-    - Returns: An array of drugs with length of answerCount
-    */
-    // func createAnswerSetForDrug(answerCount: Int) -> [Drug] {
-
-//        var result:[Drug] = []
-//        if(self.allDrugs.count < answerCount){
-//            //throw QuestionServiceError.InsufficientNumberOfDrugs
-//        }else{
-//            // remove correct drug from list of drugs
-//            let drugsCopy:[Drug] = self.allDrugs.filter(){
-//                if let localDrug = ($0 as Drug?){
-//                    if localDrug == self.currentDrug{
-//                        return false
-//                    }
-//                    else{
-//                        return true
-//                    }
-//                } else {
-//                    return false
-//                }
-//            }
-//            if drugsCopy.count > 0 && answerCount > 0{
-//                var availableDrugs = Array(drugsCopy.shuffle().prefix(answerCount-1)) as [Drug]
-//                availableDrugs.append(self.currentDrug);
-//                result = Array(availableDrugs.shuffle()) as [Drug];
-//            }
-//            
-//        }
-//        }
-        
+    func incrementAnswerStreak() {
+        self.answerStreak += 1
+    }
     
 
 }

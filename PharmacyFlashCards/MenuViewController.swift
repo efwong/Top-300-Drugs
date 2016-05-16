@@ -47,8 +47,9 @@ class MenuViewController: BaseUIViewController {
         let view = sender!.view as UIView!
         
         if segue.identifier == "showSettingsScene"{
-            
+            // show settings
         }else{
+            // show questions
             let questionType:QuestionType? = getQuestionType(view)
             // Get the new view controller using segue.destinationViewController.
             // Pass the selected object to the new view controller.
