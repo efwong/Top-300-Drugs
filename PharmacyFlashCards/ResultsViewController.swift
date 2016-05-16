@@ -15,6 +15,7 @@ class ResultsViewController: UIViewController {
     var questionManager: QuestionManager?
     var incorrectQuestions: [Question] = []
     var correctQuestions: [Question] = []
+    var totalSeconds: Int?
     
     
     @IBOutlet weak var totalNumberCorrectLabel: UILabel!

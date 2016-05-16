@@ -112,6 +112,7 @@ class QuestionManager {
         if self.allDrugs.count < answerCount {
             throw QuestionServiceError.InsufficientNumberOfDrugs
         }else{
+            var duplicateMap = [String: Int]()
             // remove correct drug from list of drugs
             let drugsCopy:[Drug] = self.allDrugs.filter() {
                 if let localDrug = ($0 as Drug?){
@@ -119,7 +120,8 @@ class QuestionManager {
                         return false
                     }
                     else {
-                        return true
+                        // remove duplicates
+                        return StoreAndCheckDuplicateQuestions(&duplicateMap, drug: localDrug)
                     }
                 } else {
                     return false
@@ -134,6 +136,33 @@ class QuestionManager {
             }
         }
         return (index, result)
+    }
+    
+    private func StoreAndCheckDuplicateQuestions(inout duplicatesMap: [String:Int], drug: Drug) -> Bool{
+        var status = false
+        var value:String = ""
+        switch self.questionType{
+        case .GenericName:
+                value = drug.generic ?? ""
+        case .BrandName:
+            value = drug.brand ?? ""
+        case .Classification:
+            value = drug.classification ?? ""
+        case .Dosage:
+            value = drug.dosage ?? ""
+        case .Indication:
+            value = drug.indication ?? ""
+        }
+        
+        // check for duplicates
+        if duplicatesMap[value] != nil{
+            duplicatesMap[value]! += 1
+        }else{
+            // not a duplicate
+            status = true
+            duplicatesMap[value] = 1
+        }
+        return status
     }
     
     func getAllUserQuestions() -> [Question]{

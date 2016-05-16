@@ -27,11 +27,17 @@ class QuestionViewController: BaseUIViewController {
     
     @IBOutlet weak var streakCount: UILabel!
     
+    @IBOutlet weak var currentTimeLabel: UILabel!
+    
+    
     var allDrugs:[Drug]?
     
     var questionType: QuestionType?
     
     var questionManager: QuestionManager?
+    
+    var timer: NSTimer = NSTimer()
+    var startTime: NSTimeInterval?
     
     
     override func viewDidLoad() {
@@ -46,6 +52,13 @@ class QuestionViewController: BaseUIViewController {
         }
         setButtonFont(localFont!)
         
+        // start timer
+        self.startTime = NSDate.timeIntervalSinceReferenceDate()
+        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+            target: self,
+            selector: #selector(QuestionViewController.countUp),
+            userInfo: nil,
+            repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -79,8 +92,10 @@ class QuestionViewController: BaseUIViewController {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         if segue.identifier == "showResultsScene"{
+            let totalSeconds :Int = Int(NSDate.timeIntervalSinceReferenceDate() - self.startTime!)
             if let resultsView = segue.destinationViewController as? ResultsViewController{
                 resultsView.questionManager = self.questionManager
+                resultsView.totalSeconds = totalSeconds
             }
         }
     }
@@ -173,6 +188,18 @@ class QuestionViewController: BaseUIViewController {
         answerButton2.titleLabel!.font = font
         answerButton3.titleLabel!.font = font
         answerButton4.titleLabel!.font = font
+    }
+    
+    // MARK: Objective C methods
+    
+    // CountUp: increment timer
+    @objc func countUp() {
+        if self.startTime != nil{
+            let currentDuration = Int(NSDate.timeIntervalSinceReferenceDate() - self.startTime!)
+            let seconds = currentDuration % 60
+            let minutes = (currentDuration / 60) % 60
+            currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+        }
     }
 
 }
