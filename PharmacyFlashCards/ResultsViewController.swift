@@ -16,10 +16,13 @@ class ResultsViewController: UIViewController {
     var incorrectQuestions: [Question] = []
     var correctQuestions: [Question] = []
     var totalSeconds: Int?
+    var streakCount: Int?
     
     
     @IBOutlet weak var totalNumberCorrectLabel: UILabel!
     @IBOutlet weak var totalCountLabel: UILabel!
+    @IBOutlet weak var streakCountLabel: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()        // Do any additional setup after loading the view.
@@ -30,11 +33,45 @@ class ResultsViewController: UIViewController {
             self.incorrectQuestions = []
         }
         
+        // set question count
         let totalCount = self.questionManager?.allDrugs.count ?? 0
         //let incorrectCount = self.incorrectQuestions.count
         let correctCount = self.correctQuestions.count
         totalNumberCorrectLabel.text = "\(correctCount)"
         totalCountLabel.text = "\(totalCount)"
+        
+        // set streak count
+        let streak = self.questionManager?.answerStreak ?? 0
+        streakCountLabel.text = "\(streak)"
+        
+        // set time
+        if self.totalSeconds != nil{
+            let seconds = self.totalSeconds! % 60
+            let minutes = (self.totalSeconds! / 60) % 60
+            timeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+        }
+        
+        
+        // set records view
+        //.... Set Right/Left Bar Button item
+        let rightBarButton = UIBarButtonItem(
+            title: "Hall of Fame",
+            style: .Plain,
+            target: self,
+            action: #selector(ResultsViewController.showHighScores(_:))
+        )
+        self.navigationItem.rightBarButtonItem = rightBarButton
+        
+        
+        // set records view
+        //.... Set Right/Left Bar Button item
+        let leftBarButton = UIBarButtonItem(
+            title: "Main Menu",
+            style: .Plain,
+            target: self,
+            action: #selector(ResultsViewController.showMainMenu(_:))
+        )
+        self.navigationItem.rightBarButtonItem = leftBarButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,16 +79,26 @@ class ResultsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
+    func showHighScores(sender: AnyObject?) {
+        performSegueWithIdentifier("showRecordsScene", sender: sender)
+    }
+    
+    func showMainMenu(sender: AnyObject?){
+        performSegueWithIdentifier("showMainMenu", sender: sender)
+    }
+    
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "showRecordsScene"{
+            if segue.destinationViewController is RecordsViewController{
+            }
+        }else if segue.identifier == "showMainMenu"{
+        }
     }
-    */
+ 
     
     
     // MARK: Private methods

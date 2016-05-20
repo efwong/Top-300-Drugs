@@ -12,6 +12,7 @@ import Foundation
 class QuestionManager {
     
     // MARK: Properties
+    // number of answers to be shown (eg. 4)
     let answerCount: Int
     let questionType: QuestionType
     let allDrugs : [Drug]
@@ -27,6 +28,7 @@ class QuestionManager {
     
     var currentQuestion: Question?
     
+    // answer streak of user (how many correct the user got in a row)
     var answerStreak: Int
     
     
@@ -75,11 +77,6 @@ class QuestionManager {
             availableDrugs = []
         }
         var returnQuestion: Question
-//        switch self.questionType{
-//          case .BrandName:
-//               returnQuestion = BrandQuestion(questionType: self.questionType, correctDrugIndex: 0, drugAnswers: availableDrugs)
-//        default:
-//            returnQuestion = Question(questionType: self.questionType, correctDrugIndex: 0, drugAnswers: availableDrugs)
         
         switch self.questionType {
         case .BrandName:
@@ -96,12 +93,6 @@ class QuestionManager {
             returnQuestion = Question(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
         }
         
-//        if self.questionType == QuestionType.BrandName {
-//           returnQuestion = BrandQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
-//        }else{
-//            returnQuestion = Question(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
-//
-//        }
         self.questionList.append(returnQuestion)
         return returnQuestion
     }

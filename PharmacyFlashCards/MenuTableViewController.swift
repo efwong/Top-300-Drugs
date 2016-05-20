@@ -34,18 +34,16 @@ class MenuTableViewController: BaseUITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return 3
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "GenericBrandMenuItemRow"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MenuTableViewCell
+        setMenuTableCell(cell, index: indexPath.row)
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,49 +80,70 @@ class MenuTableViewController: BaseUITableViewController {
     }
     */
 
+    // MARK: Helpers
+    private func setMenuTableCell(cell: MenuTableViewCell, index: Int){
+        switch(index){
+        case 0:
+            cell.leftImage.image = UIImage(named: "GenericIcon")
+            cell.leftImageTitle.text = "Generic"
+            cell.rightImage.image = UIImage(named: "BrandIcon")
+            cell.rightImageTitle.text = "Brand"
+        case 1:
+            cell.leftImage.image = UIImage(named: "ClassificationIcon")
+            cell.leftImageTitle.text = "Classification"
+            cell.rightImage.image = UIImage(named: "DosageIcon")
+            cell.rightImageTitle.text = "Dosage"
+        case 2:
+            cell.leftImage.image = UIImage(named: "IndicationIcon")
+            cell.leftImageTitle.text = "Indication"
+            cell.rightImage.image = UIImage(named: "SettingsIcon")
+            cell.rightImageTitle.text = "Settings"
+        default: break
+        }
+    }
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        let selectedDrugs = drugService?.selectAll()
-        let questionType = getQuestionType(segue.identifier!)
-        
-        if questionType != nil {
-            if let destinationVC = segue.destinationViewController as? QuestionViewController{
-                destinationVC.allDrugs = selectedDrugs
-                destinationVC.questionType = questionType
-            }
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//        let selectedDrugs = drugService?.selectAll()
+//        let questionType = getQuestionType(segue.identifier!)
+//        
+//        if questionType != nil {
+//            if let destinationVC = segue.destinationViewController as? QuestionViewController{
+//                destinationVC.allDrugs = selectedDrugs
+//                destinationVC.questionType = questionType
+//            }
+//        }
+//    }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-        let questionType = getQuestionType(identifier!)
-        if questionType == nil {
-            return false
-        }
-        return true
-    }
+//    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+//        let questionType = getQuestionType(identifier!)
+//        if questionType == nil {
+//            return false
+//        }
+//        return true
+//    }
 
-    private func getQuestionType(segueIdentifier: String) -> QuestionType?{
-        var questionType: QuestionType? = nil
-        switch(segueIdentifier){
-        case "GenericQuestionSegue":
-            questionType = QuestionType.GenericName
-        case "BrandQuestionSegue":
-            questionType = QuestionType.BrandName
-        case "ClassificationQuestionSegue":
-            questionType = QuestionType.Classification
-        case "DosageQuestionSegue":
-            questionType = QuestionType.Dosage
-        case "IndicationQuestionSegue":
-            questionType = QuestionType.Indication
-        default:
-            questionType = nil
-        }
-        return questionType
-    }
+//    private func getQuestionType(segueIdentifier: String) -> QuestionType?{
+//        var questionType: QuestionType? = nil
+//        switch(segueIdentifier){
+//        case "GenericQuestionSegue":
+//            questionType = QuestionType.GenericName
+//        case "BrandQuestionSegue":
+//            questionType = QuestionType.BrandName
+//        case "ClassificationQuestionSegue":
+//            questionType = QuestionType.Classification
+//        case "DosageQuestionSegue":
+//            questionType = QuestionType.Dosage
+//        case "IndicationQuestionSegue":
+//            questionType = QuestionType.Indication
+//        default:
+//            questionType = nil
+//        }
+//        return questionType
+//    }
     
 }
