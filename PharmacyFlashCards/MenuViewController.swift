@@ -27,9 +27,6 @@ class MenuViewController: BaseUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       // menuItemArray += [menuItemGeneric, menuItemBrand, menuItemClassification, menuItemDosage, menuItemIndication, menuItemSettings]
-
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -70,7 +67,7 @@ class MenuViewController: BaseUIViewController {
     }
     
     @IBAction func showSettingsScene(sender: AnyObject) {
-        performSegueWithIdentifier("showSettingsScene", sender: sender)
+        performSegueWithIdentifier("ç", sender: sender)
     }
     
     private func getQuestionType(view: UIView) -> QuestionType?{

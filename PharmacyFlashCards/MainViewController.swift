@@ -25,13 +25,12 @@ class MainViewController: BaseUIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        
-//        self.questionView.layer.borderWidth = 1.0
-//        self.questionView.layer.borderColor = UIColor.whiteColor().CGColor
-
-        
+        self.navigationItem.setLeftBarButtonItem(nil, animated: false)
+        self.navigationItem.setRightBarButtonItem(nil, animated: false)
+        self.navigationItem.setHidesBackButton(true, animated: false)
+//        self.navigationItem.leftBarButtonItem = nil
+//        self.navigationItem.rightBarButtonItem = nil
+//        self.navigationItem.backBarButtonItem = nil
     }
 
     override func didReceiveMemoryWarning() {

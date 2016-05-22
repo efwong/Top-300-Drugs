@@ -11,9 +11,11 @@ import UIKit
 class MenuTableViewCell: UITableViewCell {
 
     
+    @IBOutlet weak var leftImageView: UIView!
     @IBOutlet weak var leftImage: UIImageView!
     @IBOutlet weak var leftImageTitle: UILabel!
     
+    @IBOutlet weak var rightImageView: UIView!
     @IBOutlet weak var rightImage: UIImageView!
     @IBOutlet weak var rightImageTitle: UILabel!
     

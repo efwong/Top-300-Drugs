@@ -24,6 +24,7 @@
 		5ED21A0A1C7015FF00DA145F /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED21A091C7015FF00DA145F /* QuestionManager.swift */; };
 		5ED75A6F1CE04F23000F3F15 /* LaunchScreenA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ED75A6E1CE04F23000F3F15 /* LaunchScreenA.storyboard */; };
 		5EF0D3FE1CE8602F004B19DD /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF0D3FD1CE8602F004B19DD /* ResultsViewController.swift */; };
+		5EF958E91CF1428A00CDF1C2 /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF958E81CF1428A00CDF1C2 /* CommonUtility.swift */; };
 		5EFA410D1CE98B4600EB2EC6 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA410C1CE98B4600EB2EC6 /* RecordsViewController.swift */; };
 		E82E0BE61C5415E9007EED05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BE51C5415E9007EED05 /* AppDelegate.swift */; };
 		E82E0BE81C5415E9007EED05 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BE71C5415E9007EED05 /* MainViewController.swift */; };
@@ -80,6 +81,7 @@
 		5ED21A091C7015FF00DA145F /* QuestionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
 		5ED75A6E1CE04F23000F3F15 /* LaunchScreenA.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreenA.storyboard; sourceTree = "<group>"; };
 		5EF0D3FD1CE8602F004B19DD /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		5EF958E81CF1428A00CDF1C2 /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		5EFA410C1CE98B4600EB2EC6 /* RecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		748BEC80311941E68AA256DF /* Pods-PharmacyFlashCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyFlashCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-PharmacyFlashCards/Pods-PharmacyFlashCards.release.xcconfig"; sourceTree = "<group>"; };
 		C696FB88CEAAEE2A2A5D3236 /* Pods-PharmacyFlashCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyFlashCards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PharmacyFlashCards/Pods-PharmacyFlashCards.debug.xcconfig"; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 			isa = PBXGroup;
 			children = (
 				E86C5FFC1C68742600998BC3 /* Randomizer.swift */,
+				5EF958E81CF1428A00CDF1C2 /* CommonUtility.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E82E0BE81C5415E9007EED05 /* MainViewController.swift in Sources */,
+				5EF958E91CF1428A00CDF1C2 /* CommonUtility.swift in Sources */,
 				5E4C1D051C8D49DF003641F5 /* ClassificationQuestion.swift in Sources */,
 				5EB077381CEEFED4007BF21F /* MenuTableViewCell.swift in Sources */,
 				5E4C1D031C8D49A3003641F5 /* GenericQuestion.swift in Sources */,

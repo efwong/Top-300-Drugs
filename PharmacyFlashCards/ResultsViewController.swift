@@ -71,7 +71,8 @@ class ResultsViewController: UIViewController {
             target: self,
             action: #selector(ResultsViewController.showMainMenu(_:))
         )
-        self.navigationItem.rightBarButtonItem = leftBarButton
+        //self.navigationItem.backBarButtonItem = leftBarButton
+        self.navigationItem.leftBarButtonItem = leftBarButton
     }
 
     override func didReceiveMemoryWarning() {
