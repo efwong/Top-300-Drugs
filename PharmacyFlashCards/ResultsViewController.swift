@@ -51,7 +51,6 @@ class ResultsViewController: UIViewController {
             timeLabel.text = String(format: "%02d:%02d", minutes, seconds)
         }
         
-        
         // set records view
         //.... Set Right/Left Bar Button item
         let rightBarButton = UIBarButtonItem(
@@ -61,7 +60,6 @@ class ResultsViewController: UIViewController {
             action: #selector(ResultsViewController.showHighScores(_:))
         )
         self.navigationItem.rightBarButtonItem = rightBarButton
-        
         
         // set records view
         //.... Set Right/Left Bar Button item

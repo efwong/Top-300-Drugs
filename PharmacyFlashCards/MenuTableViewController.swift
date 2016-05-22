@@ -82,28 +82,25 @@ class MenuTableViewController: BaseUITableViewController {
 
     // MARK: Helpers
     private func setMenuTableCell(cell: MenuTableViewCell, index: Int){
-        let even = index % 2
         switch(index){
         case 0:
-            loadMenuItemCell(cell, name: "Generic", leftRightIndex: 0)
-            loadMenuItemCell(cell, name: "Brand", leftRightIndex: 1)
+            loadMenuItemCell(cell, name: "Generic", leftRightIndex: 0, rowIndex: index)
+            loadMenuItemCell(cell, name: "Brand", leftRightIndex: 1, rowIndex: index)
         case 1:
-            loadMenuItemCell(cell, name: "Classification", leftRightIndex: 0)
-            loadMenuItemCell(cell, name: "Dosage", leftRightIndex: 1)
+            loadMenuItemCell(cell, name: "Classification", leftRightIndex: 0, rowIndex: index)
+            loadMenuItemCell(cell, name: "Dosage", leftRightIndex: 1, rowIndex: index)
         case 2:
-            loadMenuItemCell(cell, name: "Indication", leftRightIndex: 0)
-            loadMenuItemCell(cell, name: "Settings", leftRightIndex: 1)
+            loadMenuItemCell(cell, name: "Indication", leftRightIndex: 0, rowIndex: index)
+            loadMenuItemCell(cell, name: "Settings", leftRightIndex: 1, rowIndex: index)
         case 3:
-            loadMenuItemCell(cell, name: "Indication", leftRightIndex: 0)
-            loadMenuItemCell(cell, name: "Settings", leftRightIndex: 1)
+            loadMenuItemCell(cell, name: "Play", leftRightIndex: 0, rowIndex: index)
+            //loadMenuItemCell(cell, name: "Settings", leftRightIndex: 1, rowIndex: index)
+            //cell.rightImageView = nil
+            // clear right side
+            cell.rightImageView.backgroundColor = UIColor(white: 1, alpha: 0.0)
+            cell.rightImageTitle.text = ""
+            cell.rightImage.image = nil
         default: break
-        }
-        if even == 0{
-            cell.leftImageView.backgroundColor = CommonUtility.service.lightRedColor
-            cell.rightImageView.backgroundColor = CommonUtility.service.pinkColor
-        }else{
-            cell.leftImageView.backgroundColor = CommonUtility.service.pinkColor
-            cell.rightImageView.backgroundColor = CommonUtility.service.lightRedColor
         }
     }
     
@@ -112,7 +109,7 @@ class MenuTableViewController: BaseUITableViewController {
     //      cell: MenuTableViewCell
     //      name: String -> restorationId or name used to generate icons and text
     //      leftRingIndex: 0-> left, 1-> right, etc.
-    private func loadMenuItemCell(cell: MenuTableViewCell, name: String, leftRightIndex: Int){
+    private func loadMenuItemCell(cell: MenuTableViewCell, name: String, leftRightIndex: Int, rowIndex: Int){
         // add gesture action
         let gesture = UITapGestureRecognizer(target: self, action: #selector(MenuTableViewController.menuItemCellTapRecognizer(_:)))
         let iconName = "\(name)Icon"
@@ -126,6 +123,15 @@ class MenuTableViewController: BaseUITableViewController {
             cell.rightImageTitle.text = name
             cell.rightImageView.addGestureRecognizer(gesture)
             cell.rightImageView.restorationIdentifier = name
+        }
+        
+        let even = rowIndex % 2
+        if even == 0{
+            cell.leftImageView.backgroundColor = CommonUtility.service.lightRedColor
+            cell.rightImageView.backgroundColor = CommonUtility.service.pinkColor
+        }else{
+            cell.leftImageView.backgroundColor = CommonUtility.service.pinkColor
+            cell.rightImageView.backgroundColor = CommonUtility.service.lightRedColor
         }
     }
     
