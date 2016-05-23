@@ -35,22 +35,16 @@ class QuestionViewController: BaseUIViewController {
     var questionType: QuestionType?
     
     var questionManager: QuestionManager?
-    
+    var gameModeEnabled: Bool?
     var timer: NSTimer = NSTimer()
     var startTime: NSTimeInterval?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.questionManager = QuestionManager(questionType: questionType!, allDrugs: allDrugs!, answerCount: 4)
-        self.title = getTitleFromQuestionType(self.questionType!)
-        setLabels()
+        self.questionManager = QuestionManager(questionType: questionType!, allDrugs: allDrugs!, answerCount: 4, gameModeEnabled: (self.gameModeEnabled != nil) ? self.gameModeEnabled! : false)
         
-        var localFont = UIFont(name: "Arial-BoldMT", size: 20)
-        if(questionType == QuestionType.Indication){
-            localFont = UIFont(name: "Arial-BoldMT", size: 17)
-        }
-        setButtonFont(localFont!)
+        updateQuestionTypeDependentVariables()
         
         // start timer
         self.startTime = NSDate.timeIntervalSinceReferenceDate()
@@ -100,42 +94,6 @@ class QuestionViewController: BaseUIViewController {
         }
     }
     
-    
-    // Set labels for question and answers in the view
-    private func setLabels(){
-        let currentQuestion = self.questionManager?.getCurrentQuestion()
-        
-        questionLabel.text = currentQuestion?.getCorrectDrugLabel()
-        
-        let drugAnswerLabels: [String] = (currentQuestion?.getDrugAnswerLabels())!
-        
-        if(drugAnswerLabels.count >= 4){
-            answerButton1.setTitle(drugAnswerLabels[0], forState: UIControlState.Normal)
-            answerButton2.setTitle(drugAnswerLabels[1], forState: UIControlState.Normal)
-            answerButton3.setTitle(drugAnswerLabels[2], forState: UIControlState.Normal)
-            answerButton4.setTitle(drugAnswerLabels[3], forState: UIControlState.Normal)
-        }
-    }
-    
-    private func getTitleFromQuestionType(questionType: QuestionType) -> String{
-        var title = ""
-        switch (questionType){
-        case .GenericName:
-            title = "Quiz on Generics"
-        case .BrandName:
-            title = "Quiz on Brand"
-        case .Classification:
-            title = "Quiz on Classification"
-        case .Dosage:
-            title = "Quiz on Dosage"
-        case .Indication:
-            title = "Quiz on Indication"
-        default:
-            title = "Quiz"
-        }
-        return title
-    }
-    
     // check if user answer is correct
     // Yes -> move on to next question
     // No -> prompt user for correct answer
@@ -144,14 +102,14 @@ class QuestionViewController: BaseUIViewController {
             return false;
         }
         
-        var status = false
+        var status = false // answered correctly status
         let currentQuestion = self.questionManager?.getCurrentQuestion()
-        
+        self.questionType = self.questionManager?.questionType
         if !self.questionManager!.isAtLastQuestion() {
             if currentQuestion != nil && currentQuestion!.isCorrectDrug(drugIndex) {
                 self.questionManager?.getNextQuestion()
                 self.questionManager?.incrementAnswerStreak()
-                setLabels()
+                updateQuestionTypeDependentVariables()
                 status = true
                 updateStreakView(true, streakNumber: self.questionManager?.answerStreak ?? 0)
             }else{
@@ -183,12 +141,71 @@ class QuestionViewController: BaseUIViewController {
         }
     }
     
-    private func setButtonFont(font: UIFont){
-        answerButton1.titleLabel!.font = font
-        answerButton2.titleLabel!.font = font
-        answerButton3.titleLabel!.font = font
-        answerButton4.titleLabel!.font = font
+    // MARK: Methods to run when updating quesitonType
+    
+    private func updateQuestionTypeDependentVariables(){
+        updateQuestionType()
+        setTitleFromQuestionType()
+        setLabels()
+        updateFonts()
     }
+    
+    // Updates question type if game mode is enabled
+    private func updateQuestionType(){
+        if (self.gameModeEnabled != nil && self.gameModeEnabled == true) {
+            self.questionType = questionManager?.getQuestionType()
+        }
+    }
+    
+    // update title
+    private func setTitleFromQuestionType() {
+        var title = ""
+        switch (self.questionType!){
+        case .GenericName:
+            title = "Generics Question"
+        case .BrandName:
+            title = "Brand Question"
+        case .Classification:
+            title = "Classification Question"
+        case .Dosage:
+            title = "Dosage Question"
+        case .Indication:
+            title = "Indication Question"
+        default:
+            title = "Quiz"
+        }
+        self.title = title
+    }
+    
+    // Set labels for question and answers in the view
+    private func setLabels(){
+        let currentQuestion = self.questionManager?.getCurrentQuestion()
+        
+        questionLabel.text = currentQuestion?.getCorrectDrugLabel()
+        
+        let drugAnswerLabels: [String] = (currentQuestion?.getDrugAnswerLabels())!
+        
+        if(drugAnswerLabels.count >= 4){
+            answerButton1.setTitle(drugAnswerLabels[0], forState: UIControlState.Normal)
+            answerButton2.setTitle(drugAnswerLabels[1], forState: UIControlState.Normal)
+            answerButton3.setTitle(drugAnswerLabels[2], forState: UIControlState.Normal)
+            answerButton4.setTitle(drugAnswerLabels[3], forState: UIControlState.Normal)
+        }
+    }
+    
+    // update fonts
+    private func updateFonts(){
+        var localFont = UIFont(name: "Arial-BoldMT", size: 20)
+        if(self.questionType == QuestionType.Indication){
+            localFont = UIFont(name: "Arial-BoldMT", size: 17)
+        }
+        
+        answerButton1.titleLabel!.font = localFont
+        answerButton2.titleLabel!.font = localFont
+        answerButton3.titleLabel!.font = localFont
+        answerButton4.titleLabel!.font = localFont
+    }
+    
     
     // MARK: Objective C methods
     

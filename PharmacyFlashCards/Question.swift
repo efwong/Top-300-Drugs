@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum QuestionType {
+enum QuestionType:Int {
     case GenericName
     case BrandName
     case Classification

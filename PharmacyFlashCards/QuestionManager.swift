@@ -14,7 +14,8 @@ class QuestionManager {
     // MARK: Properties
     // number of answers to be shown (eg. 4)
     let answerCount: Int
-    let questionType: QuestionType
+    var questionType: QuestionType
+    var gameModeEnabled: Bool
     let allDrugs : [Drug]
     var currentDrugIndex : Int
     var currentDrug : Drug{
@@ -36,13 +37,14 @@ class QuestionManager {
     // Inputs:
     //      questionType -> type of question (Brand, Generic, etc)ß
     //      allDrugs -> array of drugs
-    init(questionType: QuestionType, allDrugs: [Drug], answerCount: Int=4){
+    init(questionType: QuestionType, allDrugs: [Drug], answerCount: Int=4, gameModeEnabled: Bool = false){
         self.questionType = questionType
         self.allDrugs = allDrugs.shuffle()
         self.currentDrugIndex = 0
         self.answerCount = answerCount
         self.questionList = []
         self.answerStreak = 0
+        self.gameModeEnabled = gameModeEnabled
         self.currentQuestion = createQuestion()
     }
     
@@ -54,6 +56,10 @@ class QuestionManager {
     func getNextQuestion() -> Question{
         if self.currentDrugIndex < self.allDrugs.count {
             self.currentDrugIndex += 1
+            
+            // get random question type if gameModeEnabled == true
+            UpdateQuestionTypeByGameMode()
+            
             self.currentQuestion = createQuestion()
         }
         return self.currentQuestion!
@@ -61,6 +67,10 @@ class QuestionManager {
     
     func getCurrentQuestion() -> Question{
         return self.currentQuestion!
+    }
+    
+    func getQuestionType() -> QuestionType?{
+        return self.questionType
     }
     
     // MARK: PRIVATE METHODS
@@ -97,6 +107,10 @@ class QuestionManager {
         return returnQuestion
     }
     
+    // create answer set for current drug while removing duplicates
+    // returns tuple (Int?, [Drug])
+    //              first element -> position of correct drug if it exists
+    //              second element -> array of drugs as the answer set
     func createAnswerSetForDrug(answerCount: Int) throws -> (Int?, [Drug]){
         var result:[Drug] = []
         var index:Int?
@@ -129,12 +143,30 @@ class QuestionManager {
         return (index, result)
     }
     
+    // get list of questions that user has seen already
+    func getAllUserQuestions() -> [Question]{
+        return self.questionList
+    }
+    
+    // MARK: Answer streak methods
+    func resetAnswerStreak() {
+        self.answerStreak = 0
+    }
+    
+    func incrementAnswerStreak() {
+        self.answerStreak += 1
+    }
+    
+    
+    // MARK: HELPER
+    
+    // Check for duplicates while creating answer set
     private func StoreAndCheckDuplicateQuestions(inout duplicatesMap: [String:Int], drug: Drug) -> Bool{
         var status = false
         var value:String = ""
         switch self.questionType{
         case .GenericName:
-                value = drug.generic ?? ""
+            value = drug.generic ?? ""
         case .BrandName:
             value = drug.brand ?? ""
         case .Classification:
@@ -156,18 +188,11 @@ class QuestionManager {
         return status
     }
     
-    func getAllUserQuestions() -> [Question]{
-        return self.questionList
+    // If gameModeEnabled = true -> get a random question type and update current question type
+    // else get current question type
+    private func UpdateQuestionTypeByGameMode(){
+        if self.gameModeEnabled {
+            self.questionType = QuestionUtility.GetRandomQuestionType()!
+        }
     }
-    
-    // MARK: Answer streak methods
-    func resetAnswerStreak() {
-        self.answerStreak = 0
-    }
-    
-    func incrementAnswerStreak() {
-        self.answerStreak += 1
-    }
-    
-
 }

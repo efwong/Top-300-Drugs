@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1E8F451F1030A4EFAF41FE69 /* Pods_PharmacyFlashCards.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4667E401817D5EE6E2DFBB35 /* Pods_PharmacyFlashCards.framework */; };
+		5E46AE031CF2A84500FE70FE /* QuestionUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E46AE021CF2A84500FE70FE /* QuestionUtility.swift */; };
 		5E4C1CFF1C8D3C0F003641F5 /* MenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C1CFE1C8D3C0F003641F5 /* MenuTableViewController.swift */; };
 		5E4C1D011C8D41B7003641F5 /* BaseUITableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C1D001C8D41B7003641F5 /* BaseUITableViewController.swift */; };
 		5E4C1D031C8D49A3003641F5 /* GenericQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C1D021C8D49A3003641F5 /* GenericQuestion.swift */; };
@@ -66,6 +67,7 @@
 
 /* Begin PBXFileReference section */
 		4667E401817D5EE6E2DFBB35 /* Pods_PharmacyFlashCards.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PharmacyFlashCards.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E46AE021CF2A84500FE70FE /* QuestionUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionUtility.swift; sourceTree = "<group>"; };
 		5E4C1CFE1C8D3C0F003641F5 /* MenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewController.swift; sourceTree = "<group>"; };
 		5E4C1D001C8D41B7003641F5 /* BaseUITableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUITableViewController.swift; sourceTree = "<group>"; };
 		5E4C1D021C8D49A3003641F5 /* GenericQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenericQuestion.swift; sourceTree = "<group>"; };
@@ -155,6 +157,14 @@
 				4667E401817D5EE6E2DFBB35 /* Pods_PharmacyFlashCards.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5E46AE011CF2A83600FE70FE /* Question */ = {
+			isa = PBXGroup;
+			children = (
+				5E46AE021CF2A84500FE70FE /* QuestionUtility.swift */,
+			);
+			name = Question;
 			sourceTree = "<group>";
 		};
 		5E533F2C1C577079005AC245 /* QuestionView */ = {
@@ -353,6 +363,7 @@
 		E82E0C341C5426B9007EED05 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				5E46AE011CF2A83600FE70FE /* Question */,
 				E86C5FFB1C68741600998BC3 /* Common */,
 				E82E0C361C5426F0007EED05 /* DataPreloader */,
 				E82E0C1E1C542192007EED05 /* CoreData */,
@@ -610,6 +621,7 @@
 				5ED088D51CC325D600F12691 /* SettingsTableViewController.swift in Sources */,
 				E82E0BE61C5415E9007EED05 /* AppDelegate.swift in Sources */,
 				5ED21A081C70143600DA145F /* QuestionService.swift in Sources */,
+				5E46AE031CF2A84500FE70FE /* QuestionUtility.swift in Sources */,
 				E82E0C331C542472007EED05 /* DrugService.swift in Sources */,
 				5ED088D81CC330AD00F12691 /* UserSettingsService.swift in Sources */,
 				5E4C1D011C8D41B7003641F5 /* BaseUITableViewController.swift in Sources */,

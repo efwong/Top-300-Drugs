@@ -12,6 +12,7 @@ import UIKit
 class CommonUtility{
     
     static let service = CommonUtility()
+    static let maxCountQuestionType:Int = 5
     
     var darkRedColor:UIColor? = nil
     var lightRedColor:UIColor? = nil

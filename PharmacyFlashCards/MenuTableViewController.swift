@@ -160,6 +160,7 @@ class MenuTableViewController: BaseUITableViewController {
             }else{
                 // show questions
                 let questionType:QuestionType? = getQuestionType(view)
+                let isGameModeEnabled:Bool = (view.restorationIdentifier == "Play")
                 // Get the new view controller using segue.destinationViewController.
                 // Pass the selected object to the new view controller.
                 let selectedDrugs = drugService?.selectByUserSettings()
@@ -168,6 +169,7 @@ class MenuTableViewController: BaseUITableViewController {
                     if let destinationVC = segue.destinationViewController as? QuestionViewController{
                         destinationVC.allDrugs = selectedDrugs
                         destinationVC.questionType = questionType
+                        destinationVC.gameModeEnabled = isGameModeEnabled
                     }
                 }
             }
@@ -191,6 +193,9 @@ class MenuTableViewController: BaseUITableViewController {
         }
         else if view.restorationIdentifier  == "Indication"{
             questionType = QuestionType.Indication
+        }else if view.restorationIdentifier == "Play"{
+            // is play -> get random questionType
+            questionType = QuestionUtility.GetRandomQuestionType()
         }else{
             // is settings
         }
