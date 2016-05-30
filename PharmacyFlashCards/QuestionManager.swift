@@ -31,6 +31,11 @@ class QuestionManager {
     
     // answer streak of user (how many correct the user got in a row)
     var answerStreak: Int
+    // highest streak for the current question set
+    var highestAnswerStreak: Int
+    
+    // high score
+    var highScore: Double
     
     
     // MARK: INIT
@@ -44,6 +49,8 @@ class QuestionManager {
         self.answerCount = answerCount
         self.questionList = []
         self.answerStreak = 0
+        self.highestAnswerStreak = 0
+        self.highScore = 0
         self.gameModeEnabled = gameModeEnabled
         self.currentQuestion = createQuestion()
     }
@@ -153,10 +160,42 @@ class QuestionManager {
         self.answerStreak = 0
     }
     
-    func incrementAnswerStreak() {
+    private func incrementAnswerStreak() {
         self.answerStreak += 1
+        if(self.answerStreak > self.highestAnswerStreak){
+            self.highestAnswerStreak = self.answerStreak
+        }
     }
     
+    // get answer streak
+    func getAnswerStreak() -> Int{
+        return self.answerStreak
+    }
+    
+    // get highest answer streak from current question set
+    func getHighestAnswerStreak() -> Int{
+        return self.highestAnswerStreak
+    }
+    
+    // MARK: High Score methods
+    func getHighScore() -> Double{
+        return self.highScore
+    }
+    
+    // update high score if game mode is on
+    private func updateHighScore(answerStreak: Int){
+        if self.gameModeEnabled{
+            // calculate high score
+            self.highScore = self.highScore + pow(2, Double(answerStreak))
+        }
+    }
+    
+    
+    // update all scoring values
+    func updateScores(){
+        self.incrementAnswerStreak()
+        updateHighScore(self.answerStreak)
+    }
     
     // MARK: HELPER
     

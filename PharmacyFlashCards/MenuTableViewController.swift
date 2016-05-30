@@ -159,13 +159,13 @@ class MenuTableViewController: BaseUITableViewController {
                 // show settings
             }else{
                 // show questions
-                let questionType:QuestionType? = getQuestionType(view)
+                let questionType:QuestionType? = QuestionUtility.getQuestionType(view)
                 let isGameModeEnabled:Bool = (view.restorationIdentifier == "Play")
-                // Get the new view controller using segue.destinationViewController.
-                // Pass the selected object to the new view controller.
+                // grab new drug set
                 let selectedDrugs = drugService?.selectByUserSettings()
                 
                 if questionType != nil {
+                    // Get the new view controller using segue.destinationViewController.
                     if let destinationVC = segue.destinationViewController as? QuestionViewController{
                         destinationVC.allDrugs = selectedDrugs
                         destinationVC.questionType = questionType
@@ -176,31 +176,31 @@ class MenuTableViewController: BaseUITableViewController {
         }
     }
     
-    private func getQuestionType(view: UIView) -> QuestionType?{
-        var questionType: QuestionType? = nil
-        
-        if view.restorationIdentifier == "Generic" {
-            questionType = QuestionType.GenericName
-        }
-        else if view.restorationIdentifier == "Brand" {
-            questionType = QuestionType.BrandName
-        }
-        else if view.restorationIdentifier == "Classification" {
-            questionType = QuestionType.Classification
-        }
-        else if view.restorationIdentifier == "Dosage" {
-            questionType = QuestionType.Dosage
-        }
-        else if view.restorationIdentifier  == "Indication"{
-            questionType = QuestionType.Indication
-        }else if view.restorationIdentifier == "Play"{
-            // is play -> get random questionType
-            questionType = QuestionUtility.GetRandomQuestionType()
-        }else{
-            // is settings
-        }
-        return questionType
-    }
+//    private func getQuestionType(view: UIView) -> QuestionType?{
+//        var questionType: QuestionType? = nil
+//        
+//        if view.restorationIdentifier == "Generic" {
+//            questionType = QuestionType.GenericName
+//        }
+//        else if view.restorationIdentifier == "Brand" {
+//            questionType = QuestionType.BrandName
+//        }
+//        else if view.restorationIdentifier == "Classification" {
+//            questionType = QuestionType.Classification
+//        }
+//        else if view.restorationIdentifier == "Dosage" {
+//            questionType = QuestionType.Dosage
+//        }
+//        else if view.restorationIdentifier  == "Indication"{
+//            questionType = QuestionType.Indication
+//        }else if view.restorationIdentifier == "Play"{
+//            // is play -> get random questionType
+//            questionType = QuestionUtility.GetRandomQuestionType()
+//        }else{
+//            // is settings
+//        }
+//        return questionType
+//    }
     
 //    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
 //        let questionType = getQuestionType(identifier!)

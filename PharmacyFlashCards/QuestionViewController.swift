@@ -29,6 +29,9 @@ class QuestionViewController: BaseUIViewController {
     
     @IBOutlet weak var currentTimeLabel: UILabel!
     
+    @IBOutlet weak var currentScoreLabel: UILabel!
+    
+    @IBOutlet weak var currentScoreView: UIView!
     
     var allDrugs:[Drug]?
     
@@ -48,11 +51,9 @@ class QuestionViewController: BaseUIViewController {
         
         // start timer
         self.startTime = NSDate.timeIntervalSinceReferenceDate()
-        self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
-            target: self,
-            selector: #selector(QuestionViewController.countUp),
-            userInfo: nil,
-            repeats: true)
+        
+        // sets timer depending on gameMode
+        setUpTimer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -91,6 +92,10 @@ class QuestionViewController: BaseUIViewController {
                 resultsView.questionManager = self.questionManager
                 resultsView.totalSeconds = totalSeconds
             }
+        }else if (segue.identifier == "showGameResultsScene"){
+            if let gameResultsView = segue.destinationViewController as? GameResultsViewController{
+                gameResultsView.questionManager = self.questionManager
+            }
         }
     }
     
@@ -107,11 +112,12 @@ class QuestionViewController: BaseUIViewController {
         self.questionType = self.questionManager?.questionType
         if !self.questionManager!.isAtLastQuestion() {
             if currentQuestion != nil && currentQuestion!.isCorrectDrug(drugIndex) {
+                self.questionManager?.updateScores()
                 self.questionManager?.getNextQuestion()
-                self.questionManager?.incrementAnswerStreak()
                 updateQuestionTypeDependentVariables()
                 status = true
-                updateStreakView(true, streakNumber: self.questionManager?.answerStreak ?? 0)
+                updateStreakView(true, streakNumber: self.questionManager?.getAnswerStreak() ?? 0)
+                updateScoringView(true, highScore: self.questionManager?.getHighScore() ?? 0)
             }else{
                 status = false
                 self.questionManager?.resetAnswerStreak()
@@ -120,7 +126,11 @@ class QuestionViewController: BaseUIViewController {
             }
         }else{
             // is at last question
-            performSegueWithIdentifier("showResultsScene", sender: sender)
+            if(self.gameModeEnabled != nil && self.gameModeEnabled!){
+                performSegueWithIdentifier("showGameResultsScene", sender: sender)
+            }else{
+                performSegueWithIdentifier("showResultsScene", sender: sender)
+            }
         }
         return status
     }
@@ -141,6 +151,12 @@ class QuestionViewController: BaseUIViewController {
         }
     }
     
+    private func updateScoringView(status: Bool, highScore: Double){
+        if status{
+            currentScoreLabel.text = highScore.ToStringWithPrecision(0, max: 0)
+        }
+    }
+    
     // MARK: Methods to run when updating quesitonType
     
     private func updateQuestionTypeDependentVariables(){
@@ -154,6 +170,9 @@ class QuestionViewController: BaseUIViewController {
     private func updateQuestionType(){
         if (self.gameModeEnabled != nil && self.gameModeEnabled == true) {
             self.questionType = questionManager?.getQuestionType()
+            self.currentScoreView.hidden = false
+        }else{
+            self.currentScoreView.hidden = true
         }
     }
     
@@ -207,15 +226,75 @@ class QuestionViewController: BaseUIViewController {
     }
     
     
-    // MARK: Objective C methods
+    // MARK: Timer methods
+    
+    private func setUpTimer(){
+        if (self.gameModeEnabled != nil && self.gameModeEnabled!) {
+            guard let timeLimit = CommonUtility.service.AppConfig?["GameTimeLimit"]?.integerValue else{
+                timer.invalidate()
+                return
+            }
+            let seconds = timeLimit % 60
+            let minutes = (timeLimit / 60) % 60
+            currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+            // count down from 60
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+                                                                target: self,
+                                                                selector: #selector(QuestionViewController.countDown),
+                                                                userInfo: nil,
+                                                                repeats: true)
+        }
+        else{
+            currentTimeLabel.text = String(format: "%02d:%02d", 0, 0)
+            // count up
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+                                                                target: self,
+                                                                selector: #selector(QuestionViewController.countUp),
+                                                                userInfo: nil,
+                                                                repeats: true)
+        }
+    }
     
     // CountUp: increment timer
-    @objc func countUp() {
+    @objc func countUp(timer: NSTimer) {
         if self.startTime != nil{
             let currentDuration = Int(NSDate.timeIntervalSinceReferenceDate() - self.startTime!)
             let seconds = currentDuration % 60
             let minutes = (currentDuration / 60) % 60
             currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+            
+            guard let timeLimit = CommonUtility.service.AppConfig?["GameTimeLimit"]?.integerValue else{
+                timer.invalidate()
+                return
+            }
+            
+            // time out after 45 secs
+            if(currentDuration >= timeLimit) {
+                timer.invalidate()
+                performSegueWithIdentifier("showResultsScene", sender: self)
+            }
+        }
+    }
+    
+    // For game mode, count down from 45
+    @objc func countDown(timer: NSTimer){
+        if self.startTime != nil{
+            
+            guard let timeLimit = CommonUtility.service.AppConfig?["GameTimeLimit"]?.integerValue else{
+                timer.invalidate()
+                return
+            }
+            
+            let currentDuration = timeLimit - Int(NSDate.timeIntervalSinceReferenceDate() - self.startTime!)
+            let seconds = (currentDuration % 60)
+            let minutes = (currentDuration / 60) % 60
+            currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+            
+            // time out after 45 secs
+            if(currentDuration <= 0) {
+                timer.invalidate()
+                performSegueWithIdentifier("showResultsScene", sender: self)
+            }
         }
     }
 

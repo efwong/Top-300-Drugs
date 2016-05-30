@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class QuestionUtility {
     
@@ -15,4 +16,29 @@ class QuestionUtility {
         return QuestionType(rawValue: Int(randomQuestonTypeInt));
     }
     
+    static func getQuestionType(view: UIView) -> QuestionType?{
+        var questionType: QuestionType? = nil
+        
+        if view.restorationIdentifier == "Generic" {
+            questionType = QuestionType.GenericName
+        }
+        else if view.restorationIdentifier == "Brand" {
+            questionType = QuestionType.BrandName
+        }
+        else if view.restorationIdentifier == "Classification" {
+            questionType = QuestionType.Classification
+        }
+        else if view.restorationIdentifier == "Dosage" {
+            questionType = QuestionType.Dosage
+        }
+        else if view.restorationIdentifier  == "Indication"{
+            questionType = QuestionType.Indication
+        }else if view.restorationIdentifier == "Play"{
+            // is play -> get random questionType
+            questionType = QuestionUtility.GetRandomQuestionType()
+        }else{
+            // is settings
+        }
+        return questionType
+    }
 }

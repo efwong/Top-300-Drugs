@@ -17,11 +17,13 @@ class CommonUtility{
     var darkRedColor:UIColor? = nil
     var lightRedColor:UIColor? = nil
     var pinkColor:UIColor? = nil
+    var AppConfig:NSDictionary? = nil
     
     private init(){
         self.darkRedColor = GetDarkRedColor()
         self.lightRedColor = GetLightRedColor()
         self.pinkColor = GetPinkColor()
+        self.AppConfig = loadAppConfig()
     }
     
     private func GetDarkRedColor() -> UIColor{
@@ -34,5 +36,13 @@ class CommonUtility{
     
     private func GetPinkColor() -> UIColor{
         return UIColor(red: 252.0/255, green: 192.0/255, blue: 197.0/255, alpha: 0.5)
+    }
+    
+    private func loadAppConfig() -> NSDictionary?{
+        var myDict: NSDictionary?
+        if let path = NSBundle.mainBundle().pathForResource("AppConfig", ofType: "plist") {
+            myDict = NSDictionary(contentsOfFile: path)
+        }
+        return myDict
     }
 }

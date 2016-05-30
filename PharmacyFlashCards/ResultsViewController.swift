@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ResultsViewController: UIViewController {
+class ResultsViewController: BaseResultsViewController {
 
     // MARK: properties
     
@@ -41,7 +41,7 @@ class ResultsViewController: UIViewController {
         totalCountLabel.text = "\(totalCount)"
         
         // set streak count
-        let streak = self.questionManager?.answerStreak ?? 0
+        let streak = self.questionManager?.getHighestAnswerStreak() ?? 0
         streakCountLabel.text = "\(streak)"
         
         // set time
@@ -50,27 +50,17 @@ class ResultsViewController: UIViewController {
             let minutes = (self.totalSeconds! / 60) % 60
             timeLabel.text = String(format: "%02d:%02d", minutes, seconds)
         }
-        
+
         // set records view
         //.... Set Right/Left Bar Button item
-        let rightBarButton = UIBarButtonItem(
-            title: "Hall of Fame",
-            style: .Plain,
-            target: self,
-            action: #selector(ResultsViewController.showHighScores(_:))
-        )
-        self.navigationItem.rightBarButtonItem = rightBarButton
-        
-        // set records view
-        //.... Set Right/Left Bar Button item
-        let leftBarButton = UIBarButtonItem(
-            title: "Main Menu",
-            style: .Plain,
-            target: self,
-            action: #selector(ResultsViewController.showMainMenu(_:))
-        )
-        //self.navigationItem.backBarButtonItem = leftBarButton
-        self.navigationItem.leftBarButtonItem = leftBarButton
+//        let leftBarButton = UIBarButtonItem(
+//            title: "Main Menu",
+//            style: .Plain,
+//            target: self,
+//            action: #selector(ResultsViewController.showMainMenu(_:))
+//        )
+//        //self.navigationItem.backBarButtonItem = leftBarButton
+//        self.navigationItem.leftBarButtonItem = leftBarButton
     }
 
     override func didReceiveMemoryWarning() {
@@ -78,23 +68,12 @@ class ResultsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func showHighScores(sender: AnyObject?) {
-        performSegueWithIdentifier("showRecordsScene", sender: sender)
-    }
-    
-    func showMainMenu(sender: AnyObject?){
-        performSegueWithIdentifier("showMainMenu", sender: sender)
-    }
-    
     
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showRecordsScene"{
-            if segue.destinationViewController is RecordsViewController{
-            }
-        }else if segue.identifier == "showMainMenu"{
+        if segue.identifier == "showMainMenu"{
         }
     }
  

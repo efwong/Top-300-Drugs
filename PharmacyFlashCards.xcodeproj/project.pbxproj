@@ -16,6 +16,7 @@
 		5E4C1D091C8D505D003641F5 /* IndicationQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C1D081C8D505D003641F5 /* IndicationQuestion.swift */; };
 		5E4C1D0B1C8D52BB003641F5 /* DosageQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C1D0A1C8D52BB003641F5 /* DosageQuestion.swift */; };
 		5E6CF1E01C54919F007E1725 /* drugs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CF1DF1C54919F007E1725 /* drugs.csv */; };
+		5E94802D1CF5998F0060E540 /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E94802C1CF5998F0060E540 /* AppConfig.plist */; };
 		5EB077381CEEFED4007BF21F /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB077371CEEFED4007BF21F /* MenuTableViewCell.swift */; };
 		5ED088D51CC325D600F12691 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED088D41CC325D600F12691 /* SettingsTableViewController.swift */; };
 		5ED088D81CC330AD00F12691 /* UserSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED088D71CC330AD00F12691 /* UserSettingsService.swift */; };
@@ -25,8 +26,11 @@
 		5ED21A0A1C7015FF00DA145F /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED21A091C7015FF00DA145F /* QuestionManager.swift */; };
 		5ED75A6F1CE04F23000F3F15 /* LaunchScreenA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ED75A6E1CE04F23000F3F15 /* LaunchScreenA.storyboard */; };
 		5EF0D3FE1CE8602F004B19DD /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF0D3FD1CE8602F004B19DD /* ResultsViewController.swift */; };
+		5EF4FF431CFBF255005BE6B9 /* GameResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4FF421CFBF255005BE6B9 /* GameResultsViewController.swift */; };
+		5EF4FF451CFBFB47005BE6B9 /* BaseResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4FF441CFBFB47005BE6B9 /* BaseResultsViewController.swift */; };
+		5EF4FF471CFC012A005BE6B9 /* ScoringService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4FF461CFC012A005BE6B9 /* ScoringService.swift */; };
+		5EF4FF491CFC09DE005BE6B9 /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4FF481CFC09DE005BE6B9 /* CommonExtensions.swift */; };
 		5EF958E91CF1428A00CDF1C2 /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF958E81CF1428A00CDF1C2 /* CommonUtility.swift */; };
-		5EFA410D1CE98B4600EB2EC6 /* RecordsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EFA410C1CE98B4600EB2EC6 /* RecordsViewController.swift */; };
 		E82E0BE61C5415E9007EED05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BE51C5415E9007EED05 /* AppDelegate.swift */; };
 		E82E0BE81C5415E9007EED05 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BE71C5415E9007EED05 /* MainViewController.swift */; };
 		E82E0BEB1C5415E9007EED05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82E0BE91C5415E9007EED05 /* Main.storyboard */; };
@@ -76,6 +80,7 @@
 		5E4C1D0A1C8D52BB003641F5 /* DosageQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DosageQuestion.swift; sourceTree = "<group>"; };
 		5E6CF1DF1C54919F007E1725 /* drugs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = drugs.csv; sourceTree = "<group>"; };
 		5E7F63961C54B82600546DC3 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		5E94802C1CF5998F0060E540 /* AppConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppConfig.plist; sourceTree = "<group>"; };
 		5EB077371CEEFED4007BF21F /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		5ED088D41CC325D600F12691 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		5ED088D71CC330AD00F12691 /* UserSettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsService.swift; sourceTree = "<group>"; };
@@ -83,8 +88,11 @@
 		5ED21A091C7015FF00DA145F /* QuestionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
 		5ED75A6E1CE04F23000F3F15 /* LaunchScreenA.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreenA.storyboard; sourceTree = "<group>"; };
 		5EF0D3FD1CE8602F004B19DD /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		5EF4FF421CFBF255005BE6B9 /* GameResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResultsViewController.swift; sourceTree = "<group>"; };
+		5EF4FF441CFBFB47005BE6B9 /* BaseResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResultsViewController.swift; sourceTree = "<group>"; };
+		5EF4FF461CFC012A005BE6B9 /* ScoringService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoringService.swift; sourceTree = "<group>"; };
+		5EF4FF481CFC09DE005BE6B9 /* CommonExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonExtensions.swift; sourceTree = "<group>"; };
 		5EF958E81CF1428A00CDF1C2 /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
-		5EFA410C1CE98B4600EB2EC6 /* RecordsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordsViewController.swift; sourceTree = "<group>"; };
 		748BEC80311941E68AA256DF /* Pods-PharmacyFlashCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyFlashCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-PharmacyFlashCards/Pods-PharmacyFlashCards.release.xcconfig"; sourceTree = "<group>"; };
 		C696FB88CEAAEE2A2A5D3236 /* Pods-PharmacyFlashCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyFlashCards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PharmacyFlashCards/Pods-PharmacyFlashCards.debug.xcconfig"; sourceTree = "<group>"; };
 		E82E0BE21C5415E9007EED05 /* PharmacyFlashCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PharmacyFlashCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,19 +191,21 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
-		5ED088D61CC3309500F12691 /* UserSettings */ = {
+		5ED088D61CC3309500F12691 /* UserStorage */ = {
 			isa = PBXGroup;
 			children = (
 				5ED088D71CC330AD00F12691 /* UserSettingsService.swift */,
+				5EF4FF461CFC012A005BE6B9 /* ScoringService.swift */,
 			);
-			name = UserSettings;
+			name = UserStorage;
 			sourceTree = "<group>";
 		};
 		5EF0D3FC1CE85FBC004B19DD /* ResultsView */ = {
 			isa = PBXGroup;
 			children = (
 				5EF0D3FD1CE8602F004B19DD /* ResultsViewController.swift */,
-				5EFA410C1CE98B4600EB2EC6 /* RecordsViewController.swift */,
+				5EF4FF421CFBF255005BE6B9 /* GameResultsViewController.swift */,
+				5EF4FF441CFBFB47005BE6B9 /* BaseResultsViewController.swift */,
 			);
 			name = ResultsView;
 			sourceTree = "<group>";
@@ -314,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				E82E0BF41C5415E9007EED05 /* Info.plist */,
+				5E94802C1CF5998F0060E540 /* AppConfig.plist */,
 			);
 			name = Config;
 			sourceTree = "<group>";
@@ -321,7 +332,7 @@
 		E82E0C1C1C54216E007EED05 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5ED088D61CC3309500F12691 /* UserSettings */,
+				5ED088D61CC3309500F12691 /* UserStorage */,
 				E86C5FF81C6872F300998BC3 /* Question */,
 				E82E0C311C542464007EED05 /* Drug */,
 			);
@@ -402,6 +413,7 @@
 			children = (
 				E86C5FFC1C68742600998BC3 /* Randomizer.swift */,
 				5EF958E81CF1428A00CDF1C2 /* CommonUtility.swift */,
+				5EF4FF481CFC09DE005BE6B9 /* CommonExtensions.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -530,6 +542,7 @@
 				5ED75A6F1CE04F23000F3F15 /* LaunchScreenA.storyboard in Resources */,
 				E82E0BF31C5415E9007EED05 /* LaunchScreen.storyboard in Resources */,
 				5E6CF1E01C54919F007E1725 /* drugs.csv in Resources */,
+				5E94802D1CF5998F0060E540 /* AppConfig.plist in Resources */,
 				E8CB960E1C54575C008219AC /* test.csv in Resources */,
 				E82E0BF01C5415E9007EED05 /* Assets.xcassets in Resources */,
 				E82E0BEB1C5415E9007EED05 /* Main.storyboard in Resources */,
@@ -606,6 +619,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E82E0BE81C5415E9007EED05 /* MainViewController.swift in Sources */,
+				5EF4FF491CFC09DE005BE6B9 /* CommonExtensions.swift in Sources */,
 				5EF958E91CF1428A00CDF1C2 /* CommonUtility.swift in Sources */,
 				5E4C1D051C8D49DF003641F5 /* ClassificationQuestion.swift in Sources */,
 				5EB077381CEEFED4007BF21F /* MenuTableViewCell.swift in Sources */,
@@ -619,16 +633,18 @@
 				E86C5FF31C684EFB00998BC3 /* PharmacyFlashCards.xcdatamodeld in Sources */,
 				E86C5FEE1C684E5300998BC3 /* Drug+CoreDataProperties.swift in Sources */,
 				5ED088D51CC325D600F12691 /* SettingsTableViewController.swift in Sources */,
+				5EF4FF451CFBFB47005BE6B9 /* BaseResultsViewController.swift in Sources */,
 				E82E0BE61C5415E9007EED05 /* AppDelegate.swift in Sources */,
 				5ED21A081C70143600DA145F /* QuestionService.swift in Sources */,
 				5E46AE031CF2A84500FE70FE /* QuestionUtility.swift in Sources */,
 				E82E0C331C542472007EED05 /* DrugService.swift in Sources */,
 				5ED088D81CC330AD00F12691 /* UserSettingsService.swift in Sources */,
+				5EF4FF431CFBF255005BE6B9 /* GameResultsViewController.swift in Sources */,
+				5EF4FF471CFC012A005BE6B9 /* ScoringService.swift in Sources */,
 				5E4C1D011C8D41B7003641F5 /* BaseUITableViewController.swift in Sources */,
 				5ED21A071C70143200DA145F /* QuestionViewController.swift in Sources */,
 				E86C5FF71C68723E00998BC3 /* BaseUIViewController.swift in Sources */,
 				5E4C1D0B1C8D52BB003641F5 /* DosageQuestion.swift in Sources */,
-				5EFA410D1CE98B4600EB2EC6 /* RecordsViewController.swift in Sources */,
 				5E4C1CFF1C8D3C0F003641F5 /* MenuTableViewController.swift in Sources */,
 				5E4C1D091C8D505D003641F5 /* IndicationQuestion.swift in Sources */,
 				E82E0C2E1C542441007EED05 /* DrugRepository.swift in Sources */,
@@ -775,7 +791,7 @@
 			baseConfigurationReference = C696FB88CEAAEE2A2A5D3236 /* Pods-PharmacyFlashCards.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Edwin Wong (U989RZC3BD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PharmacyFlashCards/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -791,7 +807,7 @@
 			baseConfigurationReference = 748BEC80311941E68AA256DF /* Pods-PharmacyFlashCards.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Edwin Wong (U989RZC3BD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = PharmacyFlashCards/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
