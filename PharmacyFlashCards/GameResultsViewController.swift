@@ -69,21 +69,25 @@ class GameResultsViewController: BaseResultsViewController {
  
     // MARK: Helpers
     private func UpdateHighScoreList(){
-        self.topHighScore1.hidden = true
-        self.topHighScore2.hidden = true
-        self.topHighScore3.hidden = true
+//        self.topHighScore1.hidden = true
+//        self.topHighScore2.hidden = true
+//        self.topHighScore3.hidden = true
+        
+        self.topHighScore1.text="1."
+        self.topHighScore2.text="2."
+        self.topHighScore3.text="3."
         
         if self.highScores?.count > 0 {
-            self.topHighScore1.text = self.highScores![0].ToStringWithPrecision(0,max:0)
-            self.topHighScore1.hidden = false
+            self.topHighScore1.text = "1. \(self.highScores![0].ToStringWithPrecision(0,max:0))"
+//            self.topHighScore1.hidden = false
         }
         if self.highScores?.count > 1{
-            self.topHighScore2.text = self.highScores![1].ToStringWithPrecision(0,max:0)
-            self.topHighScore1.hidden = false
+            self.topHighScore2.text = "2. \(self.highScores![1].ToStringWithPrecision(0,max:0))"
+//            self.topHighScore2.hidden = false
         }
         if self.highScores?.count > 2 {
-            self.topHighScore3.text = self.highScores![2].ToStringWithPrecision(0,max:0)
-            self.topHighScore3.hidden = false
+            self.topHighScore3.text = "3. \(self.highScores![2].ToStringWithPrecision(0,max:0))"
+//            self.topHighScore3.hidden = false
         }
     }
 

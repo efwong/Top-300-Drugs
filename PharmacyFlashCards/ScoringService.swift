@@ -65,7 +65,7 @@ class ScoringService{
     func saveHighScoreList(highScores: [Double]){
         let defaults = NSUserDefaults.standardUserDefaults()
         let sortedHighScores = highScores.sort{
-            return $0 < $1
+            return $0 > $1
         }
         defaults.setObject(sortedHighScores, forKey: highScoresArrayKey)
     }

@@ -1420,19 +1420,19 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bg-ml-SAC">
                                         <rect key="frame" x="170" y="50" width="240" height="115"/>
                                         <subviews>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDs-hg-NgO">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VDs-hg-NgO">
                                                 <rect key="frame" x="10" y="5" width="12" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NmT-Oh-SM4">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NmT-Oh-SM4">
                                                 <rect key="frame" x="10" y="87" width="15" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KV-Lz-kxs">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2KV-Lz-kxs">
                                                 <rect key="frame" x="10" y="46" width="15" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1542,6 +1542,7 @@
                         <outlet property="topHighScore2" destination="2KV-Lz-kxs" id="dX5-Ds-kP6"/>
                         <outlet property="topHighScore3" destination="NmT-Oh-SM4" id="BAc-pf-Ry2"/>
                         <segue destination="tsL-Hm-jmv" kind="show" identifier="showQuestionScene" id="A4k-7x-AKV"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="showMainMenu" id="TD2-te-4fb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsy-Xi-Ioh" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1551,7 +1552,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2835" y="1329"/>
+            <point key="canvasLocation" x="2643" y="1429"/>
         </scene>
     </scenes>
     <resources>
@@ -1566,8 +1567,8 @@
         <image name="SettingsIcon" width="85" height="85"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uXF-aS-xEp"/>
         <segue reference="A4k-7x-AKV"/>
+        <segue reference="TD2-te-4fb"/>
         <segue reference="n6H-32-KH5"/>
     </inferredMetricsTieBreakers>
 </document>
