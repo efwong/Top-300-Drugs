@@ -162,7 +162,15 @@ class MenuTableViewController: BaseUITableViewController {
                 let questionType:QuestionType? = QuestionUtility.getQuestionType(view)
                 let isGameModeEnabled:Bool = (view.restorationIdentifier == "Play")
                 // grab new drug set
-                let selectedDrugs = drugService?.selectByUserSettings()
+                var selectedDrugs = [Drug]?()
+                
+                if !isGameModeEnabled{
+                    // question mode -> get drug list by user settings
+                    selectedDrugs = drugService?.selectByUserSettings()
+                }else{
+                    // game mode -> get all drugs
+                    selectedDrugs = drugService?.selectAll()
+                }
                 
                 if questionType != nil {
                     // Get the new view controller using segue.destinationViewController.

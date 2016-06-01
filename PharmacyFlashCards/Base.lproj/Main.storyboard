@@ -701,7 +701,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="Drug Data Settings" footerTitle="Created by Edwin Wong and David Lu" id="kTt-AH-vBO">
+                            <tableViewSection headerTitle="Question Mode Settings" footerTitle="Created by Edwin Wong and David Lu" id="kTt-AH-vBO">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="mnc-OE-xvC">
                                         <rect key="frame" x="0.0" y="49.5" width="600" height="44"/>
@@ -973,7 +973,7 @@
                                         </variation>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CpX-iM-K1q">
-                                        <rect key="frame" x="261" y="58" width="79" height="34"/>
+                                        <rect key="frame" x="261" y="106" width="79" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="139.5" id="B61-Qk-zJL"/>
                                         </constraints>
@@ -1011,6 +1011,7 @@
                                     <constraint firstItem="8AX-au-rVA" firstAttribute="leading" secondItem="fKO-pI-u55" secondAttribute="leading" constant="299" id="lvf-GH-UVD"/>
                                     <constraint firstItem="qS4-G5-ExO" firstAttribute="leading" secondItem="fKO-pI-u55" secondAttribute="leading" constant="10" id="y45-tm-XNo"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="CpX-iM-K1q" secondAttribute="trailing" constant="20" id="yC9-UB-Bdx"/>
+                                    <constraint firstAttribute="bottom" secondItem="CpX-iM-K1q" secondAttribute="bottom" constant="10" id="ye2-s9-wIy"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -1020,6 +1021,7 @@
                                         <exclude reference="L4z-MD-pPM"/>
                                         <exclude reference="TGh-cv-OVt"/>
                                         <exclude reference="XjI-Vc-Jw5"/>
+                                        <exclude reference="dFQ-zi-2CX"/>
                                         <exclude reference="hKY-Ad-AMu"/>
                                         <exclude reference="2ZL-6H-16z"/>
                                         <exclude reference="Qyv-7u-tdK"/>

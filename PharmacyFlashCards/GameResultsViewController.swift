@@ -50,8 +50,8 @@ class GameResultsViewController: BaseResultsViewController {
                 let questionType:QuestionType? = QuestionUtility.getQuestionType(view)
                 let isGameModeEnabled:Bool = true
                 
-                // grab new drug set
-                let selectedDrugs = drugService?.selectByUserSettings()
+                // grab all drugs
+                let selectedDrugs = drugService?.selectAll()
                 
                 if questionType != nil {
                     
