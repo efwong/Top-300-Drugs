@@ -291,7 +291,7 @@ class QuestionViewController: BaseUIViewController {
             currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
             
             // time out after 45 secs
-            if(currentDuration  <= 50){//currentDuration <= 0) {
+            if(currentDuration <= 0) {
                 timer.invalidate()
                 performSegueWithIdentifier("showGameResultsScene", sender: self)
             }
