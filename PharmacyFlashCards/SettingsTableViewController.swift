@@ -63,6 +63,14 @@ class SettingsTableViewController: UITableViewController {
 //        return 0
 //    }
 
+    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 0{
+            let versionObject: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
+            let version = versionObject as! String
+            return "Created by Edwin Wong and David Lu\nApp Version \(version)"
+        }
+        return ""
+    }
     /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)

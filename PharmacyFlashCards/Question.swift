@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum QuestionType {
+enum QuestionType:Int {
     case GenericName
     case BrandName
     case Classification
@@ -32,6 +32,20 @@ class Question{
     var correctDrug: Drug{
         get{
             return self.drugAnswers[self.correctDrugIndex]
+        }
+    }
+    
+    private var _userAnswerDrugIndex: Int?
+    private var _wasAnsweredCorrectly:Bool?
+    var wasAnsweredCorrectly: Bool?{
+        get{
+            return _wasAnsweredCorrectly
+        }
+        set{
+            // can only update answer correct status if question was never answered before
+            if self._wasAnsweredCorrectly == nil && newValue != nil{
+                self._wasAnsweredCorrectly = newValue
+            }
         }
     }
     
@@ -67,53 +81,53 @@ class Question{
         return []
     }
     
-    func isCorrectDrug(selectedDrug:Drug) -> Bool{
+    // validate if selected drug is correct
+    func isCorrectDrug(selectedDrugIndex:Int) -> Bool{
         var success:Bool = false
         
-        switch self.questionType{
-        case .GenericName:
-            if selectedDrug.brand == correctDrug.brand{
-                success = true
+        if let selectedDrug = getDrugByIndex(selectedDrugIndex){
+            switch self.questionType{
+            case .GenericName:
+                if selectedDrug.brand == correctDrug.brand{
+                    success = true
+                }
+                setWasAnsweredCorrectly(success, selectedDrugIndex: selectedDrugIndex)
+            case .BrandName:
+                if selectedDrug.generic == correctDrug.generic{
+                    success = true
+                }
+                setWasAnsweredCorrectly(success, selectedDrugIndex: selectedDrugIndex)
+            case .Classification:
+                if selectedDrug.classification == correctDrug.classification{
+                    success = true
+                }
+                setWasAnsweredCorrectly(success, selectedDrugIndex: selectedDrugIndex)
+            case .Dosage:
+                if selectedDrug.dosage == correctDrug.dosage{
+                    success = true
+                }
+                setWasAnsweredCorrectly(success, selectedDrugIndex: selectedDrugIndex)
+            case .Indication:
+                if selectedDrug.indication == correctDrug.indication{
+                    success = true
+                }
+                setWasAnsweredCorrectly(success, selectedDrugIndex: selectedDrugIndex)
+            default:
+                success = false
+                setWasAnsweredCorrectly(success, selectedDrugIndex: selectedDrugIndex)
             }
-        case .BrandName:
-            if selectedDrug.generic == correctDrug.generic{
-                success = true
-            }
-        case .Classification:
-            if selectedDrug.classification == correctDrug.classification{
-                success = true
-            }
-        case .Dosage:
-            if selectedDrug.dosage == correctDrug.dosage{
-                success = true
-            }
-        case .Indication:
-            if selectedDrug.indication == correctDrug.indication{
-                success = true
-            }
-        default:
-            success = false
         }
         
         return success
     }
     
-//    private func getQuestionByType() ->String{
-//        var questionTemplate:String
-//        switch self.questionType{
-//        case .GenericName:
-//            questionTemplate = "Choose the BRAND NAME for %@"
-//        case .BrandName:
-//            questionTemplate = "Choose the GENERIC NAME for %@"
-//        case .Classification:
-//            questionTemplate = "Choose the CLASSIFICATION for %@"
-//        case .Dosage:
-//            questionTemplate = "Choose the DOSAGE RANGE for %@"
-//        default:
-//            questionTemplate = "%@"
-//        }
-//        
-//        return questionTemplate
-//    }
+    // set user answer
+    private func setWasAnsweredCorrectly(status: Bool, selectedDrugIndex: Int){
+        if self._wasAnsweredCorrectly == nil {
+            self._userAnswerDrugIndex = selectedDrugIndex
+            self.wasAnsweredCorrectly = status
+        }
+    }
+    
     
 }

@@ -34,18 +34,16 @@ class MenuTableViewController: BaseUITableViewController {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return 4
     }
-
-    /*
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
+        // Table view cells are reused and should be dequeued using a cell identifier.
+        let cellIdentifier = "GenericBrandMenuItemRow"
+        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MenuTableViewCell
+        setMenuTableCell(cell, index: indexPath.row)
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -82,6 +80,72 @@ class MenuTableViewController: BaseUITableViewController {
     }
     */
 
+    // MARK: Helpers
+    private func setMenuTableCell(cell: MenuTableViewCell, index: Int){
+        switch(index){
+        case 0:
+            loadMenuItemCell(cell, name: "Generic", leftRightIndex: 0, rowIndex: index)
+            loadMenuItemCell(cell, name: "Brand", leftRightIndex: 1, rowIndex: index)
+        case 1:
+            loadMenuItemCell(cell, name: "Classification", leftRightIndex: 0, rowIndex: index)
+            loadMenuItemCell(cell, name: "Dosage", leftRightIndex: 1, rowIndex: index)
+        case 2:
+            loadMenuItemCell(cell, name: "Indication", leftRightIndex: 0, rowIndex: index)
+            loadMenuItemCell(cell, name: "Settings", leftRightIndex: 1, rowIndex: index)
+        case 3:
+            loadMenuItemCell(cell, name: "Play", leftRightIndex: 0, rowIndex: index)
+            //loadMenuItemCell(cell, name: "Settings", leftRightIndex: 1, rowIndex: index)
+            //cell.rightImageView = nil
+            // clear right side
+            cell.rightImageView.backgroundColor = UIColor(white: 1, alpha: 0.0)
+            cell.rightImageTitle.text = ""
+            cell.rightImage.image = nil
+        default: break
+        }
+    }
+    
+    // Load menu item cell with image, text, gestureRecognizer and restorationId
+    // parameters:
+    //      cell: MenuTableViewCell
+    //      name: String -> restorationId or name used to generate icons and text
+    //      leftRingIndex: 0-> left, 1-> right, etc.
+    private func loadMenuItemCell(cell: MenuTableViewCell, name: String, leftRightIndex: Int, rowIndex: Int){
+        // add gesture action
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(MenuTableViewController.menuItemCellTapRecognizer(_:)))
+        let iconName = "\(name)Icon"
+        if leftRightIndex == 0{
+            cell.leftImage.image = UIImage(named: iconName)
+            cell.leftImageTitle.text = name
+            cell.leftImageView.addGestureRecognizer(gesture)
+            cell.leftImageView.restorationIdentifier = name
+        }else{
+            cell.rightImage.image = UIImage(named: iconName)
+            cell.rightImageTitle.text = name
+            cell.rightImageView.addGestureRecognizer(gesture)
+            cell.rightImageView.restorationIdentifier = name
+        }
+        
+        let even = rowIndex % 2
+        if even == 0{
+            cell.leftImageView.backgroundColor = CommonUtility.service.lightRedColor
+            cell.rightImageView.backgroundColor = CommonUtility.service.pinkColor
+        }else{
+            cell.leftImageView.backgroundColor = CommonUtility.service.pinkColor
+            cell.rightImageView.backgroundColor = CommonUtility.service.lightRedColor
+        }
+    }
+    
+    // Recognizes menuItemCellTap
+    func menuItemCellTapRecognizer(sender:UITapGestureRecognizer){
+        // do other task
+        if let view = sender.view{
+            if view.restorationIdentifier == "Settings"{
+                performSegueWithIdentifier("showSettingsScene", sender: sender)
+            }else{
+                performSegueWithIdentifier("showQuestionScene", sender: sender)
+            }
+        }
+    }
     
     // MARK: - Navigation
 
@@ -89,42 +153,70 @@ class MenuTableViewController: BaseUITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        let selectedDrugs = drugService?.selectAll()
-        let questionType = getQuestionType(segue.identifier!)
         
-        if questionType != nil {
-            if let destinationVC = segue.destinationViewController as? QuestionViewController{
-                destinationVC.allDrugs = selectedDrugs
-                destinationVC.questionType = questionType
+        if let view = sender!.view as UIView?{
+            if segue.identifier == "showSettingsScene"{
+                // show settings
+            }else{
+                // show questions
+                let questionType:QuestionType? = QuestionUtility.getQuestionType(view)
+                let isGameModeEnabled:Bool = (view.restorationIdentifier == "Play")
+                // grab new drug set
+                var selectedDrugs = [Drug]?()
+                
+                if !isGameModeEnabled{
+                    // question mode -> get drug list by user settings
+                    selectedDrugs = drugService?.selectByUserSettings()
+                }else{
+                    // game mode -> get all drugs
+                    selectedDrugs = drugService?.selectAll()
+                }
+                
+                if questionType != nil {
+                    // Get the new view controller using segue.destinationViewController.
+                    if let destinationVC = segue.destinationViewController as? QuestionViewController{
+                        destinationVC.allDrugs = selectedDrugs
+                        destinationVC.questionType = questionType
+                        destinationVC.gameModeEnabled = isGameModeEnabled
+                    }
+                }
             }
         }
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-        let questionType = getQuestionType(identifier!)
-        if questionType == nil {
-            return false
-        }
-        return true
-    }
+//    private func getQuestionType(view: UIView) -> QuestionType?{
+//        var questionType: QuestionType? = nil
+//        
+//        if view.restorationIdentifier == "Generic" {
+//            questionType = QuestionType.GenericName
+//        }
+//        else if view.restorationIdentifier == "Brand" {
+//            questionType = QuestionType.BrandName
+//        }
+//        else if view.restorationIdentifier == "Classification" {
+//            questionType = QuestionType.Classification
+//        }
+//        else if view.restorationIdentifier == "Dosage" {
+//            questionType = QuestionType.Dosage
+//        }
+//        else if view.restorationIdentifier  == "Indication"{
+//            questionType = QuestionType.Indication
+//        }else if view.restorationIdentifier == "Play"{
+//            // is play -> get random questionType
+//            questionType = QuestionUtility.GetRandomQuestionType()
+//        }else{
+//            // is settings
+//        }
+//        return questionType
+//    }
+    
+//    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+//        let questionType = getQuestionType(identifier!)
+//        if questionType == nil {
+//            return false
+//        }
+//        return true
+//    }
 
-    private func getQuestionType(segueIdentifier: String) -> QuestionType?{
-        var questionType: QuestionType? = nil
-        switch(segueIdentifier){
-        case "GenericQuestionSegue":
-            questionType = QuestionType.GenericName
-        case "BrandQuestionSegue":
-            questionType = QuestionType.BrandName
-        case "ClassificationQuestionSegue":
-            questionType = QuestionType.Classification
-        case "DosageQuestionSegue":
-            questionType = QuestionType.Dosage
-        case "IndicationQuestionSegue":
-            questionType = QuestionType.Indication
-        default:
-            questionType = nil
-        }
-        return questionType
-    }
     
 }

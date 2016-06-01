@@ -21,26 +21,39 @@ class QuestionViewController: BaseUIViewController {
     
     @IBOutlet weak var answerButton4: UIButton!
     
+    @IBOutlet weak var fireView: UIView!
+    
+    @IBOutlet weak var fireIcon: UIImageView!
+    
+    @IBOutlet weak var streakCount: UILabel!
+    
+    @IBOutlet weak var currentTimeLabel: UILabel!
+    
+    @IBOutlet weak var currentScoreLabel: UILabel!
+    
+    @IBOutlet weak var currentScoreView: UIView!
     
     var allDrugs:[Drug]?
     
     var questionType: QuestionType?
     
     var questionManager: QuestionManager?
+    var gameModeEnabled: Bool?
+    var timer: NSTimer = NSTimer()
+    var startTime: NSTimeInterval?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.questionManager = QuestionManager(questionType: questionType!, allDrugs: allDrugs!, answerCount: 4)
-        self.title = getTitleFromQuestionType(self.questionType!)
-        setLabels()
+        self.questionManager = QuestionManager(questionType: questionType!, allDrugs: allDrugs!, answerCount: 4, gameModeEnabled: (self.gameModeEnabled != nil) ? self.gameModeEnabled! : false)
         
-        var localFont = UIFont(name: "Arial-BoldMT", size: 20)
-        if(questionType == QuestionType.Indication){
-            localFont = UIFont(name: "Arial-BoldMT", size: 17)
-        }
-        setButtonFont(localFont!)
+        updateQuestionTypeDependentVariables()
         
+        // start timer
+        self.startTime = NSDate.timeIntervalSinceReferenceDate()
+        
+        // sets timer depending on gameMode
+        setUpTimer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,22 +64,139 @@ class QuestionViewController: BaseUIViewController {
     // MARK: Button click events
     
     @IBAction func answerOneButtonPress(sender: UIButton) {
-        performCheck(0)
+        performCheck(0, sender: sender)
     }
     
     @IBAction func answerTwoButtonPress(sender: UIButton) {
-        performCheck(1)
+        performCheck(1, sender: sender)
     }
 
     @IBAction func answerThreeButtonPress(sender: UIButton) {
-        performCheck(2)
+        performCheck(2, sender: sender)
     }
     
     @IBAction func answerFourButtonPress(sender: UIButton) {
-        performCheck(3)
+        performCheck(3, sender: sender)
     }
     
-    // Set labels for question and answers
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "showResultsScene"{
+            let totalSeconds :Int = Int(NSDate.timeIntervalSinceReferenceDate() - self.startTime!)
+            if let resultsView = segue.destinationViewController as? ResultsViewController{
+                resultsView.questionManager = self.questionManager
+                resultsView.totalSeconds = totalSeconds
+            }
+        }else if (segue.identifier == "showGameResultsScene"){
+            if let gameResultsView = segue.destinationViewController as? GameResultsViewController{
+                gameResultsView.questionManager = self.questionManager
+            }
+        }
+    }
+    
+    // check if user answer is correct
+    // Yes -> move on to next question
+    // No -> prompt user for correct answer
+    private func performCheck(drugIndex: Int, sender: AnyObject) -> Bool{
+        if self.questionManager == nil {
+            return false;
+        }
+        
+        var status = false // answered correctly status
+        let currentQuestion = self.questionManager?.getCurrentQuestion()
+        self.questionType = self.questionManager?.questionType
+        if !self.questionManager!.isAtLastQuestion() {
+            if currentQuestion != nil && currentQuestion!.isCorrectDrug(drugIndex) {
+                self.questionManager?.updateScores()
+                self.questionManager?.getNextQuestion()
+                updateQuestionTypeDependentVariables()
+                status = true
+                updateStreakView(true, streakNumber: self.questionManager?.getAnswerStreak() ?? 0)
+                updateScoringView(true, highScore: self.questionManager?.getHighScore() ?? 0)
+            }else{
+                status = false
+                self.questionManager?.resetAnswerStreak()
+                updateStreakView(false)
+                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
+            }
+        }else{
+            // is at last question
+            if(self.gameModeEnabled != nil && self.gameModeEnabled!){
+                performSegueWithIdentifier("showGameResultsScene", sender: sender)
+            }else{
+                performSegueWithIdentifier("showResultsScene", sender: sender)
+            }
+        }
+        return status
+    }
+    
+    // update streak by status
+    // if status == true -> streak is displayed
+    // else if status == false -> streak is hidden
+    private func updateStreakView(status: Bool, streakNumber: Int=0){
+        if status {
+            // update number shown and show streak #
+            streakCount.text = "\(streakNumber)"
+            if fireView.hidden == true{
+                fireView.hidden = false
+            }
+        }else{
+            fireView.hidden = true
+            streakCount.text = "0"
+        }
+    }
+    
+    private func updateScoringView(status: Bool, highScore: Double){
+        if status{
+            currentScoreLabel.text = highScore.ToStringWithPrecision(0, max: 0)
+        }
+    }
+    
+    // MARK: Methods to run when updating quesitonType
+    
+    private func updateQuestionTypeDependentVariables(){
+        updateQuestionType()
+        setTitleFromQuestionType()
+        setLabels()
+        updateFonts()
+    }
+    
+    // Updates question type if game mode is enabled
+    private func updateQuestionType(){
+        if (self.gameModeEnabled != nil && self.gameModeEnabled == true) {
+            self.questionType = questionManager?.getQuestionType()
+            self.currentScoreView.hidden = false
+        }else{
+            self.currentScoreView.hidden = true
+        }
+    }
+    
+    // update title
+    private func setTitleFromQuestionType() {
+        var title = ""
+        switch (self.questionType!){
+        case .GenericName:
+            title = "Generics Question"
+        case .BrandName:
+            title = "Brand Question"
+        case .Classification:
+            title = "Classification Question"
+        case .Dosage:
+            title = "Dosage Question"
+        case .Indication:
+            title = "Indication Question"
+        default:
+            title = "Quiz"
+        }
+        self.title = title
+    }
+    
+    // Set labels for question and answers in the view
     private func setLabels(){
         let currentQuestion = self.questionManager?.getCurrentQuestion()
         
@@ -82,65 +212,90 @@ class QuestionViewController: BaseUIViewController {
         }
     }
     
-    private func getTitleFromQuestionType(questionType: QuestionType) -> String{
-        var title = ""
-        switch (questionType){
-        case .GenericName:
-            title = "Quiz on Generics"
-        case .BrandName:
-            title = "Quiz on Brand"
-        case .Classification:
-            title = "Quiz on Classification"
-        case .Dosage:
-            title = "Quiz on Dosage"
-        case .Indication:
-            title = "Quiz on Indication"
-        default:
-            title = "Quiz"
+    // update fonts
+    private func updateFonts(){
+        var localFont = UIFont(name: "Arial-BoldMT", size: 20)
+        if(self.questionType == QuestionType.Indication){
+            localFont = UIFont(name: "Arial-BoldMT", size: 17)
         }
-        return title
+        
+        answerButton1.titleLabel!.font = localFont
+        answerButton2.titleLabel!.font = localFont
+        answerButton3.titleLabel!.font = localFont
+        answerButton4.titleLabel!.font = localFont
     }
     
-    private func performCheck(drugIndex: Int) -> Bool{
-        var status = false
-        let currentQuestion = self.questionManager?.getCurrentQuestion()
-        let selectedDrug = currentQuestion?.getDrugByIndex(drugIndex)
-        if self.questionManager != nil && !self.questionManager!.isAtLastQuestion() {
-            if currentQuestion != nil && currentQuestion!.isCorrectDrug(selectedDrug!) {
-                self.questionManager?.getNextQuestion()
-                setLabels()
-                status = true
-            }else{
-                status = false
-                AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
-//                let alert = UIAlertController(title: "Wrong", message: "Wrong Drug. Try again.", preferredStyle: UIAlertControllerStyle.Alert)
-//                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
-//                self.presentViewController(alert, animated: true, completion: nil)
+    
+    // MARK: Timer methods
+    
+    private func setUpTimer(){
+        if (self.gameModeEnabled != nil && self.gameModeEnabled!) {
+            guard let timeLimit = CommonUtility.service.AppConfig?["GameTimeLimit"]?.integerValue else{
+                timer.invalidate()
+                return
             }
-        }else{
-            let alert = UIAlertController(title: "Done", message: "Last Question Reached. Please go back to the menu", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+            let seconds = timeLimit % 60
+            let minutes = (timeLimit / 60) % 60
+            currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+            // count down from 60
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+                                                                target: self,
+                                                                selector: #selector(QuestionViewController.countDown),
+                                                                userInfo: nil,
+                                                                repeats: true)
         }
-        return status
+        else{
+            currentTimeLabel.text = String(format: "%02d:%02d", 0, 0)
+            // count up
+            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+                                                                target: self,
+                                                                selector: #selector(QuestionViewController.countUp),
+                                                                userInfo: nil,
+                                                                repeats: true)
+        }
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // CountUp: increment timer
+    @objc func countUp(timer: NSTimer) {
+        if self.startTime != nil{
+            let currentDuration = Int(NSDate.timeIntervalSinceReferenceDate() - self.startTime!)
+            let seconds = currentDuration % 60
+            let minutes = (currentDuration / 60) % 60
+            currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+            
+            guard let timeLimit = CommonUtility.service.AppConfig?["GameTimeLimit"]?.integerValue else{
+                timer.invalidate()
+                return
+            }
+            
+            // time out after 45 secs
+            if(currentDuration >= timeLimit) {
+                timer.invalidate()
+                performSegueWithIdentifier("showResultsScene", sender: self)
+            }
+        }
     }
-    */
     
-    
-    private func setButtonFont(font: UIFont){
-        answerButton1.titleLabel!.font = font
-        answerButton2.titleLabel!.font = font
-        answerButton3.titleLabel!.font = font
-        answerButton4.titleLabel!.font = font
+    // For game mode, count down from 45
+    @objc func countDown(timer: NSTimer){
+        if self.startTime != nil{
+            
+            guard let timeLimit = CommonUtility.service.AppConfig?["GameTimeLimit"]?.integerValue else{
+                timer.invalidate()
+                return
+            }
+            
+            let currentDuration = timeLimit - Int(NSDate.timeIntervalSinceReferenceDate() - self.startTime!)
+            let seconds = (currentDuration % 60)
+            let minutes = (currentDuration / 60) % 60
+            currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
+            
+            // time out after 45 secs
+            if(currentDuration  <= 50){//currentDuration <= 0) {
+                timer.invalidate()
+                performSegueWithIdentifier("showGameResultsScene", sender: self)
+            }
+        }
     }
 
 }
