@@ -32,41 +32,29 @@ class ScoringService{
         return defaults.objectForKey(highScoresArrayKey) as? [Double] ?? [Double]()
     }
     
-    func saveNewHighScore(currentHighScore:Double)->Bool{
+    // Save highest maxStoredHighScores number of scores
+    func saveNewHighScore(currentHighScore:Double) {
         var highScores = self.getHighScores()
-        var updatedStatus:Bool = false
         let currentNumberOfHighScores:Int = highScores.count
+        highScores.append(currentHighScore)
+        
+        // sort from high to low
+        highScores = highScores.sort{
+            return $0 > $1
+        }
         if currentNumberOfHighScores < maxStoredHighScores{
-            // less than max allowed number of stored high scores
-            updatedStatus = true
-            highScores.append(currentHighScore)
         }else{
-            // is at max number of allowed high scores
-            
-            // change first instance where currentHighScore > a high score in the saved array
-            for (index,value) in highScores.enumerate(){
-                if currentHighScore > value{
-                    highScores[index] = currentHighScore
-                    updatedStatus = true
-                    break
-                }
-            }
+            // remove last element
+            highScores.removeLast()
         }
         
         // save list of high scores
-        if updatedStatus{
-            saveHighScoreList(highScores)
-        }
-        
-        return updatedStatus
+        saveHighScoreList(highScores)
     }
     
     // Save list of high scores
     func saveHighScoreList(highScores: [Double]){
         let defaults = NSUserDefaults.standardUserDefaults()
-        let sortedHighScores = highScores.sort{
-            return $0 > $1
-        }
-        defaults.setObject(sortedHighScores, forKey: highScoresArrayKey)
+        defaults.setObject(highScores, forKey: highScoresArrayKey)
     }
 }

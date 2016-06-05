@@ -84,18 +84,16 @@ class MenuTableViewController: BaseUITableViewController {
     private func setMenuTableCell(cell: MenuTableViewCell, index: Int){
         switch(index){
         case 0:
-            loadMenuItemCell(cell, name: "Generic", leftRightIndex: 0, rowIndex: index)
-            loadMenuItemCell(cell, name: "Brand", leftRightIndex: 1, rowIndex: index)
-        case 1:
-            loadMenuItemCell(cell, name: "Classification", leftRightIndex: 0, rowIndex: index)
-            loadMenuItemCell(cell, name: "Dosage", leftRightIndex: 1, rowIndex: index)
-        case 2:
-            loadMenuItemCell(cell, name: "Indication", leftRightIndex: 0, rowIndex: index)
-            loadMenuItemCell(cell, name: "Settings", leftRightIndex: 1, rowIndex: index)
-        case 3:
             loadMenuItemCell(cell, name: "Play", leftRightIndex: 0, rowIndex: index)
-            //loadMenuItemCell(cell, name: "Settings", leftRightIndex: 1, rowIndex: index)
-            //cell.rightImageView = nil
+            loadMenuItemCell(cell, name: "Generic", leftRightIndex: 1, rowIndex: index)
+        case 1:
+            loadMenuItemCell(cell, name: "Brand", leftRightIndex: 0, rowIndex: index)
+            loadMenuItemCell(cell, name: "Classification", leftRightIndex: 1, rowIndex: index)
+        case 2:
+            loadMenuItemCell(cell, name: "Dosage", leftRightIndex: 0, rowIndex: index)
+            loadMenuItemCell(cell, name: "Indication", leftRightIndex: 1, rowIndex: index)
+        case 3:
+            loadMenuItemCell(cell, name: "Settings", leftRightIndex: 0, rowIndex: index)
             // clear right side
             cell.rightImageView.backgroundColor = UIColor(white: 1, alpha: 0.0)
             cell.rightImageTitle.text = ""
@@ -183,40 +181,4 @@ class MenuTableViewController: BaseUITableViewController {
             }
         }
     }
-    
-//    private func getQuestionType(view: UIView) -> QuestionType?{
-//        var questionType: QuestionType? = nil
-//        
-//        if view.restorationIdentifier == "Generic" {
-//            questionType = QuestionType.GenericName
-//        }
-//        else if view.restorationIdentifier == "Brand" {
-//            questionType = QuestionType.BrandName
-//        }
-//        else if view.restorationIdentifier == "Classification" {
-//            questionType = QuestionType.Classification
-//        }
-//        else if view.restorationIdentifier == "Dosage" {
-//            questionType = QuestionType.Dosage
-//        }
-//        else if view.restorationIdentifier  == "Indication"{
-//            questionType = QuestionType.Indication
-//        }else if view.restorationIdentifier == "Play"{
-//            // is play -> get random questionType
-//            questionType = QuestionUtility.GetRandomQuestionType()
-//        }else{
-//            // is settings
-//        }
-//        return questionType
-//    }
-    
-//    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
-//        let questionType = getQuestionType(identifier!)
-//        if questionType == nil {
-//            return false
-//        }
-//        return true
-//    }
-
-    
 }

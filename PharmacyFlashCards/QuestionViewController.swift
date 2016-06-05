@@ -47,13 +47,11 @@ class QuestionViewController: BaseUIViewController {
         super.viewDidLoad()
         self.questionManager = QuestionManager(questionType: questionType!, allDrugs: allDrugs!, answerCount: 4, gameModeEnabled: (self.gameModeEnabled != nil) ? self.gameModeEnabled! : false)
         
-        updateQuestionTypeDependentVariables()
+        self.updateQuestionTypeDependentVariables()
         
-        // start timer
-        self.startTime = NSDate.timeIntervalSinceReferenceDate()
         
-        // sets timer depending on gameMode
-        setUpTimer()
+        // show Game mode Instructions
+        self.setUpTimer()
     }
 
     override func didReceiveMemoryWarning() {
@@ -190,8 +188,8 @@ class QuestionViewController: BaseUIViewController {
             title = "Dosage Question"
         case .Indication:
             title = "Indication Question"
-        default:
-            title = "Quiz"
+//        default:
+//            title = "Quiz"
         }
         self.title = title
     }
@@ -214,9 +212,9 @@ class QuestionViewController: BaseUIViewController {
     
     // update fonts
     private func updateFonts(){
-        var localFont = UIFont(name: "Arial-BoldMT", size: 20)
+        var localFont = UIFont(name: "Helvetica", size: 20)
         if(self.questionType == QuestionType.Indication){
-            localFont = UIFont(name: "Arial-BoldMT", size: 17)
+            localFont = UIFont(name: "Helvetica", size: 17)
         }
         
         answerButton1.titleLabel!.font = localFont
@@ -224,7 +222,6 @@ class QuestionViewController: BaseUIViewController {
         answerButton3.titleLabel!.font = localFont
         answerButton4.titleLabel!.font = localFont
     }
-    
     
     // MARK: Timer methods
     
@@ -237,14 +234,26 @@ class QuestionViewController: BaseUIViewController {
             let seconds = timeLimit % 60
             let minutes = (timeLimit / 60) % 60
             currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
-            // count down from 60
-            self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
-                                                                target: self,
-                                                                selector: #selector(QuestionViewController.countDown),
-                                                                userInfo: nil,
-                                                                repeats: true)
+            
+            let alert = UIAlertController(title: "Instructions", message: "Please tap the best answer.", preferredStyle: UIAlertControllerStyle.Alert)
+            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default){
+                (action: UIAlertAction!) in
+                // start timer
+                self.startTime = NSDate.timeIntervalSinceReferenceDate()
+                
+                // begin count down from 60
+                self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+                    target: self,
+                    selector: #selector(QuestionViewController.countDown),
+                    userInfo: nil,
+                    repeats: true)
+                
+                })
+            self.presentViewController(alert, animated: true, completion: nil)
         }
         else{
+            // start timer
+            self.startTime = NSDate.timeIntervalSinceReferenceDate()
             currentTimeLabel.text = String(format: "%02d:%02d", 0, 0)
             // count up
             self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
@@ -263,16 +272,16 @@ class QuestionViewController: BaseUIViewController {
             let minutes = (currentDuration / 60) % 60
             currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
             
-            guard let timeLimit = CommonUtility.service.AppConfig?["GameTimeLimit"]?.integerValue else{
-                timer.invalidate()
-                return
-            }
+//            guard let timeLimit = CommonUtility.service.AppConfig?["GameTimeLimit"]?.integerValue else{
+//                timer.invalidate()
+//                return
+//            }
             
             // time out after 45 secs
-            if(currentDuration >= timeLimit) {
-                timer.invalidate()
-                performSegueWithIdentifier("showResultsScene", sender: self)
-            }
+//            if(currentDuration >= timeLimit) {
+//                timer.invalidate()
+//                performSegueWithIdentifier("showResultsScene", sender: self)
+//            }
         }
     }
     

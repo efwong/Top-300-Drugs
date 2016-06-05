@@ -12,16 +12,19 @@ class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var firstHundredDrugs: UISwitch!
     @IBOutlet weak var secondHundredDrugs: UISwitch!
+    @IBOutlet weak var thirdHundredDrugs: UISwitch!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "Settings"
         
         // get Drug statuses
-        let drugOneStatus = UserSettingsService.service.isDrugOneSelected()
-        let drugTwoStatus = UserSettingsService.service.isDrugTwoSelected()
+        let drugOneStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugOneConstantKey)
+        let drugTwoStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugTwoConstantKey)
+        let drugThreeStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugThreeConstantKey)
         firstHundredDrugs.setOn(drugOneStatus, animated: false)
         secondHundredDrugs.setOn(drugTwoStatus, animated: false)
+        thirdHundredDrugs.setOn(drugThreeStatus, animated: false)
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,20 +34,24 @@ class SettingsTableViewController: UITableViewController {
 
     
     @IBAction func firstHundredDrugChange(sender: UISwitch){
-        alertWhenBothDrugSwitchesOff(sender)
+        alertWhenAllDrugSwitchesOff(sender)
         
         //let status = UserSettingsService.service.isDrugOneSelected()
-        UserSettingsService.service.saveDrugOneStatus(sender.on)
+        UserSettingsService.service.saveDrugStatus(UserSettingsService.service.drugOneConstantKey, status: sender.on)
     }
     
     
     @IBAction func secondHundredDrugChange(sender: UISwitch) {
-        alertWhenBothDrugSwitchesOff(sender)
-        UserSettingsService.service.saveDrugTwoStatus(sender.on)
+        alertWhenAllDrugSwitchesOff(sender)
+        UserSettingsService.service.saveDrugStatus(UserSettingsService.service.drugTwoConstantKey, status: sender.on)
     }
     
-    private func alertWhenBothDrugSwitchesOff(sender: UISwitch) -> Void{
-        if(!firstHundredDrugs!.on && !secondHundredDrugs!.on){
+    @IBAction func thirdHundredDrugChange(sender: UISwitch) {
+        alertWhenAllDrugSwitchesOff(sender)
+        UserSettingsService.service.saveDrugStatus(UserSettingsService.service.drugThreeConstantKey, status: sender.on)
+    }
+    private func alertWhenAllDrugSwitchesOff(sender: UISwitch) -> Void{
+        if(!firstHundredDrugs!.on && !secondHundredDrugs!.on && !thirdHundredDrugs!.on){
             let alert = UIAlertController(title: "", message: "Choose at least one Drug set.", preferredStyle: UIAlertControllerStyle.Alert)
             alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
             self.presentViewController(alert, animated: true, completion: nil)

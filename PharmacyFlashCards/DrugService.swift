@@ -40,8 +40,8 @@ class DrugService {
     }
     
     func selectByUserSettings() -> [Drug]{
-        let drugOneStatus = UserSettingsService.service.isDrugOneSelected()
-        let drugTwoStatus = UserSettingsService.service.isDrugTwoSelected()
+        let drugOneStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugOneConstantKey)
+        let drugTwoStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugTwoConstantKey)
         
         
         let request = NSFetchRequest(entityName: self.entityName)

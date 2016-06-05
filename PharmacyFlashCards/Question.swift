@@ -112,9 +112,9 @@ class Question{
                     success = true
                 }
                 setWasAnsweredCorrectly(success, selectedDrugIndex: selectedDrugIndex)
-            default:
-                success = false
-                setWasAnsweredCorrectly(success, selectedDrugIndex: selectedDrugIndex)
+//            default:
+//                success = false
+//                setWasAnsweredCorrectly(success, selectedDrugIndex: selectedDrugIndex)
             }
         }
         

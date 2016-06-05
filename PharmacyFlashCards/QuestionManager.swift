@@ -106,8 +106,8 @@ class QuestionManager {
             returnQuestion = DosageQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
         case .Indication:
             returnQuestion = IndicationQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
-        default:
-            returnQuestion = Question(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
+//        default:
+//            returnQuestion = Question(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
         }
         
         self.questionList.append(returnQuestion)

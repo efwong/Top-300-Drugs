@@ -24,7 +24,7 @@
 		5ED21A071C70143200DA145F /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F63961C54B82600546DC3 /* QuestionViewController.swift */; };
 		5ED21A081C70143600DA145F /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5FF91C68730F00998BC3 /* QuestionService.swift */; };
 		5ED21A0A1C7015FF00DA145F /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED21A091C7015FF00DA145F /* QuestionManager.swift */; };
-		5ED75A6F1CE04F23000F3F15 /* LaunchScreenA.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ED75A6E1CE04F23000F3F15 /* LaunchScreenA.storyboard */; };
+		5ED75A6F1CE04F23000F3F15 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ED75A6E1CE04F23000F3F15 /* LaunchScreen.storyboard */; };
 		5EF0D3FE1CE8602F004B19DD /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF0D3FD1CE8602F004B19DD /* ResultsViewController.swift */; };
 		5EF4FF431CFBF255005BE6B9 /* GameResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4FF421CFBF255005BE6B9 /* GameResultsViewController.swift */; };
 		5EF4FF451CFBFB47005BE6B9 /* BaseResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4FF441CFBFB47005BE6B9 /* BaseResultsViewController.swift */; };
@@ -35,7 +35,6 @@
 		E82E0BE81C5415E9007EED05 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BE71C5415E9007EED05 /* MainViewController.swift */; };
 		E82E0BEB1C5415E9007EED05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82E0BE91C5415E9007EED05 /* Main.storyboard */; };
 		E82E0BF01C5415E9007EED05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82E0BEF1C5415E9007EED05 /* Assets.xcassets */; };
-		E82E0BF31C5415E9007EED05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82E0BF11C5415E9007EED05 /* LaunchScreen.storyboard */; };
 		E82E0BFE1C5415E9007EED05 /* PharmacyFlashCardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BFD1C5415E9007EED05 /* PharmacyFlashCardsTests.swift */; };
 		E82E0C091C5415E9007EED05 /* PharmacyFlashCardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C081C5415E9007EED05 /* PharmacyFlashCardsUITests.swift */; };
 		E82E0C201C5421AC007EED05 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C1F1C5421AC007EED05 /* CoreDataStackManager.swift */; };
@@ -49,7 +48,6 @@
 		E86C5FF71C68723E00998BC3 /* BaseUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5FF61C68723E00998BC3 /* BaseUIViewController.swift */; };
 		E86C5FFD1C68742600998BC3 /* Randomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5FFC1C68742600998BC3 /* Randomizer.swift */; };
 		E89ED2651C68401500A5249E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89ED2641C68401500A5249E /* Question.swift */; };
-		E8CB960E1C54575C008219AC /* test.csv in Resources */ = {isa = PBXBuildFile; fileRef = E8CB960D1C54575C008219AC /* test.csv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +84,7 @@
 		5ED088D71CC330AD00F12691 /* UserSettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsService.swift; sourceTree = "<group>"; };
 		5ED158051CB0D1050099FA62 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		5ED21A091C7015FF00DA145F /* QuestionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
-		5ED75A6E1CE04F23000F3F15 /* LaunchScreenA.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreenA.storyboard; sourceTree = "<group>"; };
+		5ED75A6E1CE04F23000F3F15 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EF0D3FD1CE8602F004B19DD /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		5EF4FF421CFBF255005BE6B9 /* GameResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameResultsViewController.swift; sourceTree = "<group>"; };
 		5EF4FF441CFBFB47005BE6B9 /* BaseResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseResultsViewController.swift; sourceTree = "<group>"; };
@@ -100,7 +98,6 @@
 		E82E0BE71C5415E9007EED05 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E82E0BEA1C5415E9007EED05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E82E0BEF1C5415E9007EED05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E82E0BF21C5415E9007EED05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E82E0BF41C5415E9007EED05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E82E0BF91C5415E9007EED05 /* PharmacyFlashCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PharmacyFlashCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82E0BFD1C5415E9007EED05 /* PharmacyFlashCardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyFlashCardsTests.swift; sourceTree = "<group>"; };
@@ -121,7 +118,6 @@
 		E86C5FF91C68730F00998BC3 /* QuestionService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionService.swift; sourceTree = "<group>"; };
 		E86C5FFC1C68742600998BC3 /* Randomizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Randomizer.swift; sourceTree = "<group>"; };
 		E89ED2641C68401500A5249E /* Question.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Question.swift; sourceTree = "<group>"; };
-		E8CB960D1C54575C008219AC /* test.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.csv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,7 +241,7 @@
 				E82E0BE51C5415E9007EED05 /* AppDelegate.swift */,
 				E86C5FF01C684EFB00998BC3 /* PharmacyFlashCards.xcdatamodeld */,
 				E82E0BE91C5415E9007EED05 /* Main.storyboard */,
-				5ED75A6E1CE04F23000F3F15 /* LaunchScreenA.storyboard */,
+				5ED75A6E1CE04F23000F3F15 /* LaunchScreen.storyboard */,
 			);
 			path = PharmacyFlashCards;
 			sourceTree = "<group>";
@@ -283,7 +279,6 @@
 				5EF0D3FC1CE85FBC004B19DD /* ResultsView */,
 				5ED088D11CC3255600F12691 /* Settings */,
 				5E533F2C1C577079005AC245 /* QuestionView */,
-				E82E0C1A1C542100007EED05 /* LaunchScreen */,
 				E82E0C191C541CB8007EED05 /* Main */,
 				E86C5FF61C68723E00998BC3 /* BaseUIViewController.swift */,
 				5E4C1D001C8D41B7003641F5 /* BaseUITableViewController.swift */,
@@ -295,7 +290,6 @@
 			isa = PBXGroup;
 			children = (
 				5E6CF1DF1C54919F007E1725 /* drugs.csv */,
-				E8CB960D1C54575C008219AC /* test.csv */,
 				E82E0BEF1C5415E9007EED05 /* Assets.xcassets */,
 			);
 			name = Assets;
@@ -310,14 +304,6 @@
 				5EB077371CEEFED4007BF21F /* MenuTableViewCell.swift */,
 			);
 			name = Main;
-			sourceTree = "<group>";
-		};
-		E82E0C1A1C542100007EED05 /* LaunchScreen */ = {
-			isa = PBXGroup;
-			children = (
-				E82E0BF11C5415E9007EED05 /* LaunchScreen.storyboard */,
-			);
-			name = LaunchScreen;
 			sourceTree = "<group>";
 		};
 		E82E0C1B1C542110007EED05 /* Config */ = {
@@ -539,11 +525,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ED75A6F1CE04F23000F3F15 /* LaunchScreenA.storyboard in Resources */,
-				E82E0BF31C5415E9007EED05 /* LaunchScreen.storyboard in Resources */,
+				5ED75A6F1CE04F23000F3F15 /* LaunchScreen.storyboard in Resources */,
 				5E6CF1E01C54919F007E1725 /* drugs.csv in Resources */,
 				5E94802D1CF5998F0060E540 /* AppConfig.plist in Resources */,
-				E8CB960E1C54575C008219AC /* test.csv in Resources */,
 				E82E0BF01C5415E9007EED05 /* Assets.xcassets in Resources */,
 				E82E0BEB1C5415E9007EED05 /* Main.storyboard in Resources */,
 			);
@@ -692,14 +676,6 @@
 				E82E0BEA1C5415E9007EED05 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E82E0BF11C5415E9007EED05 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E82E0BF21C5415E9007EED05 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

@@ -14,7 +14,8 @@ class UserSettingsService{
     
     let drugOneConstantKey = "DrugSetOne"
     let drugTwoConstantKey = "DrugSetTwo"
-    
+    let drugThreeConstantKey = "DrugSetThree"
+    static let test = "lone"
     private init(){
         let defaults = NSUserDefaults.standardUserDefaults()
         // set defaults if they dont exist
@@ -22,29 +23,23 @@ class UserSettingsService{
             defaults.setBool(true, forKey: drugOneConstantKey)
         }
         if defaults.objectForKey(drugTwoConstantKey) == nil{
-            defaults.setBool(false, forKey: drugTwoConstantKey)
+            defaults.setBool(true, forKey: drugTwoConstantKey)
+        }
+        if defaults.objectForKey(drugTwoConstantKey) == nil{
+            defaults.setBool(false, forKey: drugThreeConstantKey)
         }
     }
     
-    func isDrugOneSelected() -> Bool{
+    // is drug(1,2,3) selected
+    func isDrugSelected(key: String) -> Bool{
         let defaults = NSUserDefaults.standardUserDefaults()
-        let status = defaults.boolForKey(drugOneConstantKey)
+        let status = defaults.boolForKey(key)
         return status
     }
     
-    func isDrugTwoSelected() -> Bool{
+    // saves drug(1,2,3) setting
+    func saveDrugStatus(key: String, status:Bool){
         let defaults = NSUserDefaults.standardUserDefaults()
-        let status = defaults.boolForKey(drugTwoConstantKey)
-        return status
-    }
-    
-    func saveDrugOneStatus(status:Bool) -> Void{
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setBool(status, forKey: drugOneConstantKey)
-    }
-    
-    func saveDrugTwoStatus(status:Bool) -> Void{
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setBool(status, forKey: drugTwoConstantKey)
+        defaults.setBool(status, forKey: key)
     }
 }

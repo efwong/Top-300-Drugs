@@ -21,11 +21,11 @@ class GameResultsViewController: BaseResultsViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.highScores = ScoringService.service.getHighScores() ?? [Double]()
         let highScore:Double = questionManager?.getHighScore() ?? 0.0
         self.currentHighScoreLabel.text = highScore.ToStringWithPrecision(0, max: 0)
-        UpdateHighScoreList()
         ScoringService.service.saveNewHighScore(highScore)
+        self.highScores = ScoringService.service.getHighScores() ?? [Double]()
+        UpdateHighScoreList()
     }
 
     
@@ -69,10 +69,6 @@ class GameResultsViewController: BaseResultsViewController {
  
     // MARK: Helpers
     private func UpdateHighScoreList(){
-//        self.topHighScore1.hidden = true
-//        self.topHighScore2.hidden = true
-//        self.topHighScore3.hidden = true
-        
         self.topHighScore1.text="1."
         self.topHighScore2.text="2."
         self.topHighScore3.text="3."
