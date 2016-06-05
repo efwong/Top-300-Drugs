@@ -20,7 +20,6 @@
 		5EB077381CEEFED4007BF21F /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB077371CEEFED4007BF21F /* MenuTableViewCell.swift */; };
 		5ED088D51CC325D600F12691 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED088D41CC325D600F12691 /* SettingsTableViewController.swift */; };
 		5ED088D81CC330AD00F12691 /* UserSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED088D71CC330AD00F12691 /* UserSettingsService.swift */; };
-		5ED158061CB0D1050099FA62 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED158051CB0D1050099FA62 /* MenuViewController.swift */; };
 		5ED21A071C70143200DA145F /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E7F63961C54B82600546DC3 /* QuestionViewController.swift */; };
 		5ED21A081C70143600DA145F /* QuestionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E86C5FF91C68730F00998BC3 /* QuestionService.swift */; };
 		5ED21A0A1C7015FF00DA145F /* QuestionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED21A091C7015FF00DA145F /* QuestionManager.swift */; };
@@ -32,10 +31,9 @@
 		5EF4FF491CFC09DE005BE6B9 /* CommonExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF4FF481CFC09DE005BE6B9 /* CommonExtensions.swift */; };
 		5EF958E91CF1428A00CDF1C2 /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EF958E81CF1428A00CDF1C2 /* CommonUtility.swift */; };
 		E82E0BE61C5415E9007EED05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BE51C5415E9007EED05 /* AppDelegate.swift */; };
-		E82E0BE81C5415E9007EED05 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BE71C5415E9007EED05 /* MainViewController.swift */; };
 		E82E0BEB1C5415E9007EED05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82E0BE91C5415E9007EED05 /* Main.storyboard */; };
 		E82E0BF01C5415E9007EED05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82E0BEF1C5415E9007EED05 /* Assets.xcassets */; };
-		E82E0BFE1C5415E9007EED05 /* PharmacyFlashCardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BFD1C5415E9007EED05 /* PharmacyFlashCardsTests.swift */; };
+		E82E0BFE1C5415E9007EED05 /* Top300AppliedDrugsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0BFD1C5415E9007EED05 /* Top300AppliedDrugsTests.swift */; };
 		E82E0C091C5415E9007EED05 /* PharmacyFlashCardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C081C5415E9007EED05 /* PharmacyFlashCardsUITests.swift */; };
 		E82E0C201C5421AC007EED05 /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C1F1C5421AC007EED05 /* CoreDataStackManager.swift */; };
 		E82E0C2E1C542441007EED05 /* DrugRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82E0C2D1C542441007EED05 /* DrugRepository.swift */; };
@@ -82,7 +80,6 @@
 		5EB077371CEEFED4007BF21F /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		5ED088D41CC325D600F12691 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		5ED088D71CC330AD00F12691 /* UserSettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsService.swift; sourceTree = "<group>"; };
-		5ED158051CB0D1050099FA62 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		5ED21A091C7015FF00DA145F /* QuestionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionManager.swift; sourceTree = "<group>"; };
 		5ED75A6E1CE04F23000F3F15 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5EF0D3FD1CE8602F004B19DD /* ResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
@@ -93,16 +90,15 @@
 		5EF958E81CF1428A00CDF1C2 /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		748BEC80311941E68AA256DF /* Pods-PharmacyFlashCards.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyFlashCards.release.xcconfig"; path = "Pods/Target Support Files/Pods-PharmacyFlashCards/Pods-PharmacyFlashCards.release.xcconfig"; sourceTree = "<group>"; };
 		C696FB88CEAAEE2A2A5D3236 /* Pods-PharmacyFlashCards.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PharmacyFlashCards.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PharmacyFlashCards/Pods-PharmacyFlashCards.debug.xcconfig"; sourceTree = "<group>"; };
-		E82E0BE21C5415E9007EED05 /* PharmacyFlashCards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PharmacyFlashCards.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E82E0BE21C5415E9007EED05 /* Applied Drugs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Applied Drugs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82E0BE51C5415E9007EED05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E82E0BE71C5415E9007EED05 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		E82E0BEA1C5415E9007EED05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E82E0BEF1C5415E9007EED05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E82E0BF41C5415E9007EED05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E82E0BF91C5415E9007EED05 /* PharmacyFlashCardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PharmacyFlashCardsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E82E0BFD1C5415E9007EED05 /* PharmacyFlashCardsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyFlashCardsTests.swift; sourceTree = "<group>"; };
+		E82E0BF91C5415E9007EED05 /* Top300AppliedDrugs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Top300AppliedDrugs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E82E0BFD1C5415E9007EED05 /* Top300AppliedDrugsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top300AppliedDrugsTests.swift; sourceTree = "<group>"; };
 		E82E0BFF1C5415E9007EED05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E82E0C041C5415E9007EED05 /* PharmacyFlashCardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PharmacyFlashCardsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E82E0C041C5415E9007EED05 /* Top300AppliedDrugs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Top300AppliedDrugs.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82E0C081C5415E9007EED05 /* PharmacyFlashCardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacyFlashCardsUITests.swift; sourceTree = "<group>"; };
 		E82E0C0A1C5415E9007EED05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E82E0C1F1C5421AC007EED05 /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
@@ -209,9 +205,9 @@
 		E82E0BD91C5415E9007EED05 = {
 			isa = PBXGroup;
 			children = (
-				E82E0BE41C5415E9007EED05 /* PharmacyFlashCards */,
-				E82E0BFC1C5415E9007EED05 /* PharmacyFlashCardsTests */,
-				E82E0C071C5415E9007EED05 /* PharmacyFlashCardsUITests */,
+				E82E0BE41C5415E9007EED05 /* Top300AppliedDrugs */,
+				E82E0BFC1C5415E9007EED05 /* Top300AppliedDrugsTests */,
+				E82E0C071C5415E9007EED05 /* Top300AppliedDrugsUITests */,
 				E82E0BE31C5415E9007EED05 /* Products */,
 				202F42725CDC0CFA4E161FA5 /* Pods */,
 				2926E5B5F9A5411266F404E7 /* Frameworks */,
@@ -221,14 +217,14 @@
 		E82E0BE31C5415E9007EED05 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E82E0BE21C5415E9007EED05 /* PharmacyFlashCards.app */,
-				E82E0BF91C5415E9007EED05 /* PharmacyFlashCardsTests.xctest */,
-				E82E0C041C5415E9007EED05 /* PharmacyFlashCardsUITests.xctest */,
+				E82E0BE21C5415E9007EED05 /* Applied Drugs.app */,
+				E82E0BF91C5415E9007EED05 /* Top300AppliedDrugs.xctest */,
+				E82E0C041C5415E9007EED05 /* Top300AppliedDrugs.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E82E0BE41C5415E9007EED05 /* PharmacyFlashCards */ = {
+		E82E0BE41C5415E9007EED05 /* Top300AppliedDrugs */ = {
 			isa = PBXGroup;
 			children = (
 				E82E0C341C5426B9007EED05 /* Utility */,
@@ -243,24 +239,27 @@
 				E82E0BE91C5415E9007EED05 /* Main.storyboard */,
 				5ED75A6E1CE04F23000F3F15 /* LaunchScreen.storyboard */,
 			);
+			name = Top300AppliedDrugs;
 			path = PharmacyFlashCards;
 			sourceTree = "<group>";
 		};
-		E82E0BFC1C5415E9007EED05 /* PharmacyFlashCardsTests */ = {
+		E82E0BFC1C5415E9007EED05 /* Top300AppliedDrugsTests */ = {
 			isa = PBXGroup;
 			children = (
-				E82E0BFD1C5415E9007EED05 /* PharmacyFlashCardsTests.swift */,
+				E82E0BFD1C5415E9007EED05 /* Top300AppliedDrugsTests.swift */,
 				E82E0BFF1C5415E9007EED05 /* Info.plist */,
 			);
+			name = Top300AppliedDrugsTests;
 			path = PharmacyFlashCardsTests;
 			sourceTree = "<group>";
 		};
-		E82E0C071C5415E9007EED05 /* PharmacyFlashCardsUITests */ = {
+		E82E0C071C5415E9007EED05 /* Top300AppliedDrugsUITests */ = {
 			isa = PBXGroup;
 			children = (
 				E82E0C081C5415E9007EED05 /* PharmacyFlashCardsUITests.swift */,
 				E82E0C0A1C5415E9007EED05 /* Info.plist */,
 			);
+			name = Top300AppliedDrugsUITests;
 			path = PharmacyFlashCardsUITests;
 			sourceTree = "<group>";
 		};
@@ -298,9 +297,7 @@
 		E82E0C191C541CB8007EED05 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				E82E0BE71C5415E9007EED05 /* MainViewController.swift */,
 				5E4C1CFE1C8D3C0F003641F5 /* MenuTableViewController.swift */,
-				5ED158051CB0D1050099FA62 /* MenuViewController.swift */,
 				5EB077371CEEFED4007BF21F /* MenuTableViewCell.swift */,
 			);
 			name = Main;
@@ -420,9 +417,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E82E0BE11C5415E9007EED05 /* PharmacyFlashCards */ = {
+		E82E0BE11C5415E9007EED05 /* Top300AppliedDrugs */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E82E0C0D1C5415E9007EED05 /* Build configuration list for PBXNativeTarget "PharmacyFlashCards" */;
+			buildConfigurationList = E82E0C0D1C5415E9007EED05 /* Build configuration list for PBXNativeTarget "Top300AppliedDrugs" */;
 			buildPhases = (
 				AB34EFE7D4D2014DC6918252 /* Check Pods Manifest.lock */,
 				E82E0BDE1C5415E9007EED05 /* Sources */,
@@ -435,14 +432,14 @@
 			);
 			dependencies = (
 			);
-			name = PharmacyFlashCards;
+			name = Top300AppliedDrugs;
 			productName = PharmacyFlashCards;
-			productReference = E82E0BE21C5415E9007EED05 /* PharmacyFlashCards.app */;
+			productReference = E82E0BE21C5415E9007EED05 /* Applied Drugs.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E82E0BF81C5415E9007EED05 /* PharmacyFlashCardsTests */ = {
+		E82E0BF81C5415E9007EED05 /* Top300AppliedDrugsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E82E0C101C5415E9007EED05 /* Build configuration list for PBXNativeTarget "PharmacyFlashCardsTests" */;
+			buildConfigurationList = E82E0C101C5415E9007EED05 /* Build configuration list for PBXNativeTarget "Top300AppliedDrugsTests" */;
 			buildPhases = (
 				E82E0BF51C5415E9007EED05 /* Sources */,
 				E82E0BF61C5415E9007EED05 /* Frameworks */,
@@ -453,14 +450,14 @@
 			dependencies = (
 				E82E0BFB1C5415E9007EED05 /* PBXTargetDependency */,
 			);
-			name = PharmacyFlashCardsTests;
+			name = Top300AppliedDrugsTests;
 			productName = PharmacyFlashCardsTests;
-			productReference = E82E0BF91C5415E9007EED05 /* PharmacyFlashCardsTests.xctest */;
+			productReference = E82E0BF91C5415E9007EED05 /* Top300AppliedDrugs.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		E82E0C031C5415E9007EED05 /* PharmacyFlashCardsUITests */ = {
+		E82E0C031C5415E9007EED05 /* Top300AppliedDrugsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E82E0C131C5415E9007EED05 /* Build configuration list for PBXNativeTarget "PharmacyFlashCardsUITests" */;
+			buildConfigurationList = E82E0C131C5415E9007EED05 /* Build configuration list for PBXNativeTarget "Top300AppliedDrugsUITests" */;
 			buildPhases = (
 				E82E0C001C5415E9007EED05 /* Sources */,
 				E82E0C011C5415E9007EED05 /* Frameworks */,
@@ -471,9 +468,9 @@
 			dependencies = (
 				E82E0C061C5415E9007EED05 /* PBXTargetDependency */,
 			);
-			name = PharmacyFlashCardsUITests;
+			name = Top300AppliedDrugsUITests;
 			productName = PharmacyFlashCardsUITests;
-			productReference = E82E0C041C5415E9007EED05 /* PharmacyFlashCardsUITests.xctest */;
+			productReference = E82E0C041C5415E9007EED05 /* Top300AppliedDrugs.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -500,7 +497,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E82E0BDD1C5415E9007EED05 /* Build configuration list for PBXProject "PharmacyFlashCards" */;
+			buildConfigurationList = E82E0BDD1C5415E9007EED05 /* Build configuration list for PBXProject "Top300AppliedDrugs" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -513,9 +510,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E82E0BE11C5415E9007EED05 /* PharmacyFlashCards */,
-				E82E0BF81C5415E9007EED05 /* PharmacyFlashCardsTests */,
-				E82E0C031C5415E9007EED05 /* PharmacyFlashCardsUITests */,
+				E82E0BE11C5415E9007EED05 /* Top300AppliedDrugs */,
+				E82E0BF81C5415E9007EED05 /* Top300AppliedDrugsTests */,
+				E82E0C031C5415E9007EED05 /* Top300AppliedDrugsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -602,7 +599,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E82E0BE81C5415E9007EED05 /* MainViewController.swift in Sources */,
 				5EF4FF491CFC09DE005BE6B9 /* CommonExtensions.swift in Sources */,
 				5EF958E91CF1428A00CDF1C2 /* CommonUtility.swift in Sources */,
 				5E4C1D051C8D49DF003641F5 /* ClassificationQuestion.swift in Sources */,
@@ -612,7 +608,6 @@
 				E89ED2651C68401500A5249E /* Question.swift in Sources */,
 				E82E0C201C5421AC007EED05 /* CoreDataStackManager.swift in Sources */,
 				E86C5FEF1C684E5300998BC3 /* Drug.swift in Sources */,
-				5ED158061CB0D1050099FA62 /* MenuViewController.swift in Sources */,
 				E86C5FFD1C68742600998BC3 /* Randomizer.swift in Sources */,
 				E86C5FF31C684EFB00998BC3 /* PharmacyFlashCards.xcdatamodeld in Sources */,
 				E86C5FEE1C684E5300998BC3 /* Drug+CoreDataProperties.swift in Sources */,
@@ -642,7 +637,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E82E0BFE1C5415E9007EED05 /* PharmacyFlashCardsTests.swift in Sources */,
+				E82E0BFE1C5415E9007EED05 /* Top300AppliedDrugsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,12 +654,12 @@
 /* Begin PBXTargetDependency section */
 		E82E0BFB1C5415E9007EED05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E82E0BE11C5415E9007EED05 /* PharmacyFlashCards */;
+			target = E82E0BE11C5415E9007EED05 /* Top300AppliedDrugs */;
 			targetProxy = E82E0BFA1C5415E9007EED05 /* PBXContainerItemProxy */;
 		};
 		E82E0C061C5415E9007EED05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E82E0BE11C5415E9007EED05 /* PharmacyFlashCards */;
+			target = E82E0BE11C5415E9007EED05 /* Top300AppliedDrugs */;
 			targetProxy = E82E0C051C5415E9007EED05 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -773,7 +768,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyQuiz;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Applied Drugs";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -789,7 +784,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyQuiz;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Applied Drugs";
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -801,8 +796,8 @@
 				INFOPLIST_FILE = PharmacyFlashCardsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyFlashCardsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PharmacyFlashCards.app/PharmacyFlashCards";
+				PRODUCT_NAME = Top300AppliedDrugs;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Top300AppliedDrugs.app/Top300AppliedDrugs";
 			};
 			name = Debug;
 		};
@@ -813,8 +808,8 @@
 				INFOPLIST_FILE = PharmacyFlashCardsTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyFlashCardsTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PharmacyFlashCards.app/PharmacyFlashCards";
+				PRODUCT_NAME = Top300AppliedDrugs;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Top300AppliedDrugs.app/Top300AppliedDrugs";
 			};
 			name = Release;
 		};
@@ -824,7 +819,7 @@
 				INFOPLIST_FILE = PharmacyFlashCardsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyFlashCardsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Top300AppliedDrugs;
 				TEST_TARGET_NAME = PharmacyFlashCards;
 				USES_XCTRUNNER = YES;
 			};
@@ -836,7 +831,7 @@
 				INFOPLIST_FILE = PharmacyFlashCardsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyFlashCardsUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Top300AppliedDrugs;
 				TEST_TARGET_NAME = PharmacyFlashCards;
 				USES_XCTRUNNER = YES;
 			};
@@ -845,7 +840,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E82E0BDD1C5415E9007EED05 /* Build configuration list for PBXProject "PharmacyFlashCards" */ = {
+		E82E0BDD1C5415E9007EED05 /* Build configuration list for PBXProject "Top300AppliedDrugs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E82E0C0B1C5415E9007EED05 /* Debug */,
@@ -854,7 +849,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E82E0C0D1C5415E9007EED05 /* Build configuration list for PBXNativeTarget "PharmacyFlashCards" */ = {
+		E82E0C0D1C5415E9007EED05 /* Build configuration list for PBXNativeTarget "Top300AppliedDrugs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E82E0C0E1C5415E9007EED05 /* Debug */,
@@ -863,7 +858,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E82E0C101C5415E9007EED05 /* Build configuration list for PBXNativeTarget "PharmacyFlashCardsTests" */ = {
+		E82E0C101C5415E9007EED05 /* Build configuration list for PBXNativeTarget "Top300AppliedDrugsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E82E0C111C5415E9007EED05 /* Debug */,
@@ -872,7 +867,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E82E0C131C5415E9007EED05 /* Build configuration list for PBXNativeTarget "PharmacyFlashCardsUITests" */ = {
+		E82E0C131C5415E9007EED05 /* Build configuration list for PBXNativeTarget "Top300AppliedDrugsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E82E0C141C5415E9007EED05 /* Debug */,

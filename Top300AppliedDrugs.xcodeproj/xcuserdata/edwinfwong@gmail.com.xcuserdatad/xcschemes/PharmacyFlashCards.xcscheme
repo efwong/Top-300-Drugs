@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E82E0BE11C5415E9007EED05"
-               BuildableName = "PharmacyFlashCards.app"
-               BlueprintName = "PharmacyFlashCards"
-               ReferencedContainer = "container:PharmacyFlashCards.xcodeproj">
+               BuildableName = "Applied Drugs.app"
+               BlueprintName = "Top300AppliedDrugs"
+               ReferencedContainer = "container:Top300AppliedDrugs.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E82E0BF81C5415E9007EED05"
-               BuildableName = "PharmacyFlashCardsTests.xctest"
-               BlueprintName = "PharmacyFlashCardsTests"
-               ReferencedContainer = "container:PharmacyFlashCards.xcodeproj">
+               BuildableName = "Top300AppliedDrugs.xctest"
+               BlueprintName = "Top300AppliedDrugsTests"
+               ReferencedContainer = "container:Top300AppliedDrugs.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E82E0C031C5415E9007EED05"
-               BuildableName = "PharmacyFlashCardsUITests.xctest"
-               BlueprintName = "PharmacyFlashCardsUITests"
-               ReferencedContainer = "container:PharmacyFlashCards.xcodeproj">
+               BuildableName = "Top300AppliedDrugs.xctest"
+               BlueprintName = "Top300AppliedDrugsUITests"
+               ReferencedContainer = "container:Top300AppliedDrugs.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E82E0BE11C5415E9007EED05"
-            BuildableName = "PharmacyFlashCards.app"
-            BlueprintName = "PharmacyFlashCards"
-            ReferencedContainer = "container:PharmacyFlashCards.xcodeproj">
+            BuildableName = "Applied Drugs.app"
+            BlueprintName = "Top300AppliedDrugs"
+            ReferencedContainer = "container:Top300AppliedDrugs.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E82E0BE11C5415E9007EED05"
-            BuildableName = "PharmacyFlashCards.app"
-            BlueprintName = "PharmacyFlashCards"
-            ReferencedContainer = "container:PharmacyFlashCards.xcodeproj">
+            BuildableName = "Applied Drugs.app"
+            BlueprintName = "Top300AppliedDrugs"
+            ReferencedContainer = "container:Top300AppliedDrugs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E82E0BE11C5415E9007EED05"
-            BuildableName = "PharmacyFlashCards.app"
-            BlueprintName = "PharmacyFlashCards"
-            ReferencedContainer = "container:PharmacyFlashCards.xcodeproj">
+            BuildableName = "Applied Drugs.app"
+            BlueprintName = "Top300AppliedDrugs"
+            ReferencedContainer = "container:Top300AppliedDrugs.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

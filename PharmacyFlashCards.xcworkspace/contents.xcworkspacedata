@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:PharmacyFlashCards.xcodeproj">
+      location = "group:/Projects/AppliedDrugs/Top300AppliedDrugs.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
