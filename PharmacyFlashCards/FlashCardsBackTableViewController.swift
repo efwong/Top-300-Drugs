@@ -10,7 +10,7 @@ import UIKit
 
 class FlashCardsBackTableViewController: BaseUITableViewController {
 
-    @IBOutlet weak var genericAnswerLabel: UILabel!
+    //@IBOutlet weak var genericAnswerLabel: UILabel!
     @IBOutlet weak var brandAnswerLabel: UILabel!
     @IBOutlet weak var classificationAnswerLabel: UILabel!
     @IBOutlet weak var dosageAnswerLabel: UILabel!
@@ -37,7 +37,7 @@ class FlashCardsBackTableViewController: BaseUITableViewController {
 
     // update drug text
     func updateText(){
-        self.genericAnswerLabel.text = self.drug!.generic
+        //self.genericAnswerLabel.text = self.drug!.generic
         self.brandAnswerLabel.text = self.drug!.brand
         self.classificationAnswerLabel.text = self.drug!.classification
         self.indicationAnswerLabel.text = self.drug!.indication
