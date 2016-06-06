@@ -85,19 +85,20 @@ class MenuTableViewController: BaseUITableViewController {
         switch(index){
         case 0:
             loadMenuItemCell(cell, name: "Play", leftRightIndex: 0, rowIndex: index)
-            loadMenuItemCell(cell, name: "Generic", leftRightIndex: 1, rowIndex: index)
+            loadMenuItemCell(cell, name: "FlashCard", leftRightIndex: 1, rowIndex: index)
         case 1:
-            loadMenuItemCell(cell, name: "Brand", leftRightIndex: 0, rowIndex: index)
-            loadMenuItemCell(cell, name: "Classification", leftRightIndex: 1, rowIndex: index)
+            loadMenuItemCell(cell, name: "Generic", leftRightIndex: 0, rowIndex: index)
+            loadMenuItemCell(cell, name: "Brand", leftRightIndex: 1, rowIndex: index)
         case 2:
-            loadMenuItemCell(cell, name: "Dosage", leftRightIndex: 0, rowIndex: index)
-            loadMenuItemCell(cell, name: "Indication", leftRightIndex: 1, rowIndex: index)
+            loadMenuItemCell(cell, name: "Classification", leftRightIndex: 0, rowIndex: index)
+            loadMenuItemCell(cell, name: "Dosage", leftRightIndex: 1, rowIndex: index)
         case 3:
-            loadMenuItemCell(cell, name: "Settings", leftRightIndex: 0, rowIndex: index)
+            loadMenuItemCell(cell, name: "Indication", leftRightIndex: 0, rowIndex: index)
+            loadMenuItemCell(cell, name: "Settings", leftRightIndex: 1, rowIndex: index)
             // clear right side
-            cell.rightImageView.backgroundColor = UIColor(white: 1, alpha: 0.0)
-            cell.rightImageTitle.text = ""
-            cell.rightImage.image = nil
+//            cell.rightImageView.backgroundColor = UIColor(white: 1, alpha: 0.0)
+//            cell.rightImageTitle.text = ""
+//            cell.rightImage.image = nil
         default: break
         }
     }
@@ -139,6 +140,8 @@ class MenuTableViewController: BaseUITableViewController {
         if let view = sender.view{
             if view.restorationIdentifier == "Settings"{
                 performSegueWithIdentifier("showSettingsScene", sender: sender)
+            }else if view.restorationIdentifier == "FlashCard" {
+                performSegueWithIdentifier("showFlashCardsScene", sender: sender)
             }else{
                 performSegueWithIdentifier("showQuestionScene", sender: sender)
             }
@@ -155,6 +158,12 @@ class MenuTableViewController: BaseUITableViewController {
         if let view = sender!.view as UIView?{
             if segue.identifier == "showSettingsScene"{
                 // show settings
+            }else if segue.identifier == "showFlashCardsScene" {
+                let selectedDrugs = drugService?.selectByUserSettings()
+                if let flashCards = segue.destinationViewController as? FlashCardsViewController{
+                    flashCards.drugs = selectedDrugs
+                }
+                
             }else{
                 // show questions
                 let questionType:QuestionType? = QuestionUtility.getQuestionType(view)

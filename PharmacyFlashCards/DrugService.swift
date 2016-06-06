@@ -42,6 +42,7 @@ class DrugService {
     func selectByUserSettings() -> [Drug]{
         let drugOneStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugOneConstantKey)
         let drugTwoStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugTwoConstantKey)
+        let drugThreeStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugThreeConstantKey)
         
         
         let request = NSFetchRequest(entityName: self.entityName)
@@ -50,17 +51,22 @@ class DrugService {
         var results:[Drug] = []
         
         // get both drug sets
-        if drugOneStatus && drugTwoStatus{
-            results = (self.dataRepository?.selectAll(request))!
-        }else if drugOneStatus{
-            // get drug one set
-            request.predicate = NSPredicate(format: "semester = 0")
-            results = (self.dataRepository?.selectAll(request))!
-        }else if drugTwoStatus{
-            // get drug two set
-            request.predicate = NSPredicate(format: "semester = 1")
+        if drugOneStatus && drugTwoStatus && drugThreeStatus{
             results = (self.dataRepository?.selectAll(request))!
         }else{
+            var statusArr:[String] = [String]()
+            if drugOneStatus{
+                statusArr.append("semester = 0")
+            }
+            if drugTwoStatus {
+                statusArr.append("semester = 1")
+            }
+            if drugThreeStatus {
+                statusArr.append("semester = 2")
+            }
+            let formatter = statusArr.joinWithSeparator(" || ")
+            request.predicate = NSPredicate(format: formatter)
+            results = (self.dataRepository?.selectAll(request))!
         }
         return results
     }

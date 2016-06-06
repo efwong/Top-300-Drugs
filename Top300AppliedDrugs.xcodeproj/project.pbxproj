@@ -16,7 +16,9 @@
 		5E4C1D091C8D505D003641F5 /* IndicationQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C1D081C8D505D003641F5 /* IndicationQuestion.swift */; };
 		5E4C1D0B1C8D52BB003641F5 /* DosageQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C1D0A1C8D52BB003641F5 /* DosageQuestion.swift */; };
 		5E6CF1E01C54919F007E1725 /* drugs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CF1DF1C54919F007E1725 /* drugs.csv */; };
+		5E888F021D03D9B000AFA309 /* FlashCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E888F011D03D9B000AFA309 /* FlashCardsViewController.swift */; };
 		5E94802D1CF5998F0060E540 /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E94802C1CF5998F0060E540 /* AppConfig.plist */; };
+		5E9A35071D03ED89008F8F9D /* FlashCardsBackTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9A35061D03ED89008F8F9D /* FlashCardsBackTableViewController.swift */; };
 		5EB077381CEEFED4007BF21F /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EB077371CEEFED4007BF21F /* MenuTableViewCell.swift */; };
 		5ED088D51CC325D600F12691 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED088D41CC325D600F12691 /* SettingsTableViewController.swift */; };
 		5ED088D81CC330AD00F12691 /* UserSettingsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ED088D71CC330AD00F12691 /* UserSettingsService.swift */; };
@@ -76,7 +78,9 @@
 		5E4C1D0A1C8D52BB003641F5 /* DosageQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DosageQuestion.swift; sourceTree = "<group>"; };
 		5E6CF1DF1C54919F007E1725 /* drugs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = drugs.csv; sourceTree = "<group>"; };
 		5E7F63961C54B82600546DC3 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		5E888F011D03D9B000AFA309 /* FlashCardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashCardsViewController.swift; sourceTree = "<group>"; };
 		5E94802C1CF5998F0060E540 /* AppConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppConfig.plist; sourceTree = "<group>"; };
+		5E9A35061D03ED89008F8F9D /* FlashCardsBackTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashCardsBackTableViewController.swift; sourceTree = "<group>"; };
 		5EB077371CEEFED4007BF21F /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		5ED088D41CC325D600F12691 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		5ED088D71CC330AD00F12691 /* UserSettingsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSettingsService.swift; sourceTree = "<group>"; };
@@ -173,6 +177,15 @@
 				5E7F63961C54B82600546DC3 /* QuestionViewController.swift */,
 			);
 			name = QuestionView;
+			sourceTree = "<group>";
+		};
+		5E888F001D03D99D00AFA309 /* FlashCardsView */ = {
+			isa = PBXGroup;
+			children = (
+				5E888F011D03D9B000AFA309 /* FlashCardsViewController.swift */,
+				5E9A35061D03ED89008F8F9D /* FlashCardsBackTableViewController.swift */,
+			);
+			name = FlashCardsView;
 			sourceTree = "<group>";
 		};
 		5ED088D11CC3255600F12691 /* Settings */ = {
@@ -275,6 +288,7 @@
 		E82E0C171C541CA7007EED05 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				5E888F001D03D99D00AFA309 /* FlashCardsView */,
 				5EF0D3FC1CE85FBC004B19DD /* ResultsView */,
 				5ED088D11CC3255600F12691 /* Settings */,
 				5E533F2C1C577079005AC245 /* QuestionView */,
@@ -607,6 +621,7 @@
 				E86C5FF51C68666600998BC3 /* BrandQuestion.swift in Sources */,
 				E89ED2651C68401500A5249E /* Question.swift in Sources */,
 				E82E0C201C5421AC007EED05 /* CoreDataStackManager.swift in Sources */,
+				5E9A35071D03ED89008F8F9D /* FlashCardsBackTableViewController.swift in Sources */,
 				E86C5FEF1C684E5300998BC3 /* Drug.swift in Sources */,
 				E86C5FFD1C68742600998BC3 /* Randomizer.swift in Sources */,
 				E86C5FF31C684EFB00998BC3 /* PharmacyFlashCards.xcdatamodeld in Sources */,
@@ -618,6 +633,7 @@
 				5E46AE031CF2A84500FE70FE /* QuestionUtility.swift in Sources */,
 				E82E0C331C542472007EED05 /* DrugService.swift in Sources */,
 				5ED088D81CC330AD00F12691 /* UserSettingsService.swift in Sources */,
+				5E888F021D03D9B000AFA309 /* FlashCardsViewController.swift in Sources */,
 				5EF4FF431CFBF255005BE6B9 /* GameResultsViewController.swift in Sources */,
 				5EF4FF471CFC012A005BE6B9 /* ScoringService.swift in Sources */,
 				5E4C1D011C8D41B7003641F5 /* BaseUITableViewController.swift in Sources */,

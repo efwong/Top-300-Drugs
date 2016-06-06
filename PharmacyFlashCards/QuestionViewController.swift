@@ -234,22 +234,36 @@ class QuestionViewController: BaseUIViewController {
             let seconds = timeLimit % 60
             let minutes = (timeLimit / 60) % 60
             currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
-            
-            let alert = UIAlertController(title: "Instructions", message: "Please tap the best answer.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default){
-                (action: UIAlertAction!) in
-                // start timer
+            // show instructions once
+            if UserSettingsService.service.isGameInstructionsHidden() == false {
+                let alert = UIAlertController(title: "Instructions", message: "Please tap the best answer.", preferredStyle: UIAlertControllerStyle.Alert)
+                alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default){
+                    (action: UIAlertAction!) in
+                    // start timer
+                    self.startTime = NSDate.timeIntervalSinceReferenceDate()
+                    
+                    // begin count down from 60
+                    self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
+                        target: self,
+                        selector: #selector(QuestionViewController.countDown),
+                        userInfo: nil,
+                        repeats: true)
+                    
+                    UserSettingsService.service.hideGameInstructions()
+                    
+                    })
+                self.presentViewController(alert, animated: true, completion: nil)
+            }else{
+                // start timer immediately
                 self.startTime = NSDate.timeIntervalSinceReferenceDate()
                 
                 // begin count down from 60
                 self.timer = NSTimer.scheduledTimerWithTimeInterval(1.0,
-                    target: self,
-                    selector: #selector(QuestionViewController.countDown),
-                    userInfo: nil,
-                    repeats: true)
-                
-                })
-            self.presentViewController(alert, animated: true, completion: nil)
+                                                                    target: self,
+                                                                    selector: #selector(QuestionViewController.countDown),
+                                                                    userInfo: nil,
+                                                                    repeats: true)
+            }
         }
         else{
             // start timer
@@ -271,17 +285,6 @@ class QuestionViewController: BaseUIViewController {
             let seconds = currentDuration % 60
             let minutes = (currentDuration / 60) % 60
             currentTimeLabel.text = String(format: "%02d:%02d", minutes, seconds)
-            
-//            guard let timeLimit = CommonUtility.service.AppConfig?["GameTimeLimit"]?.integerValue else{
-//                timer.invalidate()
-//                return
-//            }
-            
-            // time out after 45 secs
-//            if(currentDuration >= timeLimit) {
-//                timer.invalidate()
-//                performSegueWithIdentifier("showResultsScene", sender: self)
-//            }
         }
     }
     
