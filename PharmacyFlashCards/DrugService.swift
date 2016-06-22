@@ -39,7 +39,7 @@ class DrugService {
         return results;
     }
     
-    func selectByUserSettings() -> [Drug]{
+    func selectByUserSettings(ascending:Bool? = nil) -> [Drug]{
         let drugOneStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugOneConstantKey)
         let drugTwoStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugTwoConstantKey)
         let drugThreeStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugThreeConstantKey)
@@ -66,6 +66,10 @@ class DrugService {
             }
             let formatter = statusArr.joinWithSeparator(" || ")
             request.predicate = NSPredicate(format: formatter)
+            if ascending != nil{
+                // sort by generic
+                request.sortDescriptors = [NSSortDescriptor(key: "generic", ascending: ascending!)]
+            }
             results = (self.dataRepository?.selectAll(request))!
         }
         return results

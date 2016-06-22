@@ -159,7 +159,7 @@ class MenuTableViewController: BaseUITableViewController {
             if segue.identifier == "showSettingsScene"{
                 // show settings
             }else if segue.identifier == "showFlashCardsScene" {
-                let selectedDrugs = drugService?.selectByUserSettings()
+                let selectedDrugs = drugService?.selectByUserSettings(true)
                 if let flashCards = segue.destinationViewController as? FlashCardsViewController{
                     flashCards.drugs = selectedDrugs
                 }
