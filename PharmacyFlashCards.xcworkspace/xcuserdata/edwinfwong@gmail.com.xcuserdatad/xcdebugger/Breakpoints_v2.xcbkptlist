@@ -145,6 +145,38 @@
             endingLineNumber = "53"
             landmarkName = "selectByUserSettings()"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Applied_Drugs.DrugService.selectByUserSettings () -&gt; Swift.Array&lt;Applied_Drugs.Drug&gt;"
+                  moduleName = "Applied Drugs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Projects/AppliedDrugs/PharmacyFlashCards/DrugService.swift"
+                  timestampString = "488257449.25619"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "676">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Applied_Drugs.DrugService.selectByUserSettings () -&gt; Swift.Array&lt;Applied_Drugs.Drug&gt;"
+                  moduleName = "Applied Drugs"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Projects/AppliedDrugs/PharmacyFlashCards/DrugService.swift"
+                  timestampString = "488257449.256413"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "696">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -575,6 +607,22 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
             endingLineNumber = "15"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "PharmacyFlashCards/MenuTableViewController.swift"
+            timestampString = "488257386.843304"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
