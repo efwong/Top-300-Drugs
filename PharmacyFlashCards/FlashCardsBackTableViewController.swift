@@ -21,7 +21,15 @@ class FlashCardsBackTableViewController: BaseUITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.layer.cornerRadius = 10
+        super.tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100.0
 
+        if UIScreen.mainScreen().nativeBounds.height <= 960.0 {
+            brandAnswerLabel.font = brandAnswerLabel.font.fontWithSize(14)
+            classificationAnswerLabel.font = classificationAnswerLabel.font.fontWithSize(14)
+            dosageAnswerLabel.font = dosageAnswerLabel.font.fontWithSize(14)
+            indicationAnswerLabel.font = indicationAnswerLabel.font.fontWithSize(14)
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

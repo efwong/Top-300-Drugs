@@ -212,15 +212,35 @@ class QuestionViewController: BaseUIViewController {
     
     // update fonts
     private func updateFonts(){
-        var localFont = UIFont(name: "Helvetica", size: 20)
-        if(self.questionType == QuestionType.Indication){
-            localFont = UIFont(name: "Helvetica", size: 17)
-        }
+        //if UIScreen.mainScreen().nativeBounds.height <= 960.0 {
+        switch UIScreen.mainScreen().nativeBounds.height {
+        case 960:
+                // iphone 4s height
+                questionLabel.font = questionLabel.font.fontWithSize(20)
+                answerButton1.titleLabel!.font  = answerButton1.titleLabel!.font.fontWithSize(14)
+                answerButton2.titleLabel!.font  = answerButton2.titleLabel!.font.fontWithSize(14)
+                answerButton3.titleLabel!.font  = answerButton3.titleLabel!.font.fontWithSize(14)
+                answerButton4.titleLabel!.font  = answerButton4.titleLabel!.font.fontWithSize(14)
         
-        answerButton1.titleLabel!.font = localFont
-        answerButton2.titleLabel!.font = localFont
-        answerButton3.titleLabel!.font = localFont
-        answerButton4.titleLabel!.font = localFont
+        case 1136:
+            // iphone 5
+            questionLabel.font = questionLabel.font.fontWithSize(25)
+            answerButton1.titleLabel!.font  = answerButton1.titleLabel!.font.fontWithSize(16)
+            answerButton2.titleLabel!.font  = answerButton2.titleLabel!.font.fontWithSize(16)
+            answerButton3.titleLabel!.font  = answerButton3.titleLabel!.font.fontWithSize(16)
+            answerButton4.titleLabel!.font  = answerButton4.titleLabel!.font.fontWithSize(16)
+            
+        default:
+            var localFont = UIFont(name: "Helvetica", size: 20)
+            if(self.questionType == QuestionType.Indication){
+                localFont = UIFont(name: "Helvetica", size: 17)
+            }
+            
+            answerButton1.titleLabel!.font = localFont
+            answerButton2.titleLabel!.font = localFont
+            answerButton3.titleLabel!.font = localFont
+            answerButton4.titleLabel!.font = localFont
+        }
     }
     
     // MARK: Timer methods

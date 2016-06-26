@@ -501,6 +501,11 @@
                         <color key="backgroundColor" red="0.98823529409999999" green="0.75294117650000003" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="separatorColor" red="0.63529411759999999" green="0.098039215690000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.98823529409999999" green="0.75294117650000003" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="RLt-SU-EWa">
+                            <rect key="frame" x="0.0" y="315" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        </view>
                         <sections>
                             <tableViewSection id="gT3-w6-S7A">
                                 <cells>
@@ -624,21 +629,21 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.98823529409999999" green="0.75294117650000003" blue="0.7725490196" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="175" id="PHj-sv-Fva">
-                                        <rect key="frame" x="0.0" y="215" width="600" height="175"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="PHj-sv-Fva">
+                                        <rect key="frame" x="0.0" y="215" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PHj-sv-Fva" id="O8h-zG-5AR">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="174.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indication Answer" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nyt-pm-aUd">
-                                                    <rect key="frame" x="129.5" y="77.5" width="133.5" height="20"/>
+                                                    <rect key="frame" x="129.5" y="28" width="133.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Indication:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwO-tu-NeE">
-                                                    <rect key="frame" x="10" y="77.5" width="110" height="20"/>
+                                                    <rect key="frame" x="10" y="28" width="110" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="110" id="CLz-ZO-bqx"/>
                                                     </constraints>
@@ -649,16 +654,23 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
+                                                <constraint firstItem="nyt-pm-aUd" firstAttribute="top" secondItem="O8h-zG-5AR" secondAttribute="topMargin" constant="20" id="0kY-uA-rYD"/>
                                                 <constraint firstItem="fwO-tu-NeE" firstAttribute="leading" secondItem="O8h-zG-5AR" secondAttribute="leading" constant="10" id="OaP-3u-j4g"/>
                                                 <constraint firstItem="nyt-pm-aUd" firstAttribute="leading" secondItem="fwO-tu-NeE" secondAttribute="trailing" constant="10" id="bGf-nE-DY5"/>
+                                                <constraint firstItem="nyt-pm-aUd" firstAttribute="top" relation="greaterThanOrEqual" secondItem="O8h-zG-5AR" secondAttribute="topMargin" priority="990" constant="5" id="eIW-y3-D03"/>
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nyt-pm-aUd" secondAttribute="trailing" constant="5" id="g6N-eh-FrK"/>
                                                 <constraint firstItem="nyt-pm-aUd" firstAttribute="centerY" secondItem="O8h-zG-5AR" secondAttribute="centerY" id="jHl-Jj-rmm"/>
                                                 <constraint firstItem="fwO-tu-NeE" firstAttribute="centerY" secondItem="O8h-zG-5AR" secondAttribute="centerY" id="oHt-gr-VXW"/>
+                                                <constraint firstItem="fwO-tu-NeE" firstAttribute="top" secondItem="O8h-zG-5AR" secondAttribute="topMargin" constant="20" id="pII-Rb-w3C"/>
+                                                <constraint firstItem="nyt-pm-aUd" firstAttribute="centerY" secondItem="fwO-tu-NeE" secondAttribute="centerY" id="rKo-GM-iNr"/>
                                                 <constraint firstItem="fwO-tu-NeE" firstAttribute="leading" secondItem="nyt-pm-aUd" secondAttribute="trailing" constant="10" id="tBY-0T-Akr"/>
                                             </constraints>
                                             <variation key="default">
                                                 <mask key="constraints">
+                                                    <exclude reference="oHt-gr-VXW"/>
                                                     <exclude reference="tBY-0T-Akr"/>
+                                                    <exclude reference="0kY-uA-rYD"/>
+                                                    <exclude reference="jHl-Jj-rmm"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
