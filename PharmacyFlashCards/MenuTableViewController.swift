@@ -27,20 +27,20 @@ class MenuTableViewController: BaseUITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return 4
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Table view cells are reused and should be dequeued using a cell identifier.
         let cellIdentifier = "GenericBrandMenuItemRow"
-        let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as! MenuTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! MenuTableViewCell
         setMenuTableCell(cell, index: indexPath.row)
         return cell
     }
@@ -81,7 +81,7 @@ class MenuTableViewController: BaseUITableViewController {
     */
 
     // MARK: Helpers
-    private func setMenuTableCell(cell: MenuTableViewCell, index: Int){
+    fileprivate func setMenuTableCell(_ cell: MenuTableViewCell, index: Int){
         switch(index){
         case 0:
             loadMenuItemCell(cell, name: "Play", leftRightIndex: 0, rowIndex: index)
@@ -108,7 +108,7 @@ class MenuTableViewController: BaseUITableViewController {
     //      cell: MenuTableViewCell
     //      name: String -> restorationId or name used to generate icons and text
     //      leftRingIndex: 0-> left, 1-> right, etc.
-    private func loadMenuItemCell(cell: MenuTableViewCell, name: String, leftRightIndex: Int, rowIndex: Int){
+    fileprivate func loadMenuItemCell(_ cell: MenuTableViewCell, name: String, leftRightIndex: Int, rowIndex: Int){
         // add gesture action
         let gesture = UITapGestureRecognizer(target: self, action: #selector(MenuTableViewController.menuItemCellTapRecognizer(_:)))
         let iconName = "\(name)Icon"
@@ -135,15 +135,15 @@ class MenuTableViewController: BaseUITableViewController {
     }
     
     // Recognizes menuItemCellTap
-    func menuItemCellTapRecognizer(sender:UITapGestureRecognizer){
+    func menuItemCellTapRecognizer(_ sender:UITapGestureRecognizer){
         // do other task
         if let view = sender.view{
             if view.restorationIdentifier == "Settings"{
-                performSegueWithIdentifier("showSettingsScene", sender: sender)
+                performSegue(withIdentifier: "showSettingsScene", sender: sender)
             }else if view.restorationIdentifier == "FlashCard" {
-                performSegueWithIdentifier("showFlashCardsScene", sender: sender)
+                performSegue(withIdentifier: "showFlashCardsScene", sender: sender)
             }else{
-                performSegueWithIdentifier("showQuestionScene", sender: sender)
+                performSegue(withIdentifier: "showQuestionScene", sender: sender)
             }
         }
     }
@@ -151,16 +151,16 @@ class MenuTableViewController: BaseUITableViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if let view = sender!.view as UIView?{
+        if let view = (sender! as AnyObject).view as UIView?{
             if segue.identifier == "showSettingsScene"{
                 // show settings
             }else if segue.identifier == "showFlashCardsScene" {
                 let selectedDrugs = drugService?.selectByUserSettings(true)
-                if let flashCards = segue.destinationViewController as? FlashCardsViewController{
+                if let flashCards = segue.destination as? FlashCardsViewController{
                     flashCards.drugs = selectedDrugs
                 }
                 
@@ -169,19 +169,19 @@ class MenuTableViewController: BaseUITableViewController {
                 let questionType:QuestionType? = QuestionUtility.getQuestionType(view)
                 let isGameModeEnabled:Bool = (view.restorationIdentifier == "Play")
                 // grab new drug set
-                var selectedDrugs = [Drug]?()
+                var selectedDrugs = [Drug]()
                 
                 if !isGameModeEnabled{
                     // question mode -> get drug list by user settings
-                    selectedDrugs = drugService?.selectByUserSettings()
+                    selectedDrugs = drugService?.selectByUserSettings() ?? []// drugService?.selectByUserSettings()
                 }else{
                     // game mode -> get all drugs
-                    selectedDrugs = drugService?.selectAll()
+                    selectedDrugs = drugService?.selectAll() ?? []
                 }
                 
                 if questionType != nil {
                     // Get the new view controller using segue.destinationViewController.
-                    if let destinationVC = segue.destinationViewController as? QuestionViewController{
+                    if let destinationVC = segue.destination as? QuestionViewController{
                         destinationVC.allDrugs = selectedDrugs
                         destinationVC.questionType = questionType
                         destinationVC.gameModeEnabled = isGameModeEnabled

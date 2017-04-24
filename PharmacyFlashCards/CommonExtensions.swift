@@ -9,11 +9,12 @@
 import Foundation
 
 extension Double{
-    func ToStringWithPrecision(min:Int, max:Int) -> String{
-        let scoreFormatter = NSNumberFormatter()
-        scoreFormatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+    func ToStringWithPrecision(_ min:Int, max:Int) -> String{
+        let scoreFormatter = NumberFormatter()
+        scoreFormatter.numberStyle = NumberFormatter.Style.decimal
         scoreFormatter.maximumFractionDigits = min
         scoreFormatter.minimumFractionDigits = max
-        return scoreFormatter.stringFromNumber(self) ?? "0"
+        
+        return scoreFormatter.string(from: NSNumber(value: self)) ?? "0"
     }
 }

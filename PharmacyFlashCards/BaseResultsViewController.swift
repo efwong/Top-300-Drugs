@@ -16,19 +16,19 @@ class BaseResultsViewController: BaseUIViewController {
         //.... Set Right/Left Bar Button item
         let leftBarButton = UIBarButtonItem(
             title: "Main Menu",
-            style: .Plain,
+            style: .plain,
             target: self,
             action: #selector(ResultsViewController.showMainMenu(_:))
         )
         self.navigationItem.leftBarButtonItem = leftBarButton
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMainMenu"{
         }
     }
     
-    func showMainMenu(sender: AnyObject?){
-        performSegueWithIdentifier("showMainMenu", sender: sender)
+    func showMainMenu(_ sender: AnyObject?){
+        performSegue(withIdentifier: "showMainMenu", sender: sender)
     }
 }

@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum QuestionServiceError: ErrorType{
-    case InsufficientNumberOfDrugs
+enum QuestionServiceError: Error{
+    case insufficientNumberOfDrugs
 }
 
 //class QuestionService {

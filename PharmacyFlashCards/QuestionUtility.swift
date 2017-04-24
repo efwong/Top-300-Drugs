@@ -16,23 +16,23 @@ class QuestionUtility {
         return QuestionType(rawValue: Int(randomQuestonTypeInt));
     }
     
-    static func getQuestionType(view: UIView) -> QuestionType?{
+    static func getQuestionType(_ view: UIView) -> QuestionType?{
         var questionType: QuestionType? = nil
         
         if view.restorationIdentifier == "Generic" {
-            questionType = QuestionType.GenericName
+            questionType = QuestionType.genericName
         }
         else if view.restorationIdentifier == "Brand" {
-            questionType = QuestionType.BrandName
+            questionType = QuestionType.brandName
         }
         else if view.restorationIdentifier == "Classification" {
-            questionType = QuestionType.Classification
+            questionType = QuestionType.classification
         }
         else if view.restorationIdentifier == "Dosage" {
-            questionType = QuestionType.Dosage
+            questionType = QuestionType.dosage
         }
         else if view.restorationIdentifier  == "Indication"{
-            questionType = QuestionType.Indication
+            questionType = QuestionType.indication
         }else if view.restorationIdentifier == "Play"{
             // is play -> get random questionType
             questionType = QuestionUtility.GetRandomQuestionType()

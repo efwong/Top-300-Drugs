@@ -18,7 +18,7 @@ class DosageQuestion: Question{
     }
     
     // MARK: Private Properties
-    private let questionTemplate: String = "Choose the Dosage for %@"
+    fileprivate let questionTemplate: String = "Choose the Dosage for %@"
     
     
     

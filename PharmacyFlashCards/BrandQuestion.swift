@@ -18,7 +18,7 @@ class BrandQuestion: Question{
     }
     
     // MARK: Private Properties
-    private let questionTemplate: String = "Choose the Brand Name for %@"
+    fileprivate let questionTemplate: String = "Choose the Brand Name for %@"
     
     
     

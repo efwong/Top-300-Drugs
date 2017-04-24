@@ -72,7 +72,7 @@ class ResultsViewController: BaseResultsViewController {
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showMainMenu"{
         }
     }
@@ -82,7 +82,7 @@ class ResultsViewController: BaseResultsViewController {
     // MARK: Private methods
     
     // Get all questions that the user answered incorrectly
-    private func getAllIncorrectQuestions() -> [Question]{
+    fileprivate func getAllIncorrectQuestions() -> [Question]{
         let incorrectQuestions = self.questionManager?.getAllUserQuestions().filter(){
             if let localQuestion = ($0 as Question?){
                 return localQuestion.wasAnsweredCorrectly == nil || localQuestion.wasAnsweredCorrectly == false
@@ -93,7 +93,7 @@ class ResultsViewController: BaseResultsViewController {
         return incorrectQuestions ?? []
     }
     // Get all questions that the user answered correctly
-    private func getAllCorrectQuestions() -> [Question]{
+    fileprivate func getAllCorrectQuestions() -> [Question]{
         
         let correctQuestions = self.questionManager?.getAllUserQuestions().filter(){
             if let localQuestion = ($0 as Question?){

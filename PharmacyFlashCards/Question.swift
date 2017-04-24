@@ -9,11 +9,11 @@
 import Foundation
 
 enum QuestionType:Int {
-    case GenericName
-    case BrandName
-    case Classification
-    case Dosage
-    case Indication
+    case genericName
+    case brandName
+    case classification
+    case dosage
+    case indication
 }
 
 class Question{
@@ -35,8 +35,8 @@ class Question{
         }
     }
     
-    private var _userAnswerDrugIndex: Int?
-    private var _wasAnsweredCorrectly:Bool?
+    fileprivate var _userAnswerDrugIndex: Int?
+    fileprivate var _wasAnsweredCorrectly:Bool?
     var wasAnsweredCorrectly: Bool?{
         get{
             return _wasAnsweredCorrectly
@@ -65,7 +65,7 @@ class Question{
     
     // MARK Methods
     
-    func getDrugByIndex(index:Int) -> Drug?{
+    func getDrugByIndex(_ index:Int) -> Drug?{
         if index < self.drugAnswers.count {
             return self.drugAnswers[index]
         }else{
@@ -82,32 +82,32 @@ class Question{
     }
     
     // validate if selected drug is correct
-    func isCorrectDrug(selectedDrugIndex:Int) -> Bool{
+    func isCorrectDrug(_ selectedDrugIndex:Int) -> Bool{
         var success:Bool = false
         
         if let selectedDrug = getDrugByIndex(selectedDrugIndex){
             switch self.questionType{
-            case .GenericName:
+            case .genericName:
                 if selectedDrug.brand == correctDrug.brand{
                     success = true
                 }
                 setWasAnsweredCorrectly(success, selectedDrugIndex: selectedDrugIndex)
-            case .BrandName:
+            case .brandName:
                 if selectedDrug.generic == correctDrug.generic{
                     success = true
                 }
                 setWasAnsweredCorrectly(success, selectedDrugIndex: selectedDrugIndex)
-            case .Classification:
+            case .classification:
                 if selectedDrug.classification == correctDrug.classification{
                     success = true
                 }
                 setWasAnsweredCorrectly(success, selectedDrugIndex: selectedDrugIndex)
-            case .Dosage:
+            case .dosage:
                 if selectedDrug.dosage == correctDrug.dosage{
                     success = true
                 }
                 setWasAnsweredCorrectly(success, selectedDrugIndex: selectedDrugIndex)
-            case .Indication:
+            case .indication:
                 if selectedDrug.indication == correctDrug.indication{
                     success = true
                 }
@@ -122,7 +122,7 @@ class Question{
     }
     
     // set user answer
-    private func setWasAnsweredCorrectly(status: Bool, selectedDrugIndex: Int){
+    fileprivate func setWasAnsweredCorrectly(_ status: Bool, selectedDrugIndex: Int){
         if self._wasAnsweredCorrectly == nil {
             self._userAnswerDrugIndex = selectedDrugIndex
             self.wasAnsweredCorrectly = status

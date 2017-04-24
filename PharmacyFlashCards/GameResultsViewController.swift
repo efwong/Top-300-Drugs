@@ -7,6 +7,30 @@
 //
 
 import UIKit
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l < r
+  case (nil, _?):
+    return true
+  default:
+    return false
+  }
+}
+
+// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
+// Consider refactoring the code to use the non-optional operators.
+fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
+  switch (lhs, rhs) {
+  case let (l?, r?):
+    return l > r
+  default:
+    return rhs < lhs
+  }
+}
+
 
 class GameResultsViewController: BaseResultsViewController {
 
@@ -24,7 +48,7 @@ class GameResultsViewController: BaseResultsViewController {
         let highScore:Double = questionManager?.getHighScore() ?? 0.0
         self.currentHighScoreLabel.text = highScore.ToStringWithPrecision(0, max: 0)
         ScoringService.service.saveNewHighScore(highScore)
-        self.highScores = ScoringService.service.getHighScores() ?? [Double]()
+        self.highScores = ScoringService.service.getHighScores()
         UpdateHighScoreList()
     }
 
@@ -37,15 +61,15 @@ class GameResultsViewController: BaseResultsViewController {
     
     // MARK: - Navigation
     
-    @IBAction func OnReplay(sender: AnyObject) {
-        performSegueWithIdentifier("showQuestionScene", sender: sender)
+    @IBAction func OnReplay(_ sender: AnyObject) {
+        performSegue(withIdentifier: "showQuestionScene", sender: sender)
     }
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        super.prepareForSegue(segue, sender: sender)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
         if segue.identifier == "showQuestionScene"{
-            if let view = sender!.view as UIView?{
+            if let view = (sender! as AnyObject).view as UIView?{
                 // show questions
                 let questionType:QuestionType? = QuestionUtility.getQuestionType(view)
                 let isGameModeEnabled:Bool = true
@@ -56,7 +80,7 @@ class GameResultsViewController: BaseResultsViewController {
                 if questionType != nil {
                     
                     // Get the new view controller using segue.destinationViewController.
-                    if let destinationVC = segue.destinationViewController as? QuestionViewController{
+                    if let destinationVC = segue.destination as? QuestionViewController{
                         destinationVC.allDrugs = selectedDrugs
                         destinationVC.questionType = questionType
                         destinationVC.gameModeEnabled = isGameModeEnabled
@@ -68,7 +92,7 @@ class GameResultsViewController: BaseResultsViewController {
     }
  
     // MARK: Helpers
-    private func UpdateHighScoreList(){
+    fileprivate func UpdateHighScoreList(){
         self.topHighScore1.text="1."
         self.topHighScore2.text="2."
         self.topHighScore3.text="3."

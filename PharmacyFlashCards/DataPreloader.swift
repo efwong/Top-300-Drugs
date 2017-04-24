@@ -12,12 +12,12 @@ import CoreData
 
 class DataPreloader{
     
-    static func preloadData(file: String, withExtension: String, managedObjectContext: NSManagedObjectContext?) -> [[String]]?{
+    static func preloadData(_ file: String, withExtension: String, managedObjectContext: NSManagedObjectContext?) -> [[String]]?{
         var rows:[[String]]? = nil
         // Retrieve data from the source file
-        if let contentsOfURL = NSBundle.mainBundle().URLForResource(file, withExtension: withExtension) {
+        if let contentsOfURL = Bundle.main.url(forResource: file, withExtension: withExtension) {
          //   do{
-                let fetchRequest = NSFetchRequest(entityName: "Drug")
+                let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Drug")
                 // clear data
                 if clearEntity(fetchRequest, managedObjectContext: managedObjectContext!) {
                     rows = parseCsv(contentsOfURL)
@@ -33,12 +33,12 @@ class DataPreloader{
         return rows
     }
     
-    static func parseCsv(contentsOfURL: NSURL) -> [[String]]?{
+    static func parseCsv(_ contentsOfURL: URL) -> [[String]]?{
         var rows:[[String]]? = nil
         do{
-            let content = try String(contentsOfURL: contentsOfURL, encoding: NSUTF8StringEncoding)
-            let csv = CSwiftV(String: content)
-            rows = csv.rows;
+            let content = try String(contentsOf: contentsOfURL, encoding: String.Encoding.utf8)
+            let csv = CSwiftV(with: content)
+            rows = csv.rows
         }
         catch{
             print("Parsing CSV error")
@@ -46,12 +46,12 @@ class DataPreloader{
         return rows;
     }
     
-    static func clearEntity(fetchRequest: NSFetchRequest, managedObjectContext: NSManagedObjectContext) -> Bool{
+    static func clearEntity(_ fetchRequest: NSFetchRequest<NSFetchRequestResult>, managedObjectContext: NSManagedObjectContext) -> Bool{
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         var success = false
         
         do {
-            try managedObjectContext.executeRequest(deleteRequest)
+            try managedObjectContext.execute(deleteRequest)
             success = true
         } catch{
             print("Unable to clear entity")

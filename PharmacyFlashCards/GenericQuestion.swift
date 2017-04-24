@@ -18,7 +18,7 @@ class GenericQuestion: Question{
     }
     
     // MARK: Private Properties
-    private let questionTemplate: String = "Choose the Generic Name for %@"
+    fileprivate let questionTemplate: String = "Choose the Generic Name for %@"
     
     
     

@@ -33,28 +33,28 @@ class SettingsTableViewController: UITableViewController {
     }
 
     
-    @IBAction func firstHundredDrugChange(sender: UISwitch){
+    @IBAction func firstHundredDrugChange(_ sender: UISwitch){
         alertWhenAllDrugSwitchesOff(sender)
         
         //let status = UserSettingsService.service.isDrugOneSelected()
-        UserSettingsService.service.saveDrugStatus(UserSettingsService.service.drugOneConstantKey, status: sender.on)
+        UserSettingsService.service.saveDrugStatus(UserSettingsService.service.drugOneConstantKey, status: sender.isOn)
     }
     
     
-    @IBAction func secondHundredDrugChange(sender: UISwitch) {
+    @IBAction func secondHundredDrugChange(_ sender: UISwitch) {
         alertWhenAllDrugSwitchesOff(sender)
-        UserSettingsService.service.saveDrugStatus(UserSettingsService.service.drugTwoConstantKey, status: sender.on)
+        UserSettingsService.service.saveDrugStatus(UserSettingsService.service.drugTwoConstantKey, status: sender.isOn)
     }
     
-    @IBAction func thirdHundredDrugChange(sender: UISwitch) {
+    @IBAction func thirdHundredDrugChange(_ sender: UISwitch) {
         alertWhenAllDrugSwitchesOff(sender)
-        UserSettingsService.service.saveDrugStatus(UserSettingsService.service.drugThreeConstantKey, status: sender.on)
+        UserSettingsService.service.saveDrugStatus(UserSettingsService.service.drugThreeConstantKey, status: sender.isOn)
     }
-    private func alertWhenAllDrugSwitchesOff(sender: UISwitch) -> Void{
-        if(!firstHundredDrugs!.on && !secondHundredDrugs!.on && !thirdHundredDrugs!.on){
-            let alert = UIAlertController(title: "", message: "Choose at least one Drug set.", preferredStyle: UIAlertControllerStyle.Alert)
-            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Default, handler: nil))
-            self.presentViewController(alert, animated: true, completion: nil)
+    fileprivate func alertWhenAllDrugSwitchesOff(_ sender: UISwitch) -> Void{
+        if(!firstHundredDrugs!.isOn && !secondHundredDrugs!.isOn && !thirdHundredDrugs!.isOn){
+            let alert = UIAlertController(title: "", message: "Choose at least one Drug set.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
             sender.setOn(true, animated: true)
         }
     }
@@ -70,9 +70,9 @@ class SettingsTableViewController: UITableViewController {
 //        return 0
 //    }
 
-    override func tableView(tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
         if section == 0{
-            let versionObject: AnyObject? = NSBundle.mainBundle().infoDictionary!["CFBundleShortVersionString"]
+            let versionObject: AnyObject? = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as AnyObject?
             let version = versionObject as! String
             return "Created by Edwin Wong and David Lu\nApp Version \(version)"
         }

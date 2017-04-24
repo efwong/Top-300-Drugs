@@ -18,7 +18,7 @@ class ClassificationQuestion: Question{
     }
     
     // MARK: Private Properties
-    private let questionTemplate: String = "Choose the Classification for %@"
+    fileprivate let questionTemplate: String = "Choose the Classification for %@"
     
     
     

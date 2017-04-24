@@ -20,7 +20,7 @@ class DrugService {
     var dataRepository: DrugRepository?
     
     // MARK: Private Properties
-    private let entityName:String = "Drug"
+    fileprivate let entityName:String = "Drug"
     
     // MARK: Init
     init(dataRepository: DrugRepository?){
@@ -32,20 +32,20 @@ class DrugService {
     // MARK: Public Methods
     func selectAll() -> [Drug]{
         
-        let request = NSFetchRequest(entityName: self.entityName)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: self.entityName)
         request.returnsObjectsAsFaults = false
         let results:[Drug] = (self.dataRepository?.selectAll(request))!
         
         return results;
     }
     
-    func selectByUserSettings(ascending:Bool? = nil) -> [Drug]{
+    func selectByUserSettings(_ ascending:Bool? = nil) -> [Drug]{
         let drugOneStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugOneConstantKey)
         let drugTwoStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugTwoConstantKey)
         let drugThreeStatus = UserSettingsService.service.isDrugSelected(UserSettingsService.service.drugThreeConstantKey)
         
         
-        let request = NSFetchRequest(entityName: self.entityName)
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: self.entityName)
         request.returnsObjectsAsFaults = false
         
         var results:[Drug] = []
@@ -64,7 +64,7 @@ class DrugService {
             if drugThreeStatus {
                 statusArr.append("semester = 2")
             }
-            let formatter = statusArr.joinWithSeparator(" || ")
+            let formatter = statusArr.joined(separator: " || ")
             request.predicate = NSPredicate(format: formatter)
             if ascending != nil{
                 // sort by generic
@@ -75,18 +75,18 @@ class DrugService {
         return results
     }
     
-    func bulkInsert(itemList:[[String]]){
+    func bulkInsert(_ itemList:[[String]]){
         
         managedObjectContext!.reset()
         
         for item in itemList {
-            let drugObject = NSEntityDescription.insertNewObjectForEntityForName(self.entityName, inManagedObjectContext: managedObjectContext!) as! Drug
+            let drugObject = NSEntityDescription.insertNewObject(forEntityName: self.entityName, into: managedObjectContext!) as! Drug
             drugObject.generic = item[0]
             drugObject.brand = item[1]
             drugObject.classification = item[2]
             drugObject.indication = item[3]
             drugObject.dosage = item[4]
-            drugObject.semester = Int(item[5])
+            drugObject.semester = Int(item[5]) as NSNumber?
         }
         
         // only save once per batch insert

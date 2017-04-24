@@ -17,29 +17,29 @@ class ScoringService{
     // max number of high scores stored
     let maxStoredHighScores:Int = 3
     
-    private init(){
-        let defaults = NSUserDefaults.standardUserDefaults()
+    fileprivate init(){
+        let defaults = UserDefaults.standard
         // set defaults if they dont exist
-        if defaults.objectForKey(highScoresArrayKey) == nil{
-            defaults.setObject([Double](), forKey: highScoresArrayKey)
+        if defaults.object(forKey: highScoresArrayKey) == nil{
+            defaults.set([Double](), forKey: highScoresArrayKey)
         }
     }
     
     // get current high scores
     // returns empty list if there are high scores
     func getHighScores()->[Double]{
-        let defaults = NSUserDefaults.standardUserDefaults()
-        return defaults.objectForKey(highScoresArrayKey) as? [Double] ?? [Double]()
+        let defaults = UserDefaults.standard
+        return defaults.object(forKey: highScoresArrayKey) as? [Double] ?? [Double]()
     }
     
     // Save highest maxStoredHighScores number of scores
-    func saveNewHighScore(currentHighScore:Double) {
+    func saveNewHighScore(_ currentHighScore:Double) {
         var highScores = self.getHighScores()
         let currentNumberOfHighScores:Int = highScores.count
         highScores.append(currentHighScore)
         
         // sort from high to low
-        highScores = highScores.sort{
+        highScores = highScores.sorted{
             return $0 > $1
         }
         if currentNumberOfHighScores < maxStoredHighScores{
@@ -53,8 +53,8 @@ class ScoringService{
     }
     
     // Save list of high scores
-    func saveHighScoreList(highScores: [Double]){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setObject(highScores, forKey: highScoresArrayKey)
+    func saveHighScoreList(_ highScores: [Double]){
+        let defaults = UserDefaults.standard
+        defaults.set(highScores, forKey: highScoresArrayKey)
     }
 }

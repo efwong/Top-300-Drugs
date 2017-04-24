@@ -16,11 +16,11 @@ class DrugRepository {
         managedObjectContext = CoreDataStackManager.sharedManager.managedObjectContext
     }
     
-    func selectAll(request: NSFetchRequest) -> [Drug]{
+    func selectAll(_ request: NSFetchRequest<NSFetchRequestResult>) -> [Drug]{
         var results:[Drug] = []
         
         do{
-            results = try managedObjectContext!.executeFetchRequest(request) as! [Drug]
+            results = try managedObjectContext!.fetch(request) as! [Drug]
         }
         catch{
             results = []

@@ -1,10 +1,22 @@
 PODS:
-  - CSwiftV (0.0.3)
+  - CSwiftV (0.0.5)
 
 DEPENDENCIES:
-  - CSwiftV
+  - CSwiftV (from `https://github.com/Daniel1of1/CSwiftV.git`, branch `swift3`)
+
+EXTERNAL SOURCES:
+  CSwiftV:
+    :branch: swift3
+    :git: https://github.com/Daniel1of1/CSwiftV.git
+
+CHECKOUT OPTIONS:
+  CSwiftV:
+    :commit: d685f4019a76a5d0b65b3d3c93634d44be36457f
+    :git: https://github.com/Daniel1of1/CSwiftV.git
 
 SPEC CHECKSUMS:
-  CSwiftV: 93e3d4e1501f2a9b1eac3ae51d53a5edf41beb5b
+  CSwiftV: 2560532e2e5b04d95c36b0f49a8dc745071fa525
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 15bc1edc2003e8a515b1cf86ccafb3e026250e77
+
+COCOAPODS: 1.1.1

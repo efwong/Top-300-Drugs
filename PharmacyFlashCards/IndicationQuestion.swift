@@ -19,7 +19,7 @@ class IndicationQuestion: Question{
     }
     
     // MARK: Private Properties
-    private let questionTemplate: String = "Choose the Indication for %@"
+    fileprivate let questionTemplate: String = "Choose the Indication for %@"
     
     
     

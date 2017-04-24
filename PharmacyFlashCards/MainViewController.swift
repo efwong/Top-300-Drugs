@@ -7,13 +7,10 @@
 //
 
 import UIKit
-import iAd
-
 class MainViewController: BaseUIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.canDisplayBannerAds = true;
 
         // Do any additional setup after loading the view.
     }

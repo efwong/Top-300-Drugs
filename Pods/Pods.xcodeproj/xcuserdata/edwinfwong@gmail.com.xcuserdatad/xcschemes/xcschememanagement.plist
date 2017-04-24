@@ -6,23 +6,23 @@
 	<dict>
 		<key>CSwiftV.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
-		<key>Pods-PharmacyFlashCards.xcscheme</key>
+		<key>Pods-Top300AppliedDrugs.xcscheme</key>
 		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
+			<key>isShown</key>
+			<false/>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>45DF175FB5B25F36DFC67F9B0E3F819F</key>
+		<key>350990BD6FADE9F39621578F993CADF9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C9289771C9E400167D4D291E44982A06</key>
+		<key>E5750041B16A7BB187621B58A2977C01</key>
 		<dict>
 			<key>primary</key>
 			<true/>

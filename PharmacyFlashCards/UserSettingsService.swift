@@ -15,65 +15,65 @@ class UserSettingsService{
     let drugOneConstantKey = "DrugSetOne"
     let drugTwoConstantKey = "DrugSetTwo"
     let drugThreeConstantKey = "DrugSetThree"
-    private let hideFlashCardInstructionKey = "HideFlashCardInstructionKey"
-    private let hideGameInstructionKey = "HideGameInstructionKey"
+    fileprivate let hideFlashCardInstructionKey = "HideFlashCardInstructionKey"
+    fileprivate let hideGameInstructionKey = "HideGameInstructionKey"
     
-    private init(){
-        let defaults = NSUserDefaults.standardUserDefaults()
+    fileprivate init(){
+        let defaults = UserDefaults.standard
         // set defaults if they dont exist
-        if defaults.objectForKey(drugOneConstantKey) == nil {
-            defaults.setBool(true, forKey: drugOneConstantKey)
+        if defaults.object(forKey: drugOneConstantKey) == nil {
+            defaults.set(true, forKey: drugOneConstantKey)
         }
-        if defaults.objectForKey(drugTwoConstantKey) == nil{
-            defaults.setBool(true, forKey: drugTwoConstantKey)
+        if defaults.object(forKey: drugTwoConstantKey) == nil{
+            defaults.set(true, forKey: drugTwoConstantKey)
         }
-        if defaults.objectForKey(drugTwoConstantKey) == nil{
-            defaults.setBool(false, forKey: drugThreeConstantKey)
+        if defaults.object(forKey: drugTwoConstantKey) == nil{
+            defaults.set(false, forKey: drugThreeConstantKey)
         }
-        if defaults.objectForKey(hideFlashCardInstructionKey) == nil{
-            defaults.setBool(false, forKey: hideFlashCardInstructionKey)
+        if defaults.object(forKey: hideFlashCardInstructionKey) == nil{
+            defaults.set(false, forKey: hideFlashCardInstructionKey)
         }
-        if defaults.objectForKey(hideGameInstructionKey) == nil{
-            defaults.setBool(false, forKey: hideGameInstructionKey)
+        if defaults.object(forKey: hideGameInstructionKey) == nil{
+            defaults.set(false, forKey: hideGameInstructionKey)
         }
     }
     
     // is drug(1,2,3) selected
-    func isDrugSelected(key: String) -> Bool{
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let status = defaults.boolForKey(key)
+    func isDrugSelected(_ key: String) -> Bool{
+        let defaults = UserDefaults.standard
+        let status = defaults.bool(forKey: key)
         return status
     }
     
     // saves drug(1,2,3) setting
-    func saveDrugStatus(key: String, status:Bool){
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setBool(status, forKey: key)
+    func saveDrugStatus(_ key: String, status:Bool){
+        let defaults = UserDefaults.standard
+        defaults.set(status, forKey: key)
     }
     
     // true -> hide flash card instruction
     func isFlashCardInstructionsHidden() -> Bool{
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let status = defaults.boolForKey(hideFlashCardInstructionKey)
+        let defaults = UserDefaults.standard
+        let status = defaults.bool(forKey: hideFlashCardInstructionKey)
         return status
     }
     
     // permanently hide flash card instructions
     func hideFlashCardInstructions() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setBool(true, forKey: hideFlashCardInstructionKey)
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: hideFlashCardInstructionKey)
     }
     
     // true -> hide flash card instruction
     func isGameInstructionsHidden() -> Bool{
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let status = defaults.boolForKey(hideGameInstructionKey)
+        let defaults = UserDefaults.standard
+        let status = defaults.bool(forKey: hideGameInstructionKey)
         return status
     }
     
     // permanently hide flash card instructions
     func hideGameInstructions() {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        defaults.setBool(true, forKey: hideGameInstructionKey)
+        let defaults = UserDefaults.standard
+        defaults.set(true, forKey: hideGameInstructionKey)
     }
 }

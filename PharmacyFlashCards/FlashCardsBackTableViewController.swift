@@ -24,11 +24,11 @@ class FlashCardsBackTableViewController: BaseUITableViewController {
         super.tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100.0
 
-        if UIScreen.mainScreen().nativeBounds.height <= 960.0 {
-            brandAnswerLabel.font = brandAnswerLabel.font.fontWithSize(14)
-            classificationAnswerLabel.font = classificationAnswerLabel.font.fontWithSize(14)
-            dosageAnswerLabel.font = dosageAnswerLabel.font.fontWithSize(14)
-            indicationAnswerLabel.font = indicationAnswerLabel.font.fontWithSize(14)
+        if UIScreen.main.nativeBounds.height <= 960.0 {
+            brandAnswerLabel.font = brandAnswerLabel.font.withSize(14)
+            classificationAnswerLabel.font = classificationAnswerLabel.font.withSize(14)
+            dosageAnswerLabel.font = dosageAnswerLabel.font.withSize(14)
+            indicationAnswerLabel.font = indicationAnswerLabel.font.withSize(14)
         }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -53,7 +53,7 @@ class FlashCardsBackTableViewController: BaseUITableViewController {
     }
     
     // update drug
-    func updateDrug(newDrug: Drug){
+    func updateDrug(_ newDrug: Drug){
         self.drug = newDrug;
         updateText()
     }

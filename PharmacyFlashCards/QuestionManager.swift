@@ -96,15 +96,15 @@ class QuestionManager {
         var returnQuestion: Question
         
         switch self.questionType {
-        case .BrandName:
+        case .brandName:
             returnQuestion = BrandQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
-        case .GenericName:
+        case .genericName:
             returnQuestion = GenericQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
-        case .Classification:
+        case .classification:
             returnQuestion = ClassificationQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
-        case .Dosage:
+        case .dosage:
             returnQuestion = DosageQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
-        case .Indication:
+        case .indication:
             returnQuestion = IndicationQuestion(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
 //        default:
 //            returnQuestion = Question(questionType: self.questionType, correctDrugIndex: correctDrugIndex, drugAnswers: availableDrugs)
@@ -118,11 +118,11 @@ class QuestionManager {
     // returns tuple (Int?, [Drug])
     //              first element -> position of correct drug if it exists
     //              second element -> array of drugs as the answer set
-    func createAnswerSetForDrug(answerCount: Int) throws -> (Int?, [Drug]){
+    func createAnswerSetForDrug(_ answerCount: Int) throws -> (Int?, [Drug]){
         var result:[Drug] = []
         var index:Int?
         if self.allDrugs.count < answerCount {
-            throw QuestionServiceError.InsufficientNumberOfDrugs
+            throw QuestionServiceError.insufficientNumberOfDrugs
         }else{
             var duplicateMap = [String: Int]()
             // remove correct drug from list of drugs
@@ -144,7 +144,7 @@ class QuestionManager {
                 availableDrugs.append(self.currentDrug);
                 result = Array(availableDrugs.shuffle()) as [Drug];
                 
-                index = result.indexOf(self.currentDrug)!
+                index = result.index(of: self.currentDrug)!
             }
         }
         return (index, result)
@@ -160,7 +160,7 @@ class QuestionManager {
         self.answerStreak = 0
     }
     
-    private func incrementAnswerStreak() {
+    fileprivate func incrementAnswerStreak() {
         self.answerStreak += 1
         if(self.answerStreak > self.highestAnswerStreak){
             self.highestAnswerStreak = self.answerStreak
@@ -183,7 +183,7 @@ class QuestionManager {
     }
     
     // update high score if game mode is on
-    private func updateHighScore(answerStreak: Int){
+    fileprivate func updateHighScore(_ answerStreak: Int){
         if self.gameModeEnabled{
             // calculate high score
             self.highScore = self.highScore + pow(2, Double(answerStreak))
@@ -200,19 +200,19 @@ class QuestionManager {
     // MARK: HELPER
     
     // Check for duplicates while creating answer set
-    private func StoreAndCheckDuplicateQuestions(inout duplicatesMap: [String:Int], drug: Drug) -> Bool{
+    fileprivate func StoreAndCheckDuplicateQuestions(_ duplicatesMap: inout [String:Int], drug: Drug) -> Bool{
         var status = false
         var value:String = ""
         switch self.questionType{
-        case .GenericName:
+        case .genericName:
             value = drug.generic ?? ""
-        case .BrandName:
+        case .brandName:
             value = drug.brand ?? ""
-        case .Classification:
+        case .classification:
             value = drug.classification ?? ""
-        case .Dosage:
+        case .dosage:
             value = drug.dosage ?? ""
-        case .Indication:
+        case .indication:
             value = drug.indication ?? ""
         }
         
@@ -229,7 +229,7 @@ class QuestionManager {
     
     // If gameModeEnabled = true -> get a random question type and update current question type
     // else get current question type
-    private func UpdateQuestionTypeByGameMode(){
+    fileprivate func UpdateQuestionTypeByGameMode(){
         if self.gameModeEnabled {
             self.questionType = QuestionUtility.GetRandomQuestionType()!
         }

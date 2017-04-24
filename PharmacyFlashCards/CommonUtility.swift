@@ -19,28 +19,28 @@ class CommonUtility{
     var pinkColor:UIColor? = nil
     var AppConfig:NSDictionary? = nil
     
-    private init(){
+    fileprivate init(){
         self.darkRedColor = GetDarkRedColor()
         self.lightRedColor = GetLightRedColor()
         self.pinkColor = GetPinkColor()
         self.AppConfig = loadAppConfig()
     }
     
-    private func GetDarkRedColor() -> UIColor{
+    fileprivate func GetDarkRedColor() -> UIColor{
         return UIColor(red: 200.0/255, green: 40.0/255, blue: 52.0/255, alpha: 0.5)
     }
     
-    private func GetLightRedColor() -> UIColor{
+    fileprivate func GetLightRedColor() -> UIColor{
         return UIColor(red: 220.0/255, green: 113.0/255, blue: 121.0/255, alpha: 0.5)
     }
     
-    private func GetPinkColor() -> UIColor{
+    fileprivate func GetPinkColor() -> UIColor{
         return UIColor(red: 252.0/255, green: 192.0/255, blue: 197.0/255, alpha: 0.5)
     }
     
-    private func loadAppConfig() -> NSDictionary?{
+    fileprivate func loadAppConfig() -> NSDictionary?{
         var myDict: NSDictionary?
-        if let path = NSBundle.mainBundle().pathForResource("AppConfig", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "AppConfig", ofType: "plist") {
             myDict = NSDictionary(contentsOfFile: path)
         }
         return myDict
