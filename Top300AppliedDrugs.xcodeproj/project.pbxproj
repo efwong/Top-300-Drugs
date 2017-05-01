@@ -15,6 +15,8 @@
 		5E4C1D051C8D49DF003641F5 /* ClassificationQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C1D041C8D49DF003641F5 /* ClassificationQuestion.swift */; };
 		5E4C1D091C8D505D003641F5 /* IndicationQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C1D081C8D505D003641F5 /* IndicationQuestion.swift */; };
 		5E4C1D0B1C8D52BB003641F5 /* DosageQuestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C1D0A1C8D52BB003641F5 /* DosageQuestion.swift */; };
+		5E665AC31EB6CAEF0044E36B /* Top300AppliedDrugsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E665AC21EB6CAEF0044E36B /* Top300AppliedDrugsTests.swift */; };
+		5E665ACB1EB6CBD00044E36B /* QuestionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E665ACA1EB6CBD00044E36B /* QuestionTests.swift */; };
 		5E6CF1E01C54919F007E1725 /* drugs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 5E6CF1DF1C54919F007E1725 /* drugs.csv */; };
 		5E888F021D03D9B000AFA309 /* FlashCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E888F011D03D9B000AFA309 /* FlashCardsViewController.swift */; };
 		5E94802D1CF5998F0060E540 /* AppConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5E94802C1CF5998F0060E540 /* AppConfig.plist */; };
@@ -49,6 +51,16 @@
 		E89ED2651C68401500A5249E /* Question.swift in Sources */ = {isa = PBXBuildFile; fileRef = E89ED2641C68401500A5249E /* Question.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		5E665AC51EB6CAEF0044E36B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E82E0BDA1C5415E9007EED05 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E82E0BE11C5415E9007EED05;
+			remoteInfo = Top300AppliedDrugs;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		27CBDA3FA0C91DB348393C61 /* Pods-Top300AppliedDrugs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Top300AppliedDrugs.release.xcconfig"; path = "Pods/Target Support Files/Pods-Top300AppliedDrugs/Pods-Top300AppliedDrugs.release.xcconfig"; sourceTree = "<group>"; };
 		5E46AE021CF2A84500FE70FE /* QuestionUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionUtility.swift; sourceTree = "<group>"; };
@@ -58,6 +70,10 @@
 		5E4C1D041C8D49DF003641F5 /* ClassificationQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassificationQuestion.swift; sourceTree = "<group>"; };
 		5E4C1D081C8D505D003641F5 /* IndicationQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndicationQuestion.swift; sourceTree = "<group>"; };
 		5E4C1D0A1C8D52BB003641F5 /* DosageQuestion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DosageQuestion.swift; sourceTree = "<group>"; };
+		5E665AC01EB6CAEF0044E36B /* Top300AppliedDrugsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Top300AppliedDrugsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E665AC21EB6CAEF0044E36B /* Top300AppliedDrugsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Top300AppliedDrugsTests.swift; sourceTree = "<group>"; };
+		5E665AC41EB6CAEF0044E36B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5E665ACA1EB6CBD00044E36B /* QuestionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTests.swift; sourceTree = "<group>"; };
 		5E6CF1DF1C54919F007E1725 /* drugs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = drugs.csv; sourceTree = "<group>"; };
 		5E7F63961C54B82600546DC3 /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		5E888F011D03D9B000AFA309 /* FlashCardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlashCardsViewController.swift; sourceTree = "<group>"; };
@@ -76,7 +92,7 @@
 		5EF6E0681D1788C700A25C26 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		5EF958E81CF1428A00CDF1C2 /* CommonUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
 		798DBC8830280371EAC84E33 /* Pods-Top300AppliedDrugs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Top300AppliedDrugs.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Top300AppliedDrugs/Pods-Top300AppliedDrugs.debug.xcconfig"; sourceTree = "<group>"; };
-		E82E0BE21C5415E9007EED05 /* Applied Drugs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Applied Drugs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E82E0BE21C5415E9007EED05 /* Top300AppliedDrugs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Top300AppliedDrugs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82E0BE51C5415E9007EED05 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E82E0BEA1C5415E9007EED05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E82E0BEF1C5415E9007EED05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +114,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5E665ABD1EB6CAEF0044E36B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E82E0BDF1C5415E9007EED05 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -131,6 +154,16 @@
 				5E7F63961C54B82600546DC3 /* QuestionViewController.swift */,
 			);
 			name = QuestionView;
+			sourceTree = "<group>";
+		};
+		5E665AC11EB6CAEF0044E36B /* Top300AppliedDrugsTests */ = {
+			isa = PBXGroup;
+			children = (
+				5E665ACA1EB6CBD00044E36B /* QuestionTests.swift */,
+				5E665AC21EB6CAEF0044E36B /* Top300AppliedDrugsTests.swift */,
+				5E665AC41EB6CAEF0044E36B /* Info.plist */,
+			);
+			path = Top300AppliedDrugsTests;
 			sourceTree = "<group>";
 		};
 		5E888F001D03D99D00AFA309 /* FlashCardsView */ = {
@@ -182,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				E82E0BE41C5415E9007EED05 /* Top300AppliedDrugs */,
+				5E665AC11EB6CAEF0044E36B /* Top300AppliedDrugsTests */,
 				E82E0BE31C5415E9007EED05 /* Products */,
 				2926E5B5F9A5411266F404E7 /* Frameworks */,
 				D1E77D685D002196095ADDE3 /* Pods */,
@@ -191,7 +225,8 @@
 		E82E0BE31C5415E9007EED05 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E82E0BE21C5415E9007EED05 /* Applied Drugs.app */,
+				E82E0BE21C5415E9007EED05 /* Top300AppliedDrugs.app */,
+				5E665AC01EB6CAEF0044E36B /* Top300AppliedDrugsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -371,6 +406,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		5E665ABF1EB6CAEF0044E36B /* Top300AppliedDrugsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E665AC71EB6CAEF0044E36B /* Build configuration list for PBXNativeTarget "Top300AppliedDrugsTests" */;
+			buildPhases = (
+				5E665ABC1EB6CAEF0044E36B /* Sources */,
+				5E665ABD1EB6CAEF0044E36B /* Frameworks */,
+				5E665ABE1EB6CAEF0044E36B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E665AC61EB6CAEF0044E36B /* PBXTargetDependency */,
+			);
+			name = Top300AppliedDrugsTests;
+			productName = Top300AppliedDrugsTests;
+			productReference = 5E665AC01EB6CAEF0044E36B /* Top300AppliedDrugsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E82E0BE11C5415E9007EED05 /* Top300AppliedDrugs */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E82E0C0D1C5415E9007EED05 /* Build configuration list for PBXNativeTarget "Top300AppliedDrugs" */;
@@ -388,7 +441,7 @@
 			);
 			name = Top300AppliedDrugs;
 			productName = PharmacyFlashCards;
-			productReference = E82E0BE21C5415E9007EED05 /* Applied Drugs.app */;
+			productReference = E82E0BE21C5415E9007EED05 /* Top300AppliedDrugs.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -397,10 +450,16 @@
 		E82E0BDA1C5415E9007EED05 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Edwin Wong";
 				TargetAttributes = {
+					5E665ABF1EB6CAEF0044E36B = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = U989RZC3BD;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E82E0BE11C5415E9007EED05;
+					};
 					E82E0BE11C5415E9007EED05 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = U989RZC3BD;
@@ -422,11 +481,19 @@
 			projectRoot = "";
 			targets = (
 				E82E0BE11C5415E9007EED05 /* Top300AppliedDrugs */,
+				5E665ABF1EB6CAEF0044E36B /* Top300AppliedDrugsTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5E665ABE1EB6CAEF0044E36B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E82E0BE01C5415E9007EED05 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -490,6 +557,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5E665ABC1EB6CAEF0044E36B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E665AC31EB6CAEF0044E36B /* Top300AppliedDrugsTests.swift in Sources */,
+				5E665ACB1EB6CBD00044E36B /* QuestionTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E82E0BDE1C5415E9007EED05 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -533,6 +609,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		5E665AC61EB6CAEF0044E36B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E82E0BE11C5415E9007EED05 /* Top300AppliedDrugs */;
+			targetProxy = 5E665AC51EB6CAEF0044E36B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		E82E0BE91C5415E9007EED05 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -545,6 +629,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5E665AC81EB6CAEF0044E36B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEVELOPMENT_TEAM = U989RZC3BD;
+				INFOPLIST_FILE = Top300AppliedDrugsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.Top300AppliedDrugsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Applied Drugs.app/Applied Drugs";
+			};
+			name = Debug;
+		};
+		5E665AC91EB6CAEF0044E36B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				DEVELOPMENT_TEAM = U989RZC3BD;
+				INFOPLIST_FILE = Top300AppliedDrugsTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.Top300AppliedDrugsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Applied Drugs.app/Applied Drugs";
+			};
+			name = Release;
+		};
 		E82E0C0B1C5415E9007EED05 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -581,7 +707,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -619,7 +745,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -637,7 +763,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyQuiz;
-				PRODUCT_NAME = "Applied Drugs";
+				PRODUCT_NAME = Top300AppliedDrugs;
 				PROVISIONING_PROFILE = "cf25abed-a776-4166-a37b-65e499512216";
 				SWIFT_VERSION = 3.0;
 			};
@@ -654,7 +780,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.edwin.PharmacyQuiz;
-				PRODUCT_NAME = "Applied Drugs";
+				PRODUCT_NAME = Top300AppliedDrugs;
 				PROVISIONING_PROFILE = "cf25abed-a776-4166-a37b-65e499512216";
 				SWIFT_VERSION = 3.0;
 			};
@@ -663,6 +789,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5E665AC71EB6CAEF0044E36B /* Build configuration list for PBXNativeTarget "Top300AppliedDrugsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E665AC81EB6CAEF0044E36B /* Debug */,
+				5E665AC91EB6CAEF0044E36B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		E82E0BDD1C5415E9007EED05 /* Build configuration list for PBXProject "Top300AppliedDrugs" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
