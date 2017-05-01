@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E82E0BE11C5415E9007EED05"
-               BuildableName = "Applied Drugs.app"
+               BuildableName = "Top300AppliedDrugs.app"
                BlueprintName = "Top300AppliedDrugs"
                ReferencedContainer = "container:Top300AppliedDrugs.xcodeproj">
             </BuildableReference>
@@ -32,8 +32,8 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E82E0BF81C5415E9007EED05"
-               BuildableName = "Top300AppliedDrugs.xctest"
+               BlueprintIdentifier = "5E665ABF1EB6CAEF0044E36B"
+               BuildableName = "Top300AppliedDrugsTests.xctest"
                BlueprintName = "Top300AppliedDrugsTests"
                ReferencedContainer = "container:Top300AppliedDrugs.xcodeproj">
             </BuildableReference>
@@ -53,7 +53,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E82E0BE11C5415E9007EED05"
-            BuildableName = "Applied Drugs.app"
+            BuildableName = "Top300AppliedDrugs.app"
             BlueprintName = "Top300AppliedDrugs"
             ReferencedContainer = "container:Top300AppliedDrugs.xcodeproj">
          </BuildableReference>
@@ -76,7 +76,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E82E0BE11C5415E9007EED05"
-            BuildableName = "Applied Drugs.app"
+            BuildableName = "Top300AppliedDrugs.app"
             BlueprintName = "Top300AppliedDrugs"
             ReferencedContainer = "container:Top300AppliedDrugs.xcodeproj">
          </BuildableReference>
@@ -95,7 +95,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E82E0BE11C5415E9007EED05"
-            BuildableName = "Applied Drugs.app"
+            BuildableName = "Top300AppliedDrugs.app"
             BlueprintName = "Top300AppliedDrugs"
             ReferencedContainer = "container:Top300AppliedDrugs.xcodeproj">
          </BuildableReference>
